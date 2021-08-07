@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import Login from "./pages/login";
+import LandingPages from "./pages/LandingPages";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -8,7 +9,7 @@ function App() {
     <Fragment>
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={Login} />
+          <Route exact path="/" component={LandingPages}/>
         </Switch>
       </BrowserRouter>
     </Fragment>
