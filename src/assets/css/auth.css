@@ -1,3 +1,7 @@
+.auth__wrapper {
+  height: 100vh;
+}
+
 .header___auth {
   margin-top: -15px;
   margin-bottom: -25px;
@@ -5,22 +9,22 @@
 }
 
 .left__auth {
-  height: 100vh;
+  height: auto;
   width: 60%;
-  background-color: rgb(75, 72, 75);
 }
 
 .right__auth {
-  height: 100vh;
+  height: auto;
+  z-index: 44;
   width: 40%;
 }
 
 .left__auth-content {
+  background-image: url(../img/image/imgAuth.png);
   padding: 5% 25%;
   flex-flow: column;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(../img/image/imgAuth.png);
+  background-repeat: round;
+  background-size: auto;
   display: flex;
   height: 100%;
   align-items: center;
@@ -85,11 +89,11 @@
     width: 100%;
   }
   .right__auth-content {
-    padding: 120px 2%;
+    padding: 12px 5px;
   }
   .header___auth-visible {
     display: block;
-    margin-top: -25px;
+    margin-top: 0;
     margin-bottom: 40px;
   }
 }

@@ -8,4 +8,5 @@ export { default as lock } from "./img/icons/lock1.png";
 export { default as eyecrossed } from "./img/icons/eye-crossed.svg";
 export { default as mail } from "./img/icons/mail.png";
 export { default as spacing } from "./css/spacing.css";
+export { default as person } from "./img/icons/person.png";
 export { imgAuth, phoneSplit, typography, color, auth };

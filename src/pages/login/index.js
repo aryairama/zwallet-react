@@ -6,7 +6,7 @@ import {
   InputPasswordIcon,
   InputTextIcon,
   Button,
-} from "../../components/base/";
+} from "../../components/base";
 function Index() {
   useEffect(() => {
     document.title = "Login";
@@ -14,6 +14,19 @@ function Index() {
   return (
     <>
       <LayoutAuth>
+        <div>
+          <p className="text-24">
+            Start Accessing Banking Needs With All Devices and All Platforms
+            With 30.000+ Users
+          </p>
+          <div>
+            <p className="text-16 c-grey" style={{ opacity: "60%" }}>
+              Transfering money is eassier than ever, you can access Zwallet
+              wherever you are. Desktop, laptop, mobile phone? we cover all of
+              that for you!
+            </p>
+          </div>
+        </div>
         <form>
           <div className="d-flex flex-column">
             <div className="mt-5 mb-4">
@@ -41,13 +54,14 @@ function Index() {
               Forgot password?
             </Link>
             <Button
-              styling="bg-primary text-18 c-white"
+              styling="bg__primary text-18 c-white"
               style={{ marginTop: "90px", marginBottom: "40px" }}
             >
               Login
             </Button>
           </div>
         </form>
+
         <div className="text-16 text-center">
           Don’t have an account? Let’s
           <Link className="c-primary text-16" to="/register">

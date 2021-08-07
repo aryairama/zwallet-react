@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import LayoutAuth from "../../components/module/LayoutAuth";
-import { mail, lock, eyecrossed } from "../../assets/index";
+import { mail, lock, eyecrossed, person } from "../../assets/index";
 import {
   InputPasswordIcon,
   InputTextIcon,
   Button,
-} from "../../components/base/";
+} from "../../components/base";
 function Index() {
   useEffect(() => {
     document.title = "Register";
@@ -14,11 +14,24 @@ function Index() {
   return (
     <>
       <LayoutAuth>
+        <div>
+          <p className="text-24">
+            Start Accessing Banking Needs With All Devices and All Platforms
+            With 30.000+ Users
+          </p>
+          <div>
+            <p className="text-16 c-grey" style={{ opacity: "60%" }}>
+              Transfering money is eassier than ever, you can access Zwallet
+              wherever you are. Desktop, laptop, mobile phone? we cover all of
+              that for you!
+            </p>
+          </div>
+        </div>
         <form>
           <div className="d-flex flex-column" style={{ height: "100%" }}>
             <div className="mt-5">
               <InputTextIcon
-                img={mail}
+                img={person}
                 width="21px"
                 height="21px"
                 placeholder="Enter your username"
@@ -51,7 +64,7 @@ function Index() {
             </Link>
             <Button
               disabled
-              styling="bg-primary text-18 c-white"
+              styling="bg__primary text-18 c-white"
               style={{ marginTop: "90px", marginBottom: "40px" }}
             >
               Register
