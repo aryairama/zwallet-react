@@ -3,7 +3,6 @@ import Login from "./pages/login";
 import LandingPages from "./pages/LandingPages";
 import Register from "./pages/register";
 import ForgotPassword from "./pages/forgotpassword";
-import { Route } from "react-router-dom";
 import { Switch, Route } from "react-router-dom";
 function App() {
   return (
