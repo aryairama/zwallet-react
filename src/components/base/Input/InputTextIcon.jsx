@@ -1,6 +1,6 @@
-import React from 'react';
-import cs from 'classnames';
-import style from './InputText.module.css';
+import React from "react";
+import cs from "classnames";
+import style from "./InputText.module.css";
 
 const InputTextIcon = (props) => {
   return (
@@ -19,7 +19,9 @@ const InputTextIcon = (props) => {
           min={props.min}
           max={props.max}
         />
-        <span className={`${cs(style.labelEffect)} ${props.labelEffect}`}></span>
+        <span
+          className={`${cs(style.labelEffect)} ${props.labelEffect}`}
+        ></span>
         <img
           className={cs(style.iconInput)}
           width={props.width}

@@ -1,21 +1,27 @@
 import React from "react";
 import { phoneSplit } from "../../../assets/index";
 import "../../../assets/";
-import { Link } from "react-router-dom";
 
 function Index(props) {
   React.useEffect(() => {
     document.title = "Login";
   }, []);
   return (
-    <main className="d-flex" style={{ height: "100%" }}>
-      <section className="left__auth">
+    <div className="d-flex auth__wrapper">
+      <div className="left__auth">
         <div className="left__auth-content">
-          <div>
-            <img src={phoneSplit} alt="zwallet-preview"></img>
+          <div className="header___auth">
+            <p className="text-29 c-white text-left">Zwallet</p>
           </div>
+          <img
+            width="500px"
+            height="500px"
+            src={phoneSplit}
+            className="zwallet-img-preview"
+            alt="zwallet-preview"
+          ></img>
           <div>
-            <div className="mb-4">
+            <div className="mb-3">
               <p className="text-24 c-white">
                 App that Covering Banking Needs.
               </p>
@@ -30,33 +36,16 @@ function Index(props) {
             </div>
           </div>
         </div>
-      </section>
-      <section className="right__auth">
+      </div>
+      <div className="right__auth">
         <div className="right__auth-content">
-          <div>
-            <p className="text-24">
-              Start Accessing Banking Needs With All Devices and All Platforms
-              With 30.000+ Users
-            </p>
-            <div>
-              <p className="text-16 c-grey" style={{ opacity: "60%" }}>
-                Transfering money is eassier than ever, you can access Zwallet
-                wherever you are. Desktop, laptop, mobile phone? we cover all of
-                that for you!
-              </p>
-            </div>
+          <div className="header___auth-visible">
+            <p className="text-29 c-primary text-center">Zwallet</p>
           </div>
           {props.children}
-
-          <div>
-            Don’t have an account? Let’s
-            <Link className="c-primary" to="/register">
-              <> Sign Up</>
-            </Link>
-          </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 }
 
