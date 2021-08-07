@@ -1,0 +1,33 @@
+/* c as color  */
+.c-white {
+  color: #ffffff !important;
+}
+.c-dark {
+  color: #88888f !important;
+}
+
+.c-grey {
+  color: #3a3d42 !important;
+}
+
+/* bg as background */
+.bg-primary {
+  background-color: #6379f4 !important;
+}
+.bg-error {
+  background-color: #ff5b37 !important;
+}
+.bg-dark {
+  background-color: #838da0 !important;
+}
+.bg-disabled {
+  background-color: #dadada !important;
+}
+.bg-light {
+  background: #fafcff !important;
+}
+/* o as opacity */
+
+/* .o-60 {
+  opacity: 60;
+} */
