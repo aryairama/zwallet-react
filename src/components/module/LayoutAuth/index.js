@@ -1,7 +1,6 @@
 import React from "react";
 import { phoneSplit } from "../../../assets/index";
 import "../../../assets/";
-import { Link } from "react-router-dom";
 
 function Index(props) {
   React.useEffect(() => {
@@ -9,12 +8,12 @@ function Index(props) {
   }, []);
   return (
     <div className="auth__wrapper">
-      <div className="header__auth">
-        <p className="c-primary text-29">ZWALLET</p>
-      </div>
       <div className="d-flex">
         <div className="left__auth">
           <div className="left__auth-content">
+            <div className="header___auth">
+              <p className="text-29 c-white text-left">Zwallet</p>
+            </div>
             <div>
               <img src={phoneSplit} alt="zwallet-preview"></img>
             </div>
@@ -37,6 +36,9 @@ function Index(props) {
         </div>
         <div className="right__auth">
           <div className="right__auth-content">
+            <div className="header___auth-visible">
+              <p className="text-29 c-primary text-center">Zwallet</p>
+            </div>
             <div>
               <p className="text-24">
                 Start Accessing Banking Needs With All Devices and All Platforms
@@ -51,12 +53,6 @@ function Index(props) {
               </div>
             </div>
             {props.children}
-            <div className="text-16 text-center">
-              Don’t have an account? Let’s
-              <Link className="c-primary text-16" to="/register">
-                <> Sign Up</>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
