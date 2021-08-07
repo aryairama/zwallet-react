@@ -5,29 +5,30 @@
 .left__auth-content {
   padding: 5% 25%;
   flex-flow: column;
-  background-repeat: round;
-  background-size: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
   background-image: url(../img/image/imgAuth.png);
   display: flex;
+  height: 100vh;
   align-items: center;
 }
 
 .right__auth-content {
-  width: 100%;
+  /* width: 100%; */
   padding-left: 50px;
   padding-top: 121px;
   padding-right: 20%;
 }
 
-.left__auth-content,
-.right__auth-content {
+.auth__wrapper {
   height: 100vh;
 }
 
-.left__auth,
+/* .left__auth,
 .right__auth {
   height: 100vh;
-}
+} */
+
 .right__auth {
   width: 40%;
 }
