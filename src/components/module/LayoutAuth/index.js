@@ -9,6 +9,9 @@ function Index(props) {
   }, []);
   return (
     <div className="auth__wrapper">
+      <div className="header__auth">
+        <p className="c-primary text-29">ZWALLET</p>
+      </div>
       <div className="d-flex">
         <div className="left__auth">
           <div className="left__auth-content">

@@ -16,21 +16,26 @@ function Index() {
       <LayoutAuth>
         <form>
           <div className="d-flex flex-column">
-            <InputTextIcon
-              img={mail}
-              width="21px"
-              height="21px"
-              placeholder="Enter your email"
-            ></InputTextIcon>
-            <InputPasswordIcon
-              img={lock}
-              width="21px"
-              height="21px"
-              eyePassword={eyecrossed}
-              placeholder="Enter your password"
-            ></InputPasswordIcon>
+            <div className="c-mt-6 c-mb-8">
+              <InputTextIcon
+                img={mail}
+                width="21px"
+                height="21px"
+                placeholder="Enter your email"
+              ></InputTextIcon>
+            </div>
+            <div>
+              <InputPasswordIcon
+                img={lock}
+                width="21px"
+                height="21px"
+                eyePassword={eyecrossed}
+                placeholder="Enter your password"
+              ></InputPasswordIcon>
+            </div>
             <Link
               className="c-grey text-16 align-self-end"
+              style={{ marginTop: "20px" }}
               to="/forgot-password"
             >
               Forgot password?
