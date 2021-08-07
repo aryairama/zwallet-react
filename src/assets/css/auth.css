@@ -23,6 +23,11 @@
 .right__auth-content {
   height: 100vh;
 }
+
+.left__auth,
+.right__auth {
+  height: 100vh;
+}
 .right__auth {
   width: 40%;
 }
