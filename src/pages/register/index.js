@@ -54,7 +54,7 @@ function Index() {
               styling="bg-primary text-18 c-white"
               style={{ marginTop: "90px", marginBottom: "40px" }}
             >
-              Login
+              Register
             </Button>
           </div>
         </form>

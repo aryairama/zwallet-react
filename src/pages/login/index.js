@@ -9,7 +9,7 @@ import {
 } from "../../components/base/";
 function Index() {
   useEffect(() => {
-    document.title = "Tambah Produk Untuk Dijual";
+    document.title = "Login";
   });
   return (
     <>
