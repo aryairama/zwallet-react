@@ -10,6 +10,10 @@
   color: #3a3d42 !important;
 }
 
+.c-primary {
+  color: #6379f4 !important;
+}
+
 /* bg as background */
 .bg-primary {
   background-color: #6379f4 !important;
