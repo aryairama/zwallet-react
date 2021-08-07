@@ -1,16 +1,14 @@
 import React, { Fragment } from "react";
 import Login from "./pages/login";
+import Register from "./pages/register";
 
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 function App() {
   return (
     <Fragment>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Login} />
-        </Switch>
-      </BrowserRouter>
+      <Route path="/login" component={Login} />
+      <Route path="/register" component={Register} />
     </Fragment>
   );
 }

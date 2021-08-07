@@ -9,14 +9,22 @@ import {
 } from "../../components/base/";
 function Index() {
   useEffect(() => {
-    document.title = "Login";
+    document.title = "Register";
   });
   return (
     <>
       <LayoutAuth>
         <form>
-          <div className="d-flex flex-column">
-            <div className="mt-5 mb-4">
+          <div className="d-flex flex-column" style={{ height: "100%" }}>
+            <div className="mt-5">
+              <InputTextIcon
+                img={mail}
+                width="21px"
+                height="21px"
+                placeholder="Enter your username"
+              ></InputTextIcon>
+            </div>
+            <div className="mt-4 mb-4">
               <InputTextIcon
                 img={mail}
                 width="21px"
@@ -24,6 +32,7 @@ function Index() {
                 placeholder="Enter your email"
               ></InputTextIcon>
             </div>
+
             <div>
               <InputPasswordIcon
                 img={lock}
@@ -41,17 +50,18 @@ function Index() {
               Forgot password?
             </Link>
             <Button
+              disabled
               styling="bg-primary text-18 c-white"
               style={{ marginTop: "90px", marginBottom: "40px" }}
             >
-              Login
+              Register
             </Button>
           </div>
         </form>
         <div className="text-16 text-center">
-          Don’t have an account? Let’s
-          <Link className="c-primary text-16" to="/register">
-            <> Sign Up</>
+          Already have an account? Let’s
+          <Link className="c-primary text-16" to="/login">
+            <> Login</>
           </Link>
         </div>
       </LayoutAuth>
