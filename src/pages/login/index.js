@@ -29,7 +29,7 @@ function Index() {
         </div>
         <form>
           <div className="d-flex flex-column">
-            <div className="mt-5 mb-4">
+            <div className="mt-3 mb-4">
               <InputTextIcon
                 img={mail}
                 width="21px"
@@ -55,7 +55,7 @@ function Index() {
             </Link>
             <Button
               styling="bg__primary text-18 c-white"
-              style={{ marginTop: "90px", marginBottom: "40px" }}
+              style={{ marginTop: "40px", marginBottom: "40px" }}
             >
               Login
             </Button>

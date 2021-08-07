@@ -1,5 +1,5 @@
 .auth__wrapper {
-  height: 100vh;
+  height: 100%;
 }
 
 .header___auth {
@@ -9,12 +9,12 @@
 }
 
 .left__auth {
-  height: auto;
+  height: 100%;
   width: 60%;
 }
 
 .right__auth {
-  height: auto;
+  height: 100%;
   z-index: 44;
   width: 40%;
 }
@@ -23,18 +23,18 @@
   background-image: url(../img/image/imgAuth.png);
   padding: 5% 25%;
   flex-flow: column;
-  background-repeat: round;
-  background-size: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   height: 100%;
   align-items: center;
 }
 
 .right__auth-content {
-  padding-left: 50px;
-  padding-top: 121px;
+  padding-left: 10%;
+  padding-top: 5%;
   height: 100%;
-  padding-right: 20%;
+  padding-right: 10%;
 }
 
 .header___auth-visible {
@@ -49,7 +49,7 @@
     width: 100%;
   }
   .right__auth-content {
-    padding: 120px 6%;
+    padding: 120px 20%;
   }
   .header___auth-visible {
     display: block;

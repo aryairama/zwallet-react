@@ -14,12 +14,14 @@ function Index(props) {
             <p className="text-29 c-white text-left">Zwallet</p>
           </div>
           <img
+            width="500px"
+            height="500px"
             src={phoneSplit}
             className="zwallet-img-preview"
             alt="zwallet-preview"
           ></img>
           <div>
-            <div className="mb-4">
+            <div className="mb-3">
               <p className="text-24 c-white">
                 App that Covering Banking Needs.
               </p>

@@ -29,7 +29,7 @@ function Index() {
           <form>
             {resetPassword ? (
               <div className="d-flex flex-column">
-                <div className="mt-5 mb-4">
+                <div className="mt-3 mb-4">
                   <InputPasswordIcon
                     img={lock}
                     width="21px"
@@ -51,7 +51,7 @@ function Index() {
                 <Button
                   // disabled={resetPassword}
                   styling="bg__disabled text-18 c-dark"
-                  style={{ marginTop: "90px", marginBottom: "40px" }}
+                  style={{ marginTop: "40px", marginBottom: "40px" }}
                   onClick={() => setResetPassword(!resetPassword)}
                 >
                   Reset Password
