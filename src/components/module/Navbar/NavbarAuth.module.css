@@ -1,0 +1,30 @@
+.textZwallet {
+    font-size: 29px;
+    color: #6379F4;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.navbarZwallet {
+    border-radius: 0px 0px 20px 20px;
+}
+
+.mt-n1 {
+    margin-top: -0.35rem;
+}
+
+.profileName {
+    color: #3A3D42;
+    font-weight: bolder;
+}
+
+@media (min-width: 768px) {}
+.containerMenu {
+    width: 40%;
+}
+@media (min-width: 992px) {
+    .containerMenu {
+        width: 30%;
+    }
+
+}
