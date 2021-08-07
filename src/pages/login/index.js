@@ -16,7 +16,7 @@ function Index() {
       <LayoutAuth>
         <form>
           <div className="d-flex flex-column">
-            <div className="c-mt-6 c-mb-8">
+            <div className="mt-5 mb-4">
               <InputTextIcon
                 img={mail}
                 width="21px"
@@ -48,6 +48,12 @@ function Index() {
             </Button>
           </div>
         </form>
+        <div className="text-16 text-center">
+          Don’t have an account? Let’s
+          <Link className="c-primary text-16" to="/register">
+            <> Sign Up</>
+          </Link>
+        </div>
       </LayoutAuth>
     </>
   );
