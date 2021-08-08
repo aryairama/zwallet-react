@@ -6,11 +6,11 @@ import {
   InputPasswordIcon,
 } from "../../components/base";
 import { mail, lock, eyecrossed } from "../../assets/index";
-function Index() {
+function Index(props) {
   const [resetPassword, setResetPassword] = React.useState(false);
   React.useEffect(() => {
     document.title = "Forgot Password";
-  }, []);
+  });
   return (
     <React.Fragment>
       <LayoutAuth>
@@ -49,10 +49,8 @@ function Index() {
                 </div>
 
                 <Button
-                  // disabled={resetPassword}
-                  styling="bg__disabled text-18 c-dark"
+                  styling="bg__primary text-18 c-white"
                   style={{ marginTop: "40px", marginBottom: "40px" }}
-                  onClick={() => setResetPassword(!resetPassword)}
                 >
                   Reset Password
                 </Button>

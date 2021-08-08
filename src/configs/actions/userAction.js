@@ -16,7 +16,27 @@ export const register = (data, history) => async (dispatch) => {
     );
     history.push("/login");
   } catch (error) {
-    swal("Failed", error.response.data.message, "error");
+    swal(
+      "Failed",
+      error?.response?.data?.message || "Internal Server Error",
+      "error"
+    );
+  }
+  dispatch({ type: "REQUEST" });
+};
+
+export const checkEmail = (data, history) => async (dispatch) => {
+  try {
+    await axios.post("/users/forgotPassword", {
+      email: data.email,
+    });
+    swal("Success", "check email to create a new password", "success");
+  } catch (error) {
+    swal(
+      "Failed",
+      error?.response?.data?.message || "Internal Server Error",
+      "error"
+    );
   }
   dispatch({ type: "REQUEST" });
 };

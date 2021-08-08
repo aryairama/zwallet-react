@@ -3,9 +3,6 @@ import { phoneSplit } from "../../../assets/index";
 import "../../../assets/";
 
 function Index(props) {
-  React.useEffect(() => {
-    document.title = "Login";
-  }, []);
   return (
     <div className="d-flex auth__wrapper">
       <div className="left__auth">
