@@ -54,7 +54,7 @@ function Index(props) {
         </div>
         <form onSubmit={submitHandler}>
           <div className="d-flex flex-column" style={{ height: "100%" }}>
-            <div className="mt-5">
+            <div className="mt-3">
               <InputTextIcon
                 img={person}
                 name="username"
@@ -99,7 +99,7 @@ function Index(props) {
               // disabled
               type="submit"
               styling="bg__primary text-18 c-white"
-              style={{ marginTop: "90px", marginBottom: "40px" }}
+              style={{ marginTop: "40px", marginBottom: "40px" }}
             >
               Register
             </Button>

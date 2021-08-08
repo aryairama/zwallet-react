@@ -1,47 +1,44 @@
 .auth__wrapper {
-  background-color: red;
-  display: flex;
-  height: initial;
+  height: 100%;
 }
 
 .header___auth {
-  width: 100%;
+  width: 120%;
   text-align: left;
-  /* background-color: blueviolet !important; */
 }
 
 .left__auth {
-  /* background-repeat: no-repeat;
-  background-size: cover; */
-  /* padding: 0 ; */
-  padding-top: 50px;
-  height: inherit;
-  /* background-image: url(../img/image/imgAuth.png); */
-  /* margin: 0 auto; */
-  /* display: flex; */
-  /* flex-flow: column; */
-  background-color: cadetblue;
+  height: 100%;
+  width: 60%;
 }
 
 .right__auth {
-  width: 60%;
+  height: 100%;
+  z-index: 44;
   width: 40%;
-  /* padding-left: 2rem; */
-  /* padding-top: 121px; */
-  /* height: 100%; */
-  /* padding: 0 25%; */
-  /* height: 100%; */
-  background-color: grey;
-  /* padding-top: 4rem;
-  padding-right: 2rem; */
+}
+
+.left__auth-content {
+  background-image: url(../img/image/imgAuth.png);
+  padding: 5% 25%;
+  flex-flow: column;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.right__auth-content {
+  padding-left: 10%;
+  padding-top: 5%;
+  height: 100%;
+  padding-right: 10%;
 }
 
 .header___auth-visible {
-  width: 120%;
-  text-align: left;
   display: none;
 }
-
 @media screen and (max-width: 992px) {
   .left__auth {
     display: none;
@@ -50,7 +47,7 @@
     width: 100%;
   }
   .right__auth-content {
-    padding: 120px 6%;
+    padding: 120px 20%;
   }
   .header___auth-visible {
     display: block;
