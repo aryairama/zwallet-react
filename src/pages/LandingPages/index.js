@@ -34,7 +34,7 @@ const LandingPages = () => {
                                 <p className={Style.big}>Awesome App For Saving <span className={Style.bigBlue}>Time.</span></p>
                             </div>
                             <p className={Style.desc}>We bring you a mobile app for banking problems that oftenly wasting much of your times.</p>
-                            <button className={cs(Style.button, Style.blue)}><Link to='/signup' className={Style.link}>Try It Free</Link></button>
+                            <Link to='/signup' className={cs(Style.button, Style.link, Style.blue, )}>Try It Free</Link>
                         </div>
                         <div>
                             <img src={PhoneDash} alt="phone" className={Style.relative}/>

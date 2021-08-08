@@ -7,6 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import PrivateRoute from "./middlewares/PrivateRoute";
 import CreatePin from "./pages/createPin";
 import PinSuccess from "./pages/confirmPin";
+import SearchReceiver from "./pages/searchReceiver";
 function App() {
   return (
     <Fragment>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/pin" component={CreatePin} />
           <Route path="/pin-success" component={PinSuccess} />
+          <PrivateRoute version={1} path="/search-receiver" component={SearchReceiver} />
         </Switch>      
     </Fragment>
   );
