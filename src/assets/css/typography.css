@@ -23,6 +23,10 @@
   font-size: 40px;
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
 @media screen and (max-width: 992px) {
   .text-13 {
     font-size: 13px;
