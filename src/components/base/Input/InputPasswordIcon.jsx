@@ -20,9 +20,9 @@ const InputPasswordIcon = (props) => {
           min={props.min}
           max={props.max}
         />
-        <span className={`${cs(style.labelEffect)} ${props.labelEffect}`}></span>
+        <span className={`${cs(style.labelEffect)} ${props.error ? 'border-danger' : ''}`}></span>
         <img
-          className={cs(style.iconInput)}
+          className={cs(style.iconInput, props.error ? style.iconError : '')}
           width={props.width}
           height={props.height}
           src={props.img}

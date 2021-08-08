@@ -27,11 +27,28 @@
     bottom: 5px;
     left: 0;
     right: 0;
-    
+
 }
+
+.iconInput {
+    filter: invert(73%) sepia(15%) saturate(3%) hue-rotate(343deg) brightness(91%) contrast(88%);
+}
+
+.input:focus~.iconInput {
+    transition: all 0.1s;
+    filter: invert(75%) sepia(65%) saturate(7016%) hue-rotate(213deg) brightness(96%) contrast(99%);
+}
+
+.input:focus~.iconError.iconInput {
+    filter: invert(49%) sepia(36%) saturate(4612%) hue-rotate(338deg) brightness(100%) contrast(103%);
+}
+
+.iconError.iconInput {
+    filter: invert(49%) sepia(36%) saturate(4612%) hue-rotate(338deg) brightness(100%) contrast(103%);
+}
+
 .input:focus~.labelEffect {
     width: 100%;
     border: 1px solid #6379F4;
     transition: all 0.6s;
 }
-

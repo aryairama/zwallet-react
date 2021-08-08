@@ -1,11 +1,11 @@
-import React from "react";
-import cs from "classnames";
-import style from "./InputText.module.css";
+import React from 'react';
+import cs from 'classnames';
+import style from './InputText.module.css';
 
 const InputTextIcon = (props) => {
   return (
     <React.Fragment>
-      <div className={`position-relative mb-3 ${props.styleContainer}`}>
+      <div className={`position-relative ${props.styleContainer}`}>
         <input
           onChange={props.onChange}
           onFocus={props.onFocus}
@@ -19,11 +19,9 @@ const InputTextIcon = (props) => {
           min={props.min}
           max={props.max}
         />
-        <span
-          className={`${cs(style.labelEffect)} ${props.labelEffect}`}
-        ></span>
+        <span className={`${cs(style.labelEffect)} ${props.error ? 'border-danger' : ''}`}></span>
         <img
-          className={cs(style.iconInput)}
+          className={cs(style.iconInput, props.error ? style.iconError : '')}
           width={props.width}
           height={props.height}
           src={props.img}
