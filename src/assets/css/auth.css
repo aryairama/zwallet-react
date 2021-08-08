@@ -3,7 +3,7 @@
 }
 
 .header___auth {
-  width: 120%;
+  width: 100%;
   text-align: left;
 }
 
@@ -14,22 +14,19 @@
 
 .right__auth {
   height: 100%;
-  z-index: 44;
   width: 40%;
 }
 
 .left__auth-content {
-  background-image: url(../img/image/imgAuth.png);
   padding: 5% 25%;
-  flex-flow: column;
+  background-image: url(../img/image/imgAuth.png);
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
   height: 100%;
-  align-items: center;
 }
 
 .right__auth-content {
+  margin-top: 15%;
   padding-left: 10%;
   padding-top: 5%;
   height: 100%;
@@ -39,6 +36,7 @@
 .header___auth-visible {
   display: none;
 }
+
 @media screen and (max-width: 992px) {
   .left__auth {
     display: none;
@@ -51,8 +49,6 @@
   }
   .header___auth-visible {
     display: block;
-    margin-top: -25px;
-    margin-bottom: 40px;
   }
 }
 
@@ -90,7 +86,6 @@
   }
   .header___auth-visible {
     display: block;
-    margin-top: 0;
     margin-bottom: 40px;
   }
 }
