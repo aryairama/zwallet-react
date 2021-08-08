@@ -17,7 +17,6 @@ function App() {
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/pin" component={CreatePin} />
           <Route path="/pin-success" component={PinSuccess} />
-          <PrivateRoute path='/test' component={() => <p>test</p>}/>
         </Switch>      
     </Fragment>
   );
