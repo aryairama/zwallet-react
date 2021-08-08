@@ -2,32 +2,34 @@
     overflow-x: hidden;
 }
 
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
 .sidebar {
-    height: calc(100vh - 190px);
-    margin-top: 100px;
-    width: 25%;
-    margin-left: -360px;
-    position: fixed;
-    display: block;
+    margin-left: -80% !important;
+    padding-top: 100px;
+    width: 70% !important;
     transition: all 0.5s ease-in-out;
 }
 
 .sidebar-active {
     transition: all 0.5s ease-in-out;
-    width: 50%;
-    margin-left: 0 !important;
+    width: 70% !important;
+    margin-left: 0% !important;
 }
 
 .main-slide {
-    margin-right: -60% !important;
-    margin-left: 60% !important;
+    width: 100% !important;
+    margin-right: -80% !important;
     transition: all 0.5s ease-in-out;
 }
 
 .main-content {
-    height: calc(100vh - 90px);
+    width: 100%;
     padding-top: 100px;
-    margin-left: 0px;
     display: block;
     transition: all 0.5s ease-in-out;
 }
@@ -58,57 +60,53 @@
 
 
 @media (min-width: 576px) {
-    .sidebar-active {
-        width: 40%;
-    }
-
-    .main-content {
-        margin-left: 0px;
-    }
-
     .sidebar {
-        margin-left: -360px;
+        margin-left: -90% !important;
     }
 
-}
-
-@media (min-width: 768px) {
     .sidebar-active {
-        width: 35%;
+        width: 60% !important;
+        margin-left: 0% !important;
     }
 
     .main-slide {
-        margin-right: -50% !important;
-        margin-left: 50% !important;
+        margin-right: -65% !important;
     }
+}
 
-    .main-content {
-        margin-left: 0px;
-    }
-
+@media (min-width: 768px) {
     .sidebar {
-        margin-left: -360px;
+        margin-left: -90% !important;
+    }
+
+    .sidebar-active {
+        width: 50% !important;
+        margin-left: 0% !important;
+    }
+
+    .main-slide {
+        margin-right: -55% !important;
     }
 }
 
 @media (min-width: 992px) {
-    .sidebar-active {
+    .sidebar {
         width: 25% !important;
-    }
-
-    .main-slide {
-        width: 75% !important;
-        margin-right: 0% !important;
         margin-left: 0% !important;
     }
 
-    .main-content {
-        width: 75% !important;
-        margin-left: 360px !important;
+    .sidebar-active {
+        width: 25% !important;
+        margin-left: 0% !important;
     }
 
-    .sidebar {
-        width: 25% !important;
-        margin-left: 0px !important;
+    .main-slide {
+        width: 72% !important;
+        margin-right: 0% !important;
+    }
+
+    .main-content {
+        width: 72% !important;
+        margin-right: 0% !important;
     }
 }
