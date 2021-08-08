@@ -10,6 +10,8 @@ import PinSuccess from "./pages/confirmPin";
 import SearchReceiver from "./pages/searchReceiver";
 import HowToTopUp from "./pages/howToTopUp";
 import PersonalInfo from "./pages/personalnfo";
+import ChangePassword from "./pages/changePassword";
+import ManagePhone from "./pages/managePhoneNumber";
 function App() {
   return (
     <Fragment>
@@ -23,6 +25,8 @@ function App() {
           <PrivateRoute version={2} path="/how-to" component={HowToTopUp} />
           <PrivateRoute version={2} path="/search-receiver" component={SearchReceiver} />
           <PrivateRoute version={2} path="/personal-info" component={PersonalInfo} />
+          <PrivateRoute version={2} path="/change-password" component={ChangePassword} />
+          <PrivateRoute version={2} path="/manage-phone-number" component={ManagePhone} />
         </Switch>      
     </Fragment>
   );
