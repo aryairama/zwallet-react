@@ -1,43 +1,44 @@
 .auth__wrapper {
-  height: 100vh;
+  background-color: red;
+  display: flex;
+  height: initial;
 }
 
 .header___auth {
-  margin-top: -15px;
-  margin-bottom: -25px;
-  width: 120%;
+  width: 100%;
+  text-align: left;
+  /* background-color: blueviolet !important; */
 }
 
 .left__auth {
-  height: auto;
-  width: 60%;
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+  /* padding: 0 ; */
+  padding-top: 50px;
+  height: inherit;
+  /* background-image: url(../img/image/imgAuth.png); */
+  /* margin: 0 auto; */
+  /* display: flex; */
+  /* flex-flow: column; */
+  background-color: cadetblue;
 }
 
 .right__auth {
-  height: auto;
-  z-index: 44;
+  width: 60%;
   width: 40%;
-}
-
-.left__auth-content {
-  background-image: url(../img/image/imgAuth.png);
-  padding: 5% 25%;
-  flex-flow: column;
-  background-repeat: round;
-  background-size: auto;
-  display: flex;
-  height: 100%;
-  align-items: center;
-}
-
-.right__auth-content {
-  padding-left: 50px;
-  padding-top: 121px;
-  height: 100%;
-  padding-right: 20%;
+  /* padding-left: 2rem; */
+  /* padding-top: 121px; */
+  /* height: 100%; */
+  /* padding: 0 25%; */
+  /* height: 100%; */
+  background-color: grey;
+  /* padding-top: 4rem;
+  padding-right: 2rem; */
 }
 
 .header___auth-visible {
+  width: 120%;
+  text-align: left;
   display: none;
 }
 
@@ -71,7 +72,6 @@
   }
   .header___auth-visible {
     display: block;
-    margin-top: -25px;
     margin-bottom: 40px;
   }
 }

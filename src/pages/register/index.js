@@ -1,13 +1,38 @@
-import React, { useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import LayoutAuth from "../../components/module/LayoutAuth";
 import { mail, lock, eyecrossed, person } from "../../assets/index";
+import { register as registerUser } from "../../configs/actions/userAction";
 import {
   InputPasswordIcon,
   InputTextIcon,
   Button,
 } from "../../components/base";
-function Index() {
+import { useDispatch } from "react-redux";
+
+function Index(props) {
+  const dispatch = useDispatch();
+  const intialFormData = {
+    username: "",
+    email: "",
+    password: "",
+  };
+  const [formData, setFormData] = useState(intialFormData);
+  const changeInputHandler = (e) => {
+    setFormData(() => {
+      return {
+        ...formData,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+  const submitHandler = (e) => {
+    console.log(e);
+    e.preventDefault();
+    console.log(formData, "tes");
+    dispatch(registerUser(formData, props.history));
+  };
   useEffect(() => {
     document.title = "Register";
   });
@@ -27,30 +52,38 @@ function Index() {
             </p>
           </div>
         </div>
-        <form>
+        <form onSubmit={submitHandler}>
           <div className="d-flex flex-column" style={{ height: "100%" }}>
             <div className="mt-5">
               <InputTextIcon
                 img={person}
+                name="username"
                 width="21px"
+                value={formData.username}
+                onChange={changeInputHandler}
                 height="21px"
                 placeholder="Enter your username"
               ></InputTextIcon>
             </div>
             <div className="mt-4 mb-4">
               <InputTextIcon
+                name="email"
                 img={mail}
                 width="21px"
                 height="21px"
+                value={formData.email}
+                onChange={changeInputHandler}
                 placeholder="Enter your email"
               ></InputTextIcon>
             </div>
-
             <div>
               <InputPasswordIcon
                 img={lock}
+                name="password"
                 width="21px"
+                value={formData.password}
                 height="21px"
+                onChange={changeInputHandler}
                 eyePassword={eyecrossed}
                 placeholder="Enter your password"
               ></InputPasswordIcon>
@@ -63,7 +96,8 @@ function Index() {
               Forgot password?
             </Link>
             <Button
-              disabled
+              // disabled
+              type="submit"
               styling="bg__primary text-18 c-white"
               style={{ marginTop: "90px", marginBottom: "40px" }}
             >
