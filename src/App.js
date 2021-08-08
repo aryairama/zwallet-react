@@ -9,6 +9,7 @@ import CreatePin from "./pages/createPin";
 import PinSuccess from "./pages/confirmPin";
 import SearchReceiver from "./pages/searchReceiver";
 import HowToTopUp from "./pages/howToTopUp";
+import PersonalInfo from "./pages/personalnfo";
 function App() {
   return (
     <Fragment>
@@ -21,6 +22,7 @@ function App() {
           <Route path="/pin-success" component={PinSuccess} />
           <PrivateRoute version={2} path="/how-to" component={HowToTopUp} />
           <PrivateRoute version={2} path="/search-receiver" component={SearchReceiver} />
+          <PrivateRoute version={2} path="/personal-info" component={PersonalInfo} />
         </Switch>      
     </Fragment>
   );

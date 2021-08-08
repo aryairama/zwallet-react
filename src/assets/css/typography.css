@@ -22,6 +22,9 @@
 .text-40 {
   font-size: 40px;
 }
+.desciptionContentBox{
+  width: 342px;
+}
 
 @media screen and (max-width: 992px) {
   .text-13 {
@@ -95,5 +98,8 @@
 
   .text-40 {
     font-size: 24px;
+  }
+  .desciptionContentBox{
+    width: 100%;
   }
 }
