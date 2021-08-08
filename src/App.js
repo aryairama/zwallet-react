@@ -8,6 +8,7 @@ import PrivateRoute from "./middlewares/PrivateRoute";
 import CreatePin from "./pages/createPin";
 import PinSuccess from "./pages/confirmPin";
 import SearchReceiver from "./pages/searchReceiver";
+import HowToTopUp from "./pages/howToTopUp";
 function App() {
   return (
     <Fragment>
@@ -18,7 +19,8 @@ function App() {
           <Route path="/forgot-password" component={ForgotPassword} />
           <Route path="/pin" component={CreatePin} />
           <Route path="/pin-success" component={PinSuccess} />
-          <PrivateRoute version={1} path="/search-receiver" component={SearchReceiver} />
+          <PrivateRoute version={2} path="/how-to" component={HowToTopUp} />
+          <PrivateRoute version={2} path="/search-receiver" component={SearchReceiver} />
         </Switch>      
     </Fragment>
   );
