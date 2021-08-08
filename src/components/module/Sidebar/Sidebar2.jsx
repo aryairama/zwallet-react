@@ -1,6 +1,6 @@
 import React from 'react';
 import cs from 'classnames';
-import style from './Sidebar.module.css';
+import style from './Sidebar2.module.css';
 const Sidebar = (props) => {
   return (
     <div className={cs(style.wrapper)}>
