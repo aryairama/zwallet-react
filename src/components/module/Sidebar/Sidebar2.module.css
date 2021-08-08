@@ -1,5 +1,6 @@
 .wrapper {
     overflow-x: hidden;
+    min-height: calc(100vh - 85px);
 }
 
 .container {

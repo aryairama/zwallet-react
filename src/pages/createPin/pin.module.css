@@ -1,0 +1,24 @@
+.pin{
+    width: 53px;
+    height: 65px;
+    background: #FFFFFF;
+    border: 1px solid rgba(169, 169, 169, 0.6);
+    box-sizing: border-box;
+    box-shadow: 0px 10px 75px rgba(147, 147, 147, 0.1);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-top: 50px;
+    text-align: center;
+}
+.pinContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.pin:focus{
+    border: 1px solid #6379F4;
+    outline: none;
+}
+/* .pin:valid{
+    border: 1px solid #6379F4;
+} */
