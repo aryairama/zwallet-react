@@ -5,19 +5,19 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'LOGIN':
+    case "LOGIN":
       return {
         ...state,
         user: action.payload,
         auth: true,
       };
-    case 'LOGOUT':
+    case "LOGOUT":
       return {
         ...state,
         user: action.payload,
         auth: false,
       };
-    case 'REFRESHTOKEN':
+    case "REFRESHTOKEN":
       return {
         ...state,
         user: action.payload,
