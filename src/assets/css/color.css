@@ -30,6 +30,9 @@
 .bg-light {
   background: #fafcff !important;
 }
+.bold {
+  font-weight: bold;
+}
 /* o as opacity */
 
 /* .o-60 {
