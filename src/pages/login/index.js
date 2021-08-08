@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import LayoutAuth from "../../components/module/LayoutAuth";
-import { mail, lock, eyecrossed } from "../../assets/index";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import LayoutAuth from '../../components/module/LayoutAuth';
+import { mail, lock, eyecrossed } from '../../assets/index';
 import {
   InputPasswordIcon,
   InputTextIcon,
   Button,
-} from "../../components/base";
+} from '../../components/base';
 function Index() {
   useEffect(() => {
-    document.title = "Login";
+    document.title = 'Login';
   });
-
   return (
     <>
       <LayoutAuth>
@@ -21,7 +20,7 @@ function Index() {
             With 30.000+ Users
           </p>
           <div>
-            <p className="text-16 c-grey" style={{ opacity: "60%" }}>
+            <p className="text-16 c-grey" style={{ opacity: '60%' }}>
               Transfering money is eassier than ever, you can access Zwallet
               wherever you are. Desktop, laptop, mobile phone? we cover all of
               that for you!
@@ -49,14 +48,14 @@ function Index() {
             </div>
             <Link
               className="c-grey text-16 align-self-end"
-              style={{ marginTop: "20px" }}
+              style={{ marginTop: '20px' }}
               to="/forgot-password"
             >
               Forgot password?
             </Link>
             <Button
               styling="bg__primary text-18 c-white"
-              style={{ marginTop: "40px", marginBottom: "40px" }}
+              style={{ marginTop: '40px', marginBottom: '40px' }}
             >
               Login
             </Button>
