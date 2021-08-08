@@ -1,11 +1,8 @@
-import React from "react";
-import { phoneSplit } from "../../../assets/index";
-import "../../../assets/";
+import React from 'react';
+import { phoneSplit } from '../../../assets/index';
+import '../../../assets/';
 
 function Index(props) {
-  React.useEffect(() => {
-    document.title = "Login";
-  }, []);
   return (
     <div className="d-flex auth__wrapper">
       <div className="left__auth">
@@ -27,7 +24,7 @@ function Index(props) {
               </p>
             </div>
             <div>
-              <p className="text-16 c-white" style={{ opacity: "80%" }}>
+              <p className="text-16 c-white" style={{ opacity: '80%' }}>
                 Zwallet is an application that focussing in banking needs for
                 all users in the world. Always updated and always following
                 world trends. 5000+ users registered in Zwallet everyday with

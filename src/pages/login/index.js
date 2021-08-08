@@ -11,6 +11,7 @@ function Index() {
   useEffect(() => {
     document.title = "Login";
   });
+
   return (
     <>
       <LayoutAuth>
