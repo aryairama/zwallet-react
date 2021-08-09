@@ -26,9 +26,7 @@ function Index(props) {
     });
   };
   const submitHandler = (e) => {
-    console.log(e);
     e.preventDefault();
-    console.log(formData, 'tes');
     dispatch(registerUser(formData, props.history));
   };
   useEffect(() => {
