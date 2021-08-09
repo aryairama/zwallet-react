@@ -66,3 +66,23 @@ export const login = (formData, history) => async (dispatch) => {
     }
   }
 };
+
+export const logout = (history) => async (dispatch, getState) => {
+  try {
+    await axios.delete('users/logout', {
+      headers: {
+        Authorization: `Bearer ${getState().user.user.accessToken}`,
+      },
+    });
+    dispatch({ type: 'LOGOUT', payload: {} });
+    history.push('/login');
+  } catch (error) {
+    swal('Error', 'Logout failed', 'error');
+  }
+};
+
+export const refreshToken = (data) => (dispatch, getState) => {
+  const { user: oldDataUser } = getState().user;
+  const user = { ...oldDataUser, ...data };
+  dispatch({ type: 'REFRESHTOKEN', payload: user });
+};
