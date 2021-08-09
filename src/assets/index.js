@@ -11,5 +11,6 @@ export { default as spacing } from './css/spacing.css';
 export { default as person } from './img/icons/person.png';
 export { default as success } from './img/icons/success.svg';
 export { default as failed } from './img/icons/failed.svg';
+export { default as bgAuth } from './img/image/imgAuth.png';
 
 export { imgAuth, phoneSplit, typography, color, auth };

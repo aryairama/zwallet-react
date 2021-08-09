@@ -8,7 +8,10 @@
 }
 
 .left__auth {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
   width: 60%;
 }
 
@@ -17,13 +20,21 @@
   width: 40%;
 }
 
+.bg__image-auth {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  background-image: url(../img/image/imgAuth.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
 .left__auth-content {
   padding: 0 25%;
   padding-top: 5%;
-  background-image: url(../img/image/imgAuth.png);
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100%;
+  z-index: 2;
 }
 
 .right__auth-content {
@@ -43,6 +54,9 @@
 }
 
 @media screen and (max-width: 1440px) {
+  .left__auth {
+    height: 100%;
+  }
   .right__auth-content {
     margin-top: 15%;
     padding-left: 10%;
