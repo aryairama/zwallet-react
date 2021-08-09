@@ -54,8 +54,14 @@
 
 @media screen and (max-width: 1024px) {
   .left__auth-content {
-    padding: 0 20%;
-    padding-top: 5%;
+    padding: 0 10%;
+    padding-top: 2%;
+  }
+  .zwallet-img-preview {
+    margin-top: -8%;
+    margin-left: -8%;
+    width: 400px;
+    height: 400px;
   }
 }
 
