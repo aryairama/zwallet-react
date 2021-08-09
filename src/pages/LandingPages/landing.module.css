@@ -61,7 +61,7 @@
     z-index: 1;
 }
 .blue{
-    background: #6379F4;
+    background: #6379F4 !important;
 /* Zwallet/White */
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
@@ -87,9 +87,11 @@
     text-align: center;
     margin-left: 30px;
 }
-.link:active, .link:hover, .link:visited, .link:link{
-    text-decoration: none;
-    color: inherit
+.blue:hover{
+    color: white;
+}
+.white:hover{
+    color: #6379F4;
 }
 .boxheader{
     width: 474px;

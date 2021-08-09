@@ -22,6 +22,9 @@
 .text-40 {
   font-size: 40px;
 }
+.desciptionContentBox{
+  width: 342px;
+}
 
 .text-bold {
   font-weight: bold;
@@ -99,5 +102,8 @@
 
   .text-40 {
     font-size: 24px;
+  }
+  .desciptionContentBox{
+    width: 100%;
   }
 }
