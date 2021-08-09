@@ -12,7 +12,8 @@ function Index(props) {
   const validator = useRef(new SimpleReactValidator({ className: 'text-danger small' }));
   const dispatch = useDispatch();
   const intialFormData = {
-    username: '',
+    first_name:'',
+    last_name: '',
     email: '',
     password: '',
   };
@@ -49,16 +50,30 @@ function Index(props) {
             <div className="mt-3 mb-5">
               <InputTextIcon
                 img={person}
-                name="username"
+                name="first_name"
                 width="21px"
-                value={formData.username}
+                value={formData.first_name}
                 onChange={changeInputHandler}
-                onFocus={() => validator.current.showMessageFor('username')}
+                onFocus={() => validator.current.showMessageFor('first_name')}
                 height="21px"
-                placeholder="Enter your username"
-                error={validator.current.message('username', formData.username, 'required|min:4|max:40')}
+                placeholder="Enter your first name"
+                error={validator.current.message('first_name', formData.first_name, 'required|min:3|max:100')}
               ></InputTextIcon>
-              {validator.current.message('username', formData.username, 'required|min:4|max:40')}
+              {validator.current.message('first_name', formData.first_name, 'required|min:3|max:100')}
+            </div>
+            <div className="mb-5">
+              <InputTextIcon
+                img={person}
+                name="last_name"
+                width="21px"
+                value={formData.last_name}
+                onChange={changeInputHandler}
+                onFocus={() => validator.current.showMessageFor('last_name')}
+                height="21px"
+                placeholder="Enter your last name"
+                error={validator.current.message('last_name', formData.last_name, 'required|min:3|max:100')}
+              ></InputTextIcon>
+              {validator.current.message('last_name', formData.last_name, 'required|min:3|max:100')}
             </div>
             <div className="mb-5">
               <InputTextIcon
