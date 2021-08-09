@@ -64,3 +64,9 @@ export const logout = (history) => async (dispatch, getState) => {
     swal('Error', 'Logout failed', 'error');
   }
 };
+
+export const refreshToken = (data) => (dispatch, getState) => {
+  const { user: oldDataUser } = getState().user;
+  const user = { ...oldDataUser, ...data };
+  dispatch({ type: 'REFRESHTOKEN', payload: user });
+};

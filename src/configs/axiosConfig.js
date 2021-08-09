@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { store } from '../configs/redux/store';
-// import { refreshToken } from './redux/actions/userAction';
+import { refreshToken } from './actions/userAction';
 const axiosConfig = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
 });
@@ -16,17 +16,15 @@ axiosConfig.interceptors.response.use(
       try {
         originalRequest._retry = true;
         const data = await (
-          await axios.post(`${process.env.REACT_APP_API_URL}/users/refreshtoken`, {
+          await axios.post(`${process.env.REACT_APP_API_URL}users/refreshtoken`, {
             refreshToken: store.getState().user.user.refreshToken,
           })
         ).data;
         error.config.headers['Authorization'] = 'Bearer ' + data.data.accessToken;
-        // store.dispatch(refreshToken(data.data));
+        store.dispatch(refreshToken(data.data));
         return axiosConfig(originalRequest);
       } catch (error) {
         store.dispatch({ type: 'LOGOUT', payload: {} });
-        store.dispatch({ type: 'ADD_CART', payload: [] });
-        store.dispatch({ type: 'TOTAL', payload: 0 });
       }
     }
     return Promise.reject(error);
