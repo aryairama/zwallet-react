@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from './pin.module.css';
+import Pin from '../../components/base/Pin';
 import LayoutAuth from '../../components/module/LayoutAuth';
 import { Button } from '../../components/base';
 const CreatePin = () => {
@@ -21,14 +21,7 @@ const CreatePin = () => {
             account password and the PIN.
           </p>
         </div>
-        <div className={Style.pinContainer}>
-          <input type="text" className={Style.pin} />
-          <input type="text" className={Style.pin} />
-          <input type="text" className={Style.pin} />
-          <input type="text" className={Style.pin} />
-          <input type="text" className={Style.pin} />
-          <input type="text" className={Style.pin} />
-        </div>
+        <Pin/>
         <Button
           disabled
           styling="bg__primary text-18 c-white"

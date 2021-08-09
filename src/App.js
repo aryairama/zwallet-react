@@ -14,6 +14,7 @@ import PersonalInfo from "./pages/personalnfo";
 import ChangePassword from "./pages/changePassword";
 import ManagePhone from "./pages/managePhoneNumber";
 import Profile from './pages/profile';
+import EditProfile from './pages/editProfile';
 function App() {
   return (
     <Fragment>
@@ -31,6 +32,7 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/change-password" component={ChangePassword} />
         <PrivateRoute roles={['member']} version={2} path="/manage-phone-number" component={ManagePhone} />
         <PrivateRoute roles={['member']} version={2} path="/profile" component={Profile} />
+        <PrivateRoute roles={['member']} version={2} path="/edit-profile" component={EditProfile} />
       </Switch>
     </Fragment>
   );

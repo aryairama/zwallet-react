@@ -15,7 +15,7 @@ const Profile = () => {
             <img src={Avatar} alt="userImage" />
             <div className={Style.editFlex}>
               <img src={Edit} alt="edit" />
-              <p className="text_16 c-dark">edit</p>
+              <Link to='/edit-profile' className="text_16 c-dark">edit</Link>
             </div>
             <p className="text_18 bold c-grey">Robert Chandler</p>
             <p className="text_16 c-dark">+62 813-9387-7946</p>
