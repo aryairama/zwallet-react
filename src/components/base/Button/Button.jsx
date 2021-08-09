@@ -1,6 +1,7 @@
-import React from "react";
-import style from "./Button.module.css";
-import cs from "classnames";
+import React from 'react';
+import style from './Button.module.css';
+import cs from 'classnames';
+import './Button.css';
 function Button(props) {
   if (props.icon) {
     return (

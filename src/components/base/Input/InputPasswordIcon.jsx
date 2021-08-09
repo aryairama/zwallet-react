@@ -6,7 +6,7 @@ const InputPasswordIcon = (props) => {
   const [showPassword, setShowPassword] = React.useState(false);
   return (
     <React.Fragment>
-      <div className={`position-relative mb-3 ${props.styleContainer}`}>
+      <div className={`position-relative ${props.styleContainer}`}>
         <input
           onChange={props.onChange}
           onFocus={props.onFocus}

@@ -6,6 +6,7 @@ function Index(props) {
   return (
     <div className="d-flex auth__wrapper">
       <div className="left__auth">
+        <div className="bg__image-auth"></div>
         <div className="left__auth-content">
           <div className="header___auth">
             <p className="text-29 c-white text-left">Zwallet</p>
@@ -14,8 +15,8 @@ function Index(props) {
             width="500px"
             height="500px"
             src={phoneSplit}
-            className="zwallet-img-preview"
             alt="zwallet-preview"
+            className="zwallet-img-preview me-auto ms-auto"
           ></img>
           <div>
             <div className="mb-3">

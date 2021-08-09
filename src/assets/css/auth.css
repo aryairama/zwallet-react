@@ -8,7 +8,10 @@
 }
 
 .left__auth {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* height: 100%; */
+  position: relative;
   width: 60%;
 }
 
@@ -17,16 +20,25 @@
   width: 40%;
 }
 
-.left__auth-content {
-  padding: 5% 25%;
+.bg__image-auth {
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
   background-image: url(../img/image/imgAuth.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
+}
+
+.left__auth-content {
+  padding: 0 25%;
+  padding-top: 5%;
   height: 100%;
+  z-index: 2;
 }
 
 .right__auth-content {
-  margin-top: 15%;
+  margin-top: 2%;
   padding-left: 10%;
   padding-top: 5%;
   height: 100%;
@@ -37,6 +49,45 @@
   display: none;
 }
 
+.zwallet-img-preview {
+  margin-left: -10%;
+}
+
+@media screen and (max-width: 1440px) {
+  .left__auth-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .right__auth-content {
+    margin-top: 10%;
+    padding-left: 10%;
+    padding-top: 5%;
+    height: 100%;
+    padding-right: 10%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .zwallet-img-preview {
+    margin-top: -8%;
+    margin-left: -8%;
+    width: 400px;
+    height: 400px;
+  }
+  .header___auth {
+    margin-bottom: 2rem;
+  }
+  .bg__image-auth {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    background-image: url(../img/image/imgAuth.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .left__auth {
     display: none;
@@ -45,7 +96,7 @@
     width: 100%;
   }
   .right__auth-content {
-    padding: 120px 20%;
+    padding: 12px 2rem;
   }
   .header___auth-visible {
     display: block;
@@ -61,7 +112,7 @@
   }
 
   .right__auth-content {
-    padding: 120px 4%;
+    padding: 12px 2rem;
   }
   .header___auth-visible {
     display: block;
@@ -82,7 +133,7 @@
     width: 100%;
   }
   .right__auth-content {
-    padding: 12px 5px;
+    padding: 12px 0.8rem;
   }
   .header___auth-visible {
     display: block;

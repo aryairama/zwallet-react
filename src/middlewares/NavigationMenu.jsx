@@ -5,7 +5,12 @@ import iconTransfer from '../assets/img/icons/sidebar/arrow-up.svg';
 import iconTopup from '../assets/img/icons/sidebar/plus.svg';
 import iconProfile from '../assets/img/icons/sidebar/user.svg';
 import iconLogout from '../assets/img/icons/sidebar/log-out.svg';
+import { useDispatch } from 'react-redux';
+import { logout } from '../configs/actions/userAction';
+import { useHistory } from 'react-router-dom';
 const NavigationMenu = (props) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   return (
     <React.Fragment>
       <div className="menu">
@@ -23,7 +28,7 @@ const NavigationMenu = (props) => {
         </Sidebarmenu>
       </div>
       <div className="logout">
-        <Sidebarmenu to="/profile" iconMenu={iconLogout}>
+        <Sidebarmenu type="button" onClick={() => dispatch(logout(history))} iconMenu={iconLogout}>
           Logout
         </Sidebarmenu>
       </div>
