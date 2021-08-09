@@ -16,7 +16,7 @@ function Index(props) {
             height="500px"
             src={phoneSplit}
             alt="zwallet-preview"
-            className="zwallet-img-preview"
+            className="zwallet-img-preview me-auto ms-auto"
           ></img>
           <div>
             <div className="mb-3">
