@@ -26,6 +26,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
           return <Redirect to="/login" />;
         } else if (!access) {
           return <Redirect to="/login" />;
+        } else if (auth && access && !user.PIN) {
+          return <Redirect to="/pin" />;
         } else if (auth && access) {
           return (
             <React.Fragment>
