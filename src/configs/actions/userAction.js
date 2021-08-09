@@ -12,7 +12,11 @@ export const register = (data, history) => async (dispatch) => {
     swal('Success', 'Register successful, check your email to activation', 'success');
     history.push('/login');
   } catch (error) {
-    swal('Failed', error?.response?.data?.message || 'Internal Server Error', 'error');
+    if (error.response.data.statusCode === 422) {
+      swal('Failed', error.response.data.error[0].msg || 'Internal Server Error', 'error');
+    } else {
+      swal('Failed', error?.response?.data?.message || 'Internal Server Error', 'error');
+    }
   }
   dispatch({ type: 'REQUEST' });
 };
