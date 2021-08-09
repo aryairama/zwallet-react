@@ -6,7 +6,7 @@ export const register = (data, history) => async (dispatch) => {
   try {
     await axios.post('/users', {
       first_name: data.first_name,
-      last_name:data.last_name,
+      last_name: data.last_name,
       email: data.email,
       password: data.password,
     });
@@ -48,5 +48,19 @@ export const login = (formData, history) => async (dispatch) => {
     } else {
       swal('error', 'failed', 'error');
     }
+  }
+};
+
+export const logout = (history) => async (dispatch, getState) => {
+  try {
+    await axios.delete('users/logout', {
+      headers: {
+        Authorization: `Bearer ${getState().user.user.accessToken}`,
+      },
+    });
+    dispatch({ type: 'LOGOUT', payload: {} });
+    history.push('/login');
+  } catch (error) {
+    swal('Error', 'Logout failed', 'error');
   }
 };
