@@ -9,14 +9,15 @@ import PublicRoute from './middlewares/PublicRoute';
 import CreatePin from './pages/createPin';
 import verifiedAccounts from './pages/verifiedAccounts';
 import PinSuccess from './pages/confirmPin';
-import SearchReceiver from "./pages/searchReceiver";
-import HowToTopUp from "./pages/howToTopUp";
-import PersonalInfo from "./pages/personalnfo";
-import ChangePassword from "./pages/changePassword";
-import ManagePhone from "./pages/managePhoneNumber";
+import SearchReceiver from './pages/searchReceiver';
+import HowToTopUp from './pages/howToTopUp';
+import PersonalInfo from './pages/personalnfo';
+import ChangePassword from './pages/changePassword';
+import ManagePhone from './pages/managePhoneNumber';
 import Profile from './pages/profile';
 import EditProfile from './pages/editProfile';
 import ResetPassword from './pages/ResetPassword';
+import PrivateRoutePin from './middlewares/PrivateRoutePin';
 function App() {
   return (
     <Fragment>
@@ -27,7 +28,7 @@ function App() {
         <PublicRoute restricted={true} path="/forgot-password" component={ForgotPassword} />
         <PublicRoute restricted={true} path="/resetpassword/:token" component={ResetPassword} />
         <Route path="/verified-accounts/:token" component={verifiedAccounts} />
-        <Route path="/pin" component={CreatePin} />
+        <PrivateRoutePin roles={['member']} path="/pin" component={CreatePin} />
         <Route path="/pin-success" component={PinSuccess} />
         <PrivateRoute roles={['member', 'admin']} path="/dashboard" version={2} component={() => <p></p>} />
         <PrivateRoute roles={['member']} version={2} path="/how-to" component={HowToTopUp} />
