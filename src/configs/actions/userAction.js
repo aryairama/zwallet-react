@@ -5,7 +5,8 @@ import swal from 'sweetalert';
 export const register = (data, history) => async (dispatch) => {
   try {
     await axios.post('/users', {
-      username: data.username,
+      first_name: data.first_name,
+      last_name:data.last_name,
       email: data.email,
       password: data.password,
     });
