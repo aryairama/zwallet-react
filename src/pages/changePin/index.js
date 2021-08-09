@@ -7,7 +7,7 @@ const ChangePin = () => {
     <>
       <div className="wrapperContent">
         <p className="text_18 bold c-grey">Change PIN</p>
-        <p className="text_16 c-dark">Enter your current 6 digits Zwallet PIN below to continue to the next steps.</p>
+        <p className="text_16 c-dark desciptionContentBox">Enter your current 6 digits Zwallet PIN below to continue to the next steps.</p>
         <div className={Style.containerPin}>
           <Pin></Pin>
           <Button styling="bg__primary text-18 c-white" style={{ marginTop: '40px', marginBottom: '40px' }}>
