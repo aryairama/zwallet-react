@@ -8,7 +8,7 @@ const CreatePin = () => {
   //     setPin
   // }
   return (
-    <div>
+    <>
       <LayoutAuth>
         <p className="text-24">
           Secure Your Account, Your Wallet, and Your Data With 6 Digits PIN That
@@ -37,7 +37,7 @@ const CreatePin = () => {
           Confirm
         </Button>
       </LayoutAuth>
-    </div>
+    </>
   );
 };
 

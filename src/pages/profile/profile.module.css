@@ -1,0 +1,45 @@
+.contentProfile{
+    margin-left: auto;
+    margin-right: auto;
+    width: 443px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.editFlex{
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    display: flex;
+    align-items: baseline;
+    /* padding: 0px 200px; */
+}
+.editFlex p{
+    margin-left: 11px;
+}
+.dataProfile{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.buttonChoice{
+    background: #E5E8ED;
+    border-radius: 10px;
+    padding: 18px 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.buttonChoice p{
+    margin: 0px;
+}
+@media screen and (max-width: 576px) {
+    .contentProfile{
+        width: 100%;
+    }
+}
+

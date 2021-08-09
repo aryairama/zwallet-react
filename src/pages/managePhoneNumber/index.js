@@ -3,6 +3,7 @@ import '../../assets/css/color.css';
 import '../../assets/css/typography.css';
 import Card from '../../components/base/card';
 const ManagePhone = () => {
+  
   return (
     <>
       <div className="wrapperContent">

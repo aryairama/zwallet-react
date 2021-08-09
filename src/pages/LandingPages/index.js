@@ -31,7 +31,7 @@ const LandingPages = () => {
                 Login
               </Link>
               <Link
-                to="/signup"
+                to="/register"
                 className={cs(Style.button, Style.link, Style.white)}
               >
                 Sign Up
@@ -51,7 +51,7 @@ const LandingPages = () => {
                 wasting much of your times.
               </p>
               <Link
-                to="/signup"
+                to="/register"
                 className={cs(Style.button, Style.link, Style.blue)}
               >
                 Try It Free
