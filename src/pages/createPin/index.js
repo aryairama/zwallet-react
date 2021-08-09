@@ -2,7 +2,10 @@ import React from 'react';
 import { PinContainer, PinInput } from '../../components/base';
 import LayoutAuth from '../../components/module/LayoutAuth';
 import { Button } from '../../components/base';
-const CreatePin = () => {
+import { useDispatch } from 'react-redux';
+import { createPin } from '../../configs/actions/userAction';
+const CreatePin = (props) => {
+  const dispatch = useDispatch();
   const [pin, setPin] = React.useState({
     pin1: '',
     pin2: '',
@@ -15,6 +18,9 @@ const CreatePin = () => {
     setPin((oldValue) => {
       return { ...oldValue, [e.target.name]: parseInt(e.target.value) ? parseInt(e.target.value) : '' };
     });
+  };
+  const disabledButton = () => {
+    return pin.pin1 && pin.pin2 && pin.pin3 && pin.pin4 && pin.pin5 && pin.pin6;
   };
   return (
     <>
@@ -36,7 +42,12 @@ const CreatePin = () => {
           <PinInput type="text" name="pin5" value={pin.pin5} onChange={pinChangeHandler} />
           <PinInput type="text" name="pin6" value={pin.pin6} onChange={pinChangeHandler} />
         </PinContainer>
-        <Button disabled styling="bg__primary text-18 c-white" style={{ marginTop: '90px', width: '100%' }}>
+        <Button
+          onClick={() => dispatch(createPin(pin, props.history))}
+          disabled={disabledButton() ? false : true}
+          styling="bg__primary text-18 c-white"
+          style={{ marginTop: '90px', width: '100%' }}
+        >
           Confirm
         </Button>
       </LayoutAuth>
