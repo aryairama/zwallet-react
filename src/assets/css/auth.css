@@ -10,7 +10,7 @@
 .left__auth {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; */
   position: relative;
   width: 60%;
 }
@@ -38,11 +38,11 @@
 }
 
 .right__auth-content {
-  margin-top: 15%;
+  margin-top: 2%;
   padding-left: 10%;
   padding-top: 5%;
   height: 100%;
-  padding-right: 25%;
+  padding-right: 10%;
 }
 
 .header___auth-visible {
@@ -54,28 +54,37 @@
 }
 
 @media screen and (max-width: 1440px) {
-  .left__auth {
-    height: 100%;
+  .left__auth-content {
+    padding-left: 10%;
+    padding-right: 10%;
   }
   .right__auth-content {
-    margin-top: 15%;
+    margin-top: 10%;
     padding-left: 10%;
     padding-top: 5%;
     height: 100%;
-    padding-right: 15%;
+    padding-right: 10%;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .left__auth-content {
-    padding: 0 10%;
-    padding-top: 2%;
-  }
   .zwallet-img-preview {
     margin-top: -8%;
     margin-left: -8%;
     width: 400px;
     height: 400px;
+  }
+  .header___auth {
+    margin-bottom: 2rem;
+  }
+  .bg__image-auth {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    background-image: url(../img/image/imgAuth.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
 }
 
@@ -124,7 +133,7 @@
     width: 100%;
   }
   .right__auth-content {
-    padding: 12px 2rem;
+    padding: 12px 0.8rem;
   }
   .header___auth-visible {
     display: block;
