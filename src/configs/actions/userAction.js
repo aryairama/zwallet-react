@@ -119,3 +119,18 @@ export const createPin = (pin, history) => async (dispatch, getState) => {
   }
   dispatch({ type: 'REQUEST' });
 };
+
+export const updateProfile = (formData) => async (dispatch, getState) => {
+  const updateProfile = new FormData();
+  updateProfile.append('first_name', formData.first_name);
+  updateProfile.append('last_name', formData.last_name);
+  updateProfile.append('image', formData.image);
+  updateProfile.append('email', formData.email);
+  const data = await axios.put('/users', updateProfile, {
+    headers: {
+      Authorization: `Bearer ${getState().user.user.accessToken}`,
+    },
+  });
+  dispatch({ type: 'REQUEST' });
+  return data;
+};
