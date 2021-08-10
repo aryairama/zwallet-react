@@ -45,7 +45,7 @@ const NavbarAuth = (props) => {
             </ul>
             <div className={`ms-2 profile-info d-flex flex-column flex-wrap d-md-block d-none ${cs(style['mt-n1'])}`}>
               <div className={cs(style.profileName)}>{`${user.first_name} ${user.last_name}`}</div>
-              <div className="small ">{ user.phone_number}</div>
+              <div className="small ">{user.phone_number}</div>
             </div>
           </div>
           <div className="d-md-block d-none">
