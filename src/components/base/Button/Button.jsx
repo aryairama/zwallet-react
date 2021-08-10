@@ -6,41 +6,38 @@ function Button(props) {
   if (props.icon) {
     return (
       <React.Fragment>
-        <img
-          className={cs(style.iconInput)}
-          width={props.width}
-          height={props.height}
-          src={props.img}
-          alt="btn-only-icon"
-        ></img>
         <button
           onClick={props.onClick}
           disabled={props.disabled}
-          className={`${cs(style.color, style.border, style.margin)} ${
-            props.styling
-          }`}
+          className={`${cs(style.color, style.border, style.margin)} ${props.styling}`}
           style={props.style}
-        ></button>
+        >
+          <img
+            className={`${cs(style.onlyIcon)}`}
+            width={props.width}
+            height={props.height}
+            src={props.img}
+            alt="btn-only-icon"
+          ></img>
+        </button>
       </React.Fragment>
     );
   } else if (props.iconText) {
     return (
       <React.Fragment>
-        <img
-          className={cs(style.iconInput)}
-          width={props.width}
-          height={props.height}
-          src={props.img}
-          alt="btn-with-text-icon"
-        ></img>
         <button
           onClick={props.onClick}
           disabled={props.disabled}
-          className={`${cs(style.color, style.border, style.margin)} ${
-            props.styling
-          }`}
+          className={`${cs(style.color, style.border, style.margin, style.padding)} ${props.styling}`}
           style={props.style}
         >
+          <img
+            className={`${cs(style.iconText)} ${props.colorIcon}`}
+            width={props.width}
+            height={props.height}
+            src={props.img}
+            alt="btn-with-text-icon"
+          ></img>
           {props.children}
         </button>
       </React.Fragment>
@@ -51,9 +48,7 @@ function Button(props) {
       <button
         onClick={props.onClick}
         disabled={props.disabled}
-        className={`${cs(style.color, style.border, style.margin)} ${
-          props.styling
-        }`}
+        className={`${cs(style.color, style.border, style.margin)} ${props.styling}`}
         style={props.style}
       >
         {props.children}

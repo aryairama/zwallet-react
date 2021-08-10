@@ -12,7 +12,7 @@ export { default as person } from './img/icons/person.png';
 export { default as success } from './img/icons/success.svg';
 export { default as failed } from './img/icons/failed.svg';
 export { default as bgAuth } from './img/image/imgAuth.png';
-export { default as UpIcon } from './img/icons/sidebar/arrow-up.svg';
+export { default } from './css/wrapper.css';
 export { default as plusIcon } from './img/icons/sidebar/plus.svg';
-
+export { default as UpIcon } from './img/icons/sidebar/arrow-up.svg';
 export { imgAuth, phoneSplit, typography, color, auth };

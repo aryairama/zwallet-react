@@ -5,8 +5,9 @@ import { plusIcon, UpIcon } from '../../assets/index';
 import Card from '../../components/base/card';
 import Avatar from '../../assets/img/avatar/1.png';
 import './home.css';
+import { Link } from 'react-router-dom';
 
-function Index() {
+function Index(props) {
   React.useEffect(() => {
     document.title = 'Dashboard';
   });
@@ -29,6 +30,7 @@ function Index() {
               width="28px"
               colorIcon="c-white"
               height="28px"
+              onClick={() => props.history.push('/transfer')}
             >
               Transfer
             </Button>
@@ -40,6 +42,7 @@ function Index() {
               width="28px"
               height="28px"
               img={plusIcon}
+              onClick={() => props.history.push('/topup')}
             >
               Top up
             </Button>
@@ -55,7 +58,9 @@ function Index() {
           <CardContainer className="right__side-home bg__white">
             <div className="transaction d-flex justify-content-between">
               <p className="text-18 c-dark">Transaction History</p>
-              <p className="text-18 c-primary">See all</p>
+              <Link to="/transaction-history">
+                <p className="text-18 c-primary">See all</p>
+              </Link>
             </div>
             <Card
               type="tfHistory"
