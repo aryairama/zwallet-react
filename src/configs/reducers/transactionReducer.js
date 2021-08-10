@@ -9,6 +9,11 @@ const transactionReducer = (state = initialState, action) => {
         ...state,
         transaction: action.payload,
       };
+    case 'DELETE_TRANSACTION':
+      return{
+        ...state,
+        transaction: {}
+      }
     default:
       return {
         ...state,

@@ -151,3 +151,17 @@ export const getAllUser =
       console.log(error);
     }
   };
+export const getUserById = (id) => async (dispatch, getState) => {
+  try {
+    const user = await (
+      await axios.get(`/users/show/${id}`, {
+        headers: {
+          Authorization: `Bearer ${getState().user.user.accessToken}`,
+        },
+      })
+    ).data.data;
+    dispatch({ type: 'GET_USER_BY_ID', payload: { user } });
+  } catch (error) {
+    console.log(error);
+  }
+};
