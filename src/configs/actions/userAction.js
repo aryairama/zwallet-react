@@ -161,10 +161,11 @@ export const getUserById = (id) => async (dispatch, getState) => {
         },
       })
     ).data.data;
-    dispatch({ type: 'GET_USER_BY_ID', payload: user});
+    dispatch({ type: 'GET_USER_BY_ID', payload: user });
   } catch (error) {
     console.log(error);
   }
+};
 
 export const updatePassword = (formData) => async (dispatch, getState) => {
   try {
@@ -182,7 +183,7 @@ export const updatePassword = (formData) => async (dispatch, getState) => {
     );
     swal('Success', 'Password update success', 'success');
   } catch (error) {
-    swal('Error', error.response.data.message,'error');
+    swal('Error', error.response.data.message, 'error');
   }
   dispatch({ type: 'REQUEST' });
 };

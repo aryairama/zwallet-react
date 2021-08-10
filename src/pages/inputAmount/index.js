@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from 'react';
 import Card from '../../components/base/card';
 import Avatar from '../../assets/img/avatar/1.png';

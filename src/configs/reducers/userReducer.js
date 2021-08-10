@@ -18,7 +18,8 @@ const userReducer = (state = initialState, action) => {
         ...state,
         user: action.payload,
         auth: false,
-        allUser:{}
+        allUser: {},
+        user_receiver: {},
       };
     case 'REFRESHTOKEN':
       return {
