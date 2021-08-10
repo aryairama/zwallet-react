@@ -13,7 +13,9 @@
 .c-primary {
   color: #6379f4 !important;
 }
-
+.c-error{
+  color: #ff5b37 !important;
+}
 /* bg as background */
 .bg__primary {
   background-color: #6379f4 !important;

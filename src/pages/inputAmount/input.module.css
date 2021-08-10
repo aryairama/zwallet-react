@@ -1,0 +1,39 @@
+.input {
+  border: none;
+  font-style: normal;
+  font-weight: bold;
+  width: 100%;
+  font-size: 42px;
+  line-height: 56px;
+  text-align: center;
+  color: #b5bdcc;
+  outline: none;
+}
+.input:focus{
+    color: rgba(99, 121, 244, 1);
+}
+.notes{
+    margin-top: 60px;
+    padding: 0px 200px;
+}
+.buttonContinue{
+    text-align: end;
+}
+@media screen and (max-width: 768px) {
+    .inputBox{
+        width: 100%;
+        text-align: none;
+    }
+    .notes{
+        padding: 0px 20px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .inputBox{
+        width: 100%;
+        text-align: none;
+    }
+    .notes{
+        padding: 0px 10px;
+    }
+}

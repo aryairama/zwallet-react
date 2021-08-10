@@ -16,7 +16,7 @@ axiosConfig.interceptors.response.use(
       try {
         originalRequest._retry = true;
         const data = await (
-          await axios.post(`${process.env.REACT_APP_API_URL}users/refreshtoken`, {
+          await axios.post(`${process.env.REACT_APP_API_URL}/users/refreshtoken`, {
             refreshToken: store.getState().user.user.refreshToken,
           })
         ).data;

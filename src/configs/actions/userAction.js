@@ -97,3 +97,57 @@ export const resetPassword = async (formData, id, history) => {
     swal('Error', 'Password failed to change', 'error');
   }
 };
+
+export const createPin = (pin, history) => async (dispatch, getState) => {
+  try {
+    const PIN = `${pin.pin1}${pin.pin2}${pin.pin3}${pin.pin4}${pin.pin5}${pin.pin6}`;
+    await axios.post(
+      '/users/createpin',
+      {
+        PIN,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${getState().user.user.accessToken}`,
+        },
+      }
+    );
+    dispatch({ type: 'LOGIN', payload: { ...getState().user.user, PIN } });
+    history.push('/pin-success');
+  } catch (error) {
+    swal('Error', 'Failed created user PIN', 'error');
+  }
+  dispatch({ type: 'REQUEST' });
+};
+
+export const updateProfile = (formData) => async (dispatch, getState) => {
+  const updateProfile = new FormData();
+  updateProfile.append('first_name', formData.first_name);
+  updateProfile.append('last_name', formData.last_name);
+  updateProfile.append('image', formData.image);
+  updateProfile.append('email', formData.email);
+  const data = await axios.put('/users', updateProfile, {
+    headers: {
+      Authorization: `Bearer ${getState().user.user.accessToken}`,
+    },
+  });
+  dispatch({ type: 'REQUEST' });
+  return data;
+};
+
+export const getAllUser =
+  (limit, order, dispatchType, page = 1, search = '', fieldOrder = '') =>
+  async (dispatch, getState) => {
+    try {
+      const { data, pagination } = await (
+        await axios.get(`/users?order=${order}&limit=${limit}&page=${page}&search=${search}&fieldOrder=${fieldOrder}`, {
+          headers: {
+            Authorization: `Bearer ${getState().user.user.accessToken}`,
+          },
+        })
+      ).data;
+      dispatch({ type: dispatchType, payload: { data, pagination } });
+    } catch (error) {
+      console.log(error);
+    }
+  };
