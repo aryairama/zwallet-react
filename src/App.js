@@ -9,18 +9,22 @@ import PublicRoute from './middlewares/PublicRoute';
 import CreatePin from './pages/createPin';
 import verifiedAccounts from './pages/verifiedAccounts';
 import PinSuccess from './pages/confirmPin';
-import SearchReceiver from "./pages/searchReceiver";
-import HowToTopUp from "./pages/howToTopUp";
-import PersonalInfo from "./pages/personalnfo";
-import ChangePassword from "./pages/changePassword";
-import ManagePhone from "./pages/managePhoneNumber";
+import SearchReceiver from './pages/searchReceiver';
+import HowToTopUp from './pages/howToTopUp';
+import PersonalInfo from './pages/personalnfo';
+import ChangePassword from './pages/changePassword';
+import ManagePhone from './pages/managePhoneNumber';
 import Profile from './pages/profile';
 import EditProfile from './pages/editProfile';
 import ResetPassword from './pages/ResetPassword';
+<<<<<<< HEAD
 import ChangePin from './pages/changePin';
 import NewPin from './pages/newPin';
 import AddPhoneNumber from './pages/addPhoneNumber';
 import InputAmount from './pages/inputAmount';
+=======
+import PrivateRoutePin from './middlewares/PrivateRoutePin';
+>>>>>>> a0891e43d601667d0c2de2d12fbf28920e7f12e0
 function App() {
   return (
     <Fragment>
@@ -31,7 +35,7 @@ function App() {
         <PublicRoute restricted={true} path="/forgot-password" component={ForgotPassword} />
         <PublicRoute restricted={true} path="/resetpassword/:token" component={ResetPassword} />
         <Route path="/verified-accounts/:token" component={verifiedAccounts} />
-        <Route path="/pin" component={CreatePin} />
+        <PrivateRoutePin roles={['member']} path="/pin" component={CreatePin} />
         <Route path="/pin-success" component={PinSuccess} />
         <PrivateRoute roles={['member', 'admin']} path="/dashboard" version={2} component={() => <p></p>} />
         <PrivateRoute roles={['member']} version={2} path="/topup" component={HowToTopUp} />

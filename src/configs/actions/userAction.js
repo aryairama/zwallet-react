@@ -97,3 +97,25 @@ export const resetPassword = async (formData, id, history) => {
     swal('Error', 'Password failed to change', 'error');
   }
 };
+
+export const createPin = (pin, history) => async (dispatch, getState) => {
+  try {
+    const PIN = `${pin.pin1}${pin.pin2}${pin.pin3}${pin.pin4}${pin.pin5}${pin.pin6}`;
+    await axios.post(
+      '/users/createpin',
+      {
+        PIN,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${getState().user.user.accessToken}`,
+        },
+      }
+    );
+    dispatch({ type: 'LOGIN', payload: { ...getState().user.user, PIN } });
+    history.push('/pin-success');
+  } catch (error) {
+    swal('Error', 'Failed created user PIN', 'error');
+  }
+  dispatch({ type: 'REQUEST' });
+};
