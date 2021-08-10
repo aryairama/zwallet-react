@@ -1,0 +1,11 @@
+.containerPin{
+    width: 433px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+@media screen and (max-width: 576px) {
+    .containerPin{
+        width: 100%;
+    }
+}

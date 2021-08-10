@@ -19,7 +19,7 @@ import Ava3 from '../../assets/img/avatar/8.png';
 const LandingPages = () => {
   return (
     <div>
-      <div classname={Style.wrapper}>
+      <div>
         <div className={Style.wrapperHeader}>
           <div className={Style.header}>
             <p className={Style.title}>Zwallet</p>

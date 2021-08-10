@@ -17,6 +17,11 @@ import ManagePhone from './pages/managePhoneNumber';
 import Profile from './pages/profile';
 import EditProfile from './pages/editProfile';
 import ResetPassword from './pages/ResetPassword';
+import ChangePin from './pages/changePin';
+import NewPin from './pages/newPin';
+import AddPhoneNumber from './pages/addPhoneNumber';
+import InputAmount from './pages/inputAmount';
+import Confirmation from './pages/confirmation';
 import PrivateRoutePin from './middlewares/PrivateRoutePin';
 function App() {
   return (
@@ -31,13 +36,18 @@ function App() {
         <PrivateRoutePin roles={['member']} path="/pin" component={CreatePin} />
         <Route path="/pin-success" component={PinSuccess} />
         <PrivateRoute roles={['member', 'admin']} path="/dashboard" version={2} component={() => <p></p>} />
-        <PrivateRoute roles={['member']} version={2} path="/how-to" component={HowToTopUp} />
-        <PrivateRoute roles={['member']} version={2} path="/search-receiver" component={SearchReceiver} />
+        <PrivateRoute roles={['member']} version={2} path="/topup" component={HowToTopUp} />
+        <PrivateRoute roles={['member']} version={2} path="/transfer" component={SearchReceiver} />
         <PrivateRoute roles={['member']} version={2} path="/personal-info" component={PersonalInfo} />
         <PrivateRoute roles={['member']} version={2} path="/change-password" component={ChangePassword} />
         <PrivateRoute roles={['member']} version={2} path="/manage-phone-number" component={ManagePhone} />
         <PrivateRoute roles={['member']} version={2} path="/profile" component={Profile} />
         <PrivateRoute roles={['member']} version={2} path="/edit-profile" component={EditProfile} />
+        <PrivateRoute roles={['member']} version={2} path="/change-pin" component={ChangePin} />
+        <PrivateRoute roles={['member']} version={2} path="/new-pin" component={NewPin} />
+        <PrivateRoute roles={['member']} version={2} path="/add-phone-number" component={AddPhoneNumber} />
+        <PrivateRoute roles={['member']} version={2} path="/input-amount" component={InputAmount} />
+        <PrivateRoute roles={['member']} version={2} path="/confirmation-transfer" component={Confirmation} />
       </Switch>
     </Fragment>
   );
