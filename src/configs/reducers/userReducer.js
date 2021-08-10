@@ -2,6 +2,7 @@ const initialState = {
   user: {},
   auth: false,
   allUser: {},
+  user_receiver: {}
 };
 
 const userReducer = (state = initialState, action) => {
@@ -29,6 +30,11 @@ const userReducer = (state = initialState, action) => {
         ...state,
         allUser: action.payload,
       };
+    case 'GET_USER_BY_ID':
+      return {
+        ...state,
+        user_receiver: action.payload
+      }
     default:
       return state;
   }

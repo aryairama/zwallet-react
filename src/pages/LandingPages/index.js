@@ -16,7 +16,9 @@ import HnM from '../../assets/img/icons/hm.png';
 import Ava1 from '../../assets/img/avatar/4.png';
 import Ava2 from '../../assets/img/avatar/7.png';
 import Ava3 from '../../assets/img/avatar/8.png';
+import { useSelector } from 'react-redux';
 const LandingPages = () => {
+  const isAuth = useSelector(state => state.user.user.accessToken)
   return (
     <div>
       <div>
@@ -26,7 +28,7 @@ const LandingPages = () => {
             <div>
               <Link
                 to="/login"
-                className={cs(Style.button, Style.link, Style.blue)}
+                className={isAuth ? 'd-none' : cs(Style.button, Style.link, Style.blue)}
               >
                 Login
               </Link>
@@ -34,7 +36,7 @@ const LandingPages = () => {
                 to="/register"
                 className={cs(Style.button, Style.link, Style.white)}
               >
-                Sign Up
+                {isAuth ? 'Dashboard' : 'Sign Up'}
               </Link>
             </div>
           </div>
