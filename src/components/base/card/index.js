@@ -4,7 +4,18 @@ import '../../../assets/css/color.css';
 import cs from 'classnames';
 import Trash from '../../../assets/img/icons/trash.svg';
 import { Link } from 'react-router-dom';
-const Card = ({ type, image, name, phone, number, title, content }) => {
+const Card = ({
+  type,
+  image,
+  name,
+  phone,
+  number,
+  title,
+  content,
+  typeTransaction,
+  totalTransaction,
+  statusTransaction,
+}) => {
   if (type === 'contact') {
     return (
       <div>
@@ -73,6 +84,23 @@ const Card = ({ type, image, name, phone, number, title, content }) => {
             </Link>
           </div>
         )}
+      </>
+    );
+  } else if (type === 'tfHistory') {
+    return (
+      <>
+        <div className={Style.historyCard}>
+          <img src={image} alt="contact" className={Style.avatarUser} />
+          <div className={Style.userTransaction}>
+            <div className={Style.user__info}>
+              <p className="text-16 my-0 bold c-grey name__user">{name}</p>
+              <p className="text-14 mt-1 my-0 c-dark">{typeTransaction}</p>
+            </div>
+            <div>
+              <p className={`text-16 my-0 ${statusTransaction}`}>Rp. {totalTransaction}</p>
+            </div>
+          </div>
+        </div>
       </>
     );
   }

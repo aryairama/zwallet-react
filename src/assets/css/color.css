@@ -10,12 +10,22 @@
   color: #3a3d42 !important;
 }
 
+.c-greyLight {
+  color: #e0e0e0 !important;
+}
+
 .c-primary {
   color: #6379f4 !important;
 }
-.c-error{
+
+.c-green {
+  color: #1ec15f !important;
+}
+
+.c-error {
   color: #ff5b37 !important;
 }
+
 /* bg as background */
 .bg__primary {
   background-color: #6379f4 !important;
@@ -31,6 +41,10 @@
 }
 .bg-light {
   background: #fafcff !important;
+}
+
+.bg__white {
+  background-color: #fff !important;
 }
 .bold {
   font-weight: bold;
