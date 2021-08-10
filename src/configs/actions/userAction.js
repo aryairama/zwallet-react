@@ -134,3 +134,20 @@ export const updateProfile = (formData) => async (dispatch, getState) => {
   dispatch({ type: 'REQUEST' });
   return data;
 };
+
+export const getAllUser =
+  (limit, order, dispatchType, page = 1, search = '', fieldOrder = '') =>
+  async (dispatch, getState) => {
+    try {
+      const { data, pagination } = await (
+        await axios.get(`/users?order=${order}&limit=${limit}&page=${page}&search=${search}&fieldOrder=${fieldOrder}`, {
+          headers: {
+            Authorization: `Bearer ${getState().user.user.accessToken}`,
+          },
+        })
+      ).data;
+      dispatch({ type: dispatchType, payload: { data, pagination } });
+    } catch (error) {
+      console.log(error);
+    }
+  };
