@@ -21,8 +21,8 @@ function Index(props) {
             <p className="text-18 c-greyLight my-0">+62 813-9387-7946</p>
           </div>
         </CardContainer>
-        <div class="wrapper__btn-home">
-          <di className="btn__up-icon">
+        <div className="wrapper__btn-home">
+          <div className="btn__up-icon">
             <Button
               styling="myBtn text-18 text-bold d-flex btn__tf-tp"
               iconText
@@ -34,7 +34,7 @@ function Index(props) {
             >
               Transfer
             </Button>
-          </di>
+          </div>
           <div className="btn__plus-icon">
             <Button
               iconText

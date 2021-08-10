@@ -151,3 +151,24 @@ export const getAllUser =
       console.log(error);
     }
   };
+
+export const updatePassword = (formData) => async (dispatch, getState) => {
+  try {
+    await axios.post(
+      '/users/updatepassword',
+      {
+        new_password: formData.newpassword,
+        old_password: formData.currentPassword,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${getState().user.user.accessToken}`,
+        },
+      }
+    );
+    swal('Success', 'Password update success', 'success');
+  } catch (error) {
+    swal('Error', error.response.data.message,'error');
+  }
+  dispatch({ type: 'REQUEST' });
+};
