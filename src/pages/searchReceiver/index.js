@@ -31,11 +31,10 @@ const SearchReceiver = (props) => {
       <div className="wrapperContent">
         <p className="text-18 bold"> Search Receiver</p>
         <Search value={actionUser.search} name="search" onChange={handleChange} />
-        {allUser?.data.map((receiver, index) => (
-          <Link to={`/input-amount/${receiver.user_id}`}>
+        {allUser?.data?.map((receiver, index) => (
+          <Link key={index} to={`/input-amount/${receiver.user_id}`}>
             {user.user_id !== receiver.user_id && (
               <Card
-                key={index}
                 type="contact"
                 image={receiver.image ? `${process.env.REACT_APP_API_URL}/${receiver.image}` : Avatar}
                 name={`${receiver.first_name} ${receiver.last_name}`}
