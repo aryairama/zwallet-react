@@ -41,21 +41,13 @@ function Index(props) {
               <>
                 <LayoutAuth>
                   <div>
-                    <img
-                      src={success}
-                      className={styled.icon}
-                      alt="Succes Verified"
-                    ></img>
+                    <img src={success} className={styled.icon} alt="Succes Verified"></img>
                     <div className="mt-5 mb-5">
                       <p className="text-24 text-bold">Verified Success!</p>
-                      <p className="text-16 ">
-                        Login and start access all the features in Zwallet.
-                      </p>
+                      <p className="text-16 ">Login and start access all the features in Zwallet.</p>
                     </div>
                     <Link to="/login">
-                      <Button styling="bg__primary mt-5 text-18 c-white myBtn">
-                        Login
-                      </Button>
+                      <Button styling="bg__primary mt-5 text-18 c-white myBtn">Login</Button>
                     </Link>
                   </div>
                 </LayoutAuth>
@@ -63,24 +55,16 @@ function Index(props) {
             ) : (
               <>
                 <LayoutAuth>
-                  <img
-                    src={failed}
-                    className={styled.icon}
-                    alt="Failed Verified"
-                  ></img>
+                  <img src={failed} className={styled.icon} alt="Failed Verified"></img>
                   <div className="mt-5 mb-5">
                     <p className="text-24 text-bold">Recovery mail sent</p>
                     <p className="text-16 ">
-                      Didn't receive the email? Please check the email address
-                      you used to make sure it matches the address on your
-                      account, look in your spam folder, or request another
-                      email below.
+                      Didn't receive the email? Please check the email address you used to make sure it matches the
+                      address on your account, look in your spam folder, or request another email below.
                     </p>
                   </div>
 
-                  <Button styling="bg__primary mt-5 text-18 c-white myBtn">
-                    Send New Email
-                  </Button>
+                  <Button styling="bg__primary mt-5 text-18 c-white myBtn">Send New Email</Button>
                   <p className="text-16 text-center mt-4">Or</p>
 
                   <Link to="/register">
