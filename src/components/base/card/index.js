@@ -36,7 +36,9 @@ const Card = ({ type, image, name, phone, number, title, content }) => {
             <div className={Style.phone}>
               <div>
                 <p className={`text-16 c-dark ${Style.marginZero}`}>{title}</p>
-                <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
+                <p className={`text-18 bold c-grey ${Style.marginZero}`}>
+                  {content}
+                </p>
               </div>
               <Link to="/manage-phone-number" className="c-primary text-16">
                 Manage
@@ -45,7 +47,9 @@ const Card = ({ type, image, name, phone, number, title, content }) => {
           ) : (
             <>
               <p className={`text-16 c-dark ${Style.marginZero}`}>{title}</p>
-              <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
+              <p className={`text-18 bold c-grey ${Style.marginZero}`}>
+                {content}
+              </p>
             </>
           )}
         </div>
@@ -59,7 +63,9 @@ const Card = ({ type, image, name, phone, number, title, content }) => {
             <div className={Style.phone}>
               <div>
                 <p className={`text-16 c-dark ${Style.marginZero}`}>{title}</p>
-                <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
+                <p className={`text-18 bold c-grey ${Style.marginZero}`}>
+                  {content}
+                </p>
               </div>
               <Link to="/personal-info">
                 <img src={Trash} alt="trash" />
