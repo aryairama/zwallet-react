@@ -21,6 +21,7 @@ import ChangePin from './pages/changePin';
 import NewPin from './pages/newPin';
 import AddPhoneNumber from './pages/addPhoneNumber';
 import InputAmount from './pages/inputAmount';
+import Confirmation from './pages/confirmation';
 import PrivateRoutePin from './middlewares/PrivateRoutePin';
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/new-pin" component={NewPin} />
         <PrivateRoute roles={['member']} version={2} path="/add-phone-number" component={AddPhoneNumber} />
         <PrivateRoute roles={['member']} version={2} path="/input-amount" component={InputAmount} />
+        <PrivateRoute roles={['member']} version={2} path="/confirmation-transfer" component={Confirmation} />
       </Switch>
     </Fragment>
   );
