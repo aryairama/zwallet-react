@@ -97,7 +97,7 @@ const Card = ({
               <p className="text-14 mt-1 my-0 c-dark">{typeTransaction}</p>
             </div>
             <div>
-              <p className={`text-16 my-0 ${statusTransaction}`}>Rp. {totalTransaction}</p>
+              <p className={`text-16 my-0 ${statusTransaction}`}>{totalTransaction}</p>
             </div>
           </div>
         </div>
