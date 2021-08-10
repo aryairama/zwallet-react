@@ -16,11 +16,11 @@ const InputAmount = () => {
   const [price, setPrice] = useState('0');
   const [description, setDescription] = useState('');
   const [error, setError] = useState(false);
-  React.useEffect(async () => { 
+  React.useEffect(async () => {
+    console.log('object')
     await dispatch(getUserById(user_id)); 
   }, [user_id]);
-  const user = useSelector((state) => state.user.user);
-  const user_receiver = useSelector((state) => state.user.user_receiver.user[0])
+  const {user, user_receiver} = useSelector((state) => state.user);
   console.log(user_receiver)
   function convertToRupiah(angka) {
     var rupiah = '';
@@ -66,7 +66,7 @@ const InputAmount = () => {
     <>
       <div className="wrapperContent">
         <p className="text_18 bold c-grey">Transfer Money</p>
-        <Card type="contact" image={user.image ? `${process.env.REACT_APP_API_URL}/${user.image}` : Avatar} name={user_receiver.fullname} phone={user_receiver.phone_number} />
+        <Card type="contact" image={user_receiver.image ? `${process.env.REACT_APP_API_URL}/${user_receiver.image}` : Avatar} name={user_receiver.fullname} phone={user_receiver.phone_number} />
         <p className="text_16 c-dark desciptionContentBox c-mt-6">
           Type the amount you want to transfer and then press continue to the next steps.
         </p>

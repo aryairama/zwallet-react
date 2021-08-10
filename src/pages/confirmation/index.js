@@ -13,8 +13,7 @@ const Confirmation = () => {
   React.useEffect(async () => { 
     await dispatch(getUserById(user_id)); 
   }, [user_id]);
-  const user = useSelector((state) => state.user.user);
-  const user_receiver = useSelector((state) => state.user.user_receiver.user[0])
+  const {user, user_receiver} = useSelector((state) => state.user);
   const handleSubmit = () => {
     dispatch(transactionDone());
   };

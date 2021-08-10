@@ -160,7 +160,7 @@ export const getUserById = (id) => async (dispatch, getState) => {
         },
       })
     ).data.data;
-    dispatch({ type: 'GET_USER_BY_ID', payload: { user } });
+    dispatch({ type: 'GET_USER_BY_ID', payload: user});
   } catch (error) {
     console.log(error);
   }
