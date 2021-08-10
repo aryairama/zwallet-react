@@ -24,6 +24,7 @@ import InputAmount from './pages/inputAmount';
 import Confirmation from './pages/confirmation';
 import PrivateRoutePin from './middlewares/PrivateRoutePin';
 import Home from './pages/home';
+import TransactionHistory from './pages/transactionHistory';
 function App() {
   return (
     <Fragment>
@@ -48,8 +49,8 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/new-pin" component={NewPin} />
         <PrivateRoute roles={['member']} version={2} path="/add-phone-number" component={AddPhoneNumber} />
         <PrivateRoute roles={['member']} version={2} path="/input-amount/:user_id" component={InputAmount} />
+        <PrivateRoute roles={['member']} version={2} path="/transaction-history" component={TransactionHistory} />
         <PrivateRoute roles={['member']} version={2} path="/confirmation-transfer/:user_id" component={Confirmation} />
-        <PrivateRoute roles={['member']} version={2} path="/transaction-history" component={() => <p></p>} />
       </Switch>
     </Fragment>
   );
