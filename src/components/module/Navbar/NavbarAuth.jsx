@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import iconNotif from '../../../assets/img/icons/notification.svg';
 import iconProfile from '../../../assets/img/avatar/8.png';
 import sideBarIcon from '../../../assets/img/icons/list.svg';
+import { useSelector } from 'react-redux';
 
 const NavbarAuth = (props) => {
+  const { user } = useSelector((state) => state.user);
   return (
     <nav
       className={`navbar py-0 navbar-light bg-white shadow-sm fixed-top ${props.styleNavbar} ${style.navbarZwallet}`}
@@ -21,10 +23,16 @@ const NavbarAuth = (props) => {
           )}`}
         >
           <div className="d-flex dropdown">
-            <img src={iconProfile} width="40px" data-bs-toggle="dropdown" height="40px" alt="iconProfile" />
+            <img
+              src={user.image ? `${process.env.REACT_APP_API_URL}/${user.image}` : iconProfile}
+              width="40px"
+              data-bs-toggle="dropdown"
+              height="40px"
+              alt="iconProfile"
+            />
             <ul className="dropdown-menu d-md-none dropdown-menu-end" aria-labelledby="dropdownMenu2">
               <li className="d-flex flex-column dropdown-item">
-                <div className={cs(style.profileName)}>Robert Chandler</div>
+                <div className={cs(style.profileName)}>{`${user.first_name} ${user.last_name}`}</div>
                 <div className="small ">+6285334016482</div>
               </li>
               <div className="dropdown-divider"></div>
@@ -36,8 +44,8 @@ const NavbarAuth = (props) => {
               </li>
             </ul>
             <div className={`ms-2 profile-info d-flex flex-column flex-wrap d-md-block d-none ${cs(style['mt-n1'])}`}>
-              <div className={cs(style.profileName)}>Robert Chandler</div>
-              <div className="small ">+6285334016482</div>
+              <div className={cs(style.profileName)}>{`${user.first_name} ${user.last_name}`}</div>
+              <div className="small ">{ user.phone_number}</div>
             </div>
           </div>
           <div className="d-md-block d-none">
