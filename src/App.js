@@ -17,14 +17,11 @@ import ManagePhone from './pages/managePhoneNumber';
 import Profile from './pages/profile';
 import EditProfile from './pages/editProfile';
 import ResetPassword from './pages/ResetPassword';
-<<<<<<< HEAD
 import ChangePin from './pages/changePin';
 import NewPin from './pages/newPin';
 import AddPhoneNumber from './pages/addPhoneNumber';
 import InputAmount from './pages/inputAmount';
-=======
 import PrivateRoutePin from './middlewares/PrivateRoutePin';
->>>>>>> a0891e43d601667d0c2de2d12fbf28920e7f12e0
 function App() {
   return (
     <Fragment>
