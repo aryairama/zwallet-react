@@ -6,14 +6,22 @@ import Edit from '../../assets/img/icons/edit.svg';
 import { InputTextIcon, Button } from '../../components/base';
 import { useDispatch } from 'react-redux';
 import { transaction } from '../../configs/actions/transactionAction';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
+import { useSelector } from 'react-redux';
+import { getUserById } from '../../configs/actions/userAction';
 const InputAmount = () => {
-  const initialPrice = '120000';
   const dispatch = useDispatch();
   const history = useHistory();
+  const { user_id } = useParams();
   const [price, setPrice] = useState('0');
   const [description, setDescription] = useState('');
   const [error, setError] = useState(false);
+  React.useEffect(async () => {
+    console.log('object')
+    await dispatch(getUserById(user_id)); 
+  }, [user_id]);
+  const {user, user_receiver} = useSelector((state) => state.user);
+  console.log(user_receiver)
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
@@ -41,24 +49,24 @@ const InputAmount = () => {
     setDescription(e.target.value);
   };
   const handleSubmit = (e) => {
-    if (price > initialPrice) {
+    if (price > user.saldo) {
       e.preventDefault();
       setError(true);
     } else if (parseInt(price) === 0) {
       e.preventDefault();
       setError(true);
     } else {
-      const amountLeft = initialPrice - price;
+      const amountLeft = user.saldo - price;
       const data = { price, amountLeft, description };
       dispatch(transaction(data));
-      history.push('/confirmation-transfer');
+      history.push(`/confirmation-transfer/${user_id}`);
     }
   };
   return (
     <>
       <div className="wrapperContent">
         <p className="text_18 bold c-grey">Transfer Money</p>
-        <Card type="contact" image={Avatar} name="Samuel Suhi" phone="+62 813-8492-9994" />
+        <Card type="contact" image={user_receiver.image ? `${process.env.REACT_APP_API_URL}/${user_receiver.image}` : Avatar} name={user_receiver.fullname} phone={user_receiver.phone_number} />
         <p className="text_16 c-dark desciptionContentBox c-mt-6">
           Type the amount you want to transfer and then press continue to the next steps.
         </p>
@@ -72,9 +80,9 @@ const InputAmount = () => {
             className={Style.input}
             onChange={handleChange}
           />
-          <p className="text_16 c-grey text-center bold mt-3">{convertToRupiah(initialPrice)} Available</p>
+          <p className="text_16 c-grey text-center bold mt-3">{convertToRupiah(user.saldo)} Available</p>
           <p className={`${error ? `text_16 c-error bold text-center` : `d-none`}`}>
-            {price === "0" ? 'input price correctly' : 'Insufficient balance'}
+            {price === '0' ? 'input price correctly' : 'Insufficient balance'}
           </p>
           <div className={Style.notes}>
             <InputTextIcon

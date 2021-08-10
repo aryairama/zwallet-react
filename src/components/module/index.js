@@ -4,3 +4,7 @@ export { default as Footer } from './Footer/Footer';
 export { default as Footer2 } from './Footer/Footer2';
 export { default as Sidebar2 } from './Sidebar/Sidebar2';
 export { default as Sidebarmenu } from './Sidebar/Sidebarmenu';
+export { default as ContainerModal } from './ModalPin/ContainerModal';
+export { default as HeaderModal } from './ModalPin/HeaderModal';
+export { default as BodyModal } from './ModalPin/BodyModal';
+export { default as FooterModal } from './ModalPin/FooterModal';
