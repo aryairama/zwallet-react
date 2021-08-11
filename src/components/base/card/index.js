@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const Card = ({
   type,
   image,
+  imageVal,
   name,
   phone,
   number,
@@ -26,7 +27,7 @@ const Card = ({
     return (
       <div>
         <div className={Style.receiverCard}>
-          <img src={image} alt="contact" className={Style.imgContact} />
+          <img src={image} alt="contact" className={`${!imageVal ? 'd-none' : `${Style.imgContact}`}`} />
           <div className={Style.contactDesc}>
             <p className="text-18 bold c-grey">{name}</p>
             <p className="text-16 c-dark">{phone}</p>
@@ -98,11 +99,13 @@ const Card = ({
           <div className={Style.userTransaction}>
             <div className={Style.user__info}>
               <p className={`text-16 my-0 bold c-grey name__user ${Style.shortName}`}>{name}</p>
-              <p className="text-14 mt-1 my-0 c-dark">{typeTransaction === 'transfer_in'
-                    ? 'Transfer In'
-                    : typeTransaction === 'transfer'
-                    ? 'Transfer Out'
-                    : 'Top Up'}</p>
+              <p className="text-14 mt-1 my-0 c-dark">
+                {typeTransaction === 'transfer_in'
+                  ? 'Transfer In'
+                  : typeTransaction === 'transfer'
+                  ? 'Transfer Out'
+                  : 'Top Up'}
+              </p>
             </div>
             <div>
               <p
@@ -114,7 +117,11 @@ const Card = ({
                     : `text_16 bold ${Style.redText}`
                 } ${statusTransaction === 'pending' ? `${Style.yellowText}` : null} ${Style.shortAmount}`}
               >{`${
-                transactionVal ? `+${totalTransaction}` : `${typeTransaction}` === 'transfer_in' ? `+${totalTransaction}` : `-${totalTransaction}`
+                transactionVal
+                  ? `+${totalTransaction}`
+                  : `${typeTransaction}` === 'transfer_in'
+                  ? `+${totalTransaction}`
+                  : `-${totalTransaction}`
               }`}</p>
             </div>
           </div>
@@ -146,10 +153,14 @@ const Card = ({
                   : `${transaction_type}` === 'transfer_in'
                   ? `text_16 bold ${Style.greenText}`
                   : `text_16 bold ${Style.redText}`
-              } ${statusTransaction === 'pending' ? `${Style.yellowText}` : null}`}
-            >{`${
-              transactionVal ? `+${amount}` : `${transaction_type}` === 'transfer_in' ? `+${amount}` : `-${amount}`
-            }`}</p>
+              } ${
+                statusTransaction === 'pending'
+                  ? `text_16 bold ${Style.yellowText}`
+                  : statusTransaction === 'approve'
+                  ? `text_16 bold ${Style.greenText}`
+                  : `text_16 bold ${Style.redText}`
+              }`}
+            >{amount}</p>
           </div>
         </div>
       </div>

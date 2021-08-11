@@ -7,7 +7,6 @@ export const transactionDone = () => (dispatch) => {
 };
 export const getTransaction = (limit, order, page = 1, search = '', fieldOrder = '') => async (dispatch, getState) => {
   try {
-    console.log(search)
     const { data, pagination } = await (
       await axios.get(`/main/gettransactions?order=${order}&limit=${limit}&page=${page}&keyword=${search}&fieldOrder=${fieldOrder}`, {
         headers: {
