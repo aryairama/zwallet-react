@@ -55,7 +55,8 @@ export const logout = (history) => async (dispatch, getState) => {
       },
     });
     dispatch({type: 'LOGOUT', payload: {}});
-    dispatch({type: 'DELETE_ALL_TRANSACTION'});
+    dispatch({ type: 'DELETE_ALL_TRANSACTION' });
+    dispatch({ type: 'DELETE_ALL_TOPUP' });
     history.push('/login');
   } catch (error) {
     swal('Error', 'Logout failed', 'error');

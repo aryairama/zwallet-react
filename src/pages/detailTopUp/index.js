@@ -8,11 +8,10 @@ import { getTopUpId, changeStatus } from '../../configs/actions/topupAction';
 const DetailTopUp = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const detil = useSelector((state) => state.topUp.topUpDetail);
   React.useEffect(async () => {
     await dispatch(getTopUpId(id));
-  }, [id]);
-  const detil = useSelector((state) => state.topUp.topUpDetail.data);
-  console.log(detil);
+  },[id]);
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
@@ -57,7 +56,7 @@ const DetailTopUp = () => {
           </span>
         </p>
         <div className="text-center">
-          <p className={Style.amountText}>{convertToRupiah(convertToAngka(detil.amount))}</p>
+          {detil && detil.amount && <p className={Style.amountText}>{convertToRupiah(convertToAngka(detil.amount))}</p>}
           <img
             src={`${process.env.REACT_APP_API_URL}/${detil.image_topup}`}
             alt="imageTopup"
