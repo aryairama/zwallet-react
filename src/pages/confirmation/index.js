@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import Card from '../../components/base/card';
@@ -7,7 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Button } from '../../components/base';
 import { getUserById } from '../../configs/actions/userAction';
-import { transactionDone } from '../../configs/actions/transactionAction';
 import { useHistory } from 'react-router';
 import { createPortal } from 'react-dom';
 import { Modal } from 'bootstrap';
@@ -21,6 +19,9 @@ const Confirmation = (props) => {
   const history = useHistory();
   const { user_id } = useParams();
   const dispatch = useDispatch();
+  React.useEffect(() => {
+    setModalPin(new Modal(refModalPin.current, { backdrop: 'static' }));
+  }, []);
   React.useEffect(async () => {
     await dispatch(getUserById(user_id, props.history));
   }, [user_id]);
@@ -30,9 +31,6 @@ const Confirmation = (props) => {
       history.push('/transfer');
     }
   }, [user_id]);
-  const handleSubmit = () => {
-    dispatch(transactionDone());
-  };
   const date = new Date();
   return (
     <>
