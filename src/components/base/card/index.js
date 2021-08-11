@@ -18,6 +18,7 @@ const Card = ({
   transaction_type,
   amount,
   transactionVal,
+  children,
 }) => {
   if (type === 'contact') {
     return (
@@ -60,6 +61,7 @@ const Card = ({
             <>
               <p className={`text-16 c-dark ${Style.marginZero}`}>{title}</p>
               <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
+              {children}
             </>
           )}
         </div>
