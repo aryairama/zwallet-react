@@ -22,19 +22,12 @@
   display: block;
   position: absolute;
   top: 4rem;
-  /* max-width: 400px; */
-  width: 100%;
+  width: 110%;
+  margin-right: 2.3rem;
   height: max-content;
   background: #ffffff;
   box-shadow: 0px 0px 70px rgba(99, 99, 99, 0.15);
   border-radius: 20px;
-}
-
-@media screen and (max-width: 1024px) {
-  .notification-active {
-    width: 35vw;
-    margin-right: 3.5rem;
-  }
 }
 
 @media (min-width: 768px) {
@@ -45,6 +38,35 @@
 @media (min-width: 992px) {
   .containerMenu {
     width: 30%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .notification-active {
+    width: 45vw;
+    margin-right: 11rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .left__auth {
+    display: none;
+  }
+  .right__auth {
+    width: 100%;
+  }
+  .right__auth-content {
+    padding: 12px 2rem;
+  }
+  .header___auth-visible {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .notification-active {
+    width: 50vw;
+    margin-right: 6.5rem;
   }
 }
 

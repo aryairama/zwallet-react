@@ -2,7 +2,6 @@ import React from 'react';
 import CardContainer from '../../components/base/cardContainer';
 import Card from '../../components/base/card';
 import Avatar from '../../assets/img/avatar/1.png';
-import { Link } from 'react-router-dom';
 import './tfHistory.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTransaction } from '../../configs/actions/transactionAction';
@@ -29,7 +28,7 @@ function Index() {
       <CardContainer className="bg__white">
         <p className="text-bold text-18">Transaction History</p>
         <div>
-          {transactionList?.data.map((transaction, index) => (
+          {transactionList?.data?.map((transaction, index) => (
             <Card
               key={index}
               type="tfHistory"

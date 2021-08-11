@@ -6,19 +6,36 @@ import Card from '../../components/base/card';
 import Avatar from '../../assets/img/avatar/1.png';
 import './home.css';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Index(props) {
   React.useEffect(() => {
     document.title = 'Dashboard';
   });
+  const { user } = useSelector((state) => state.user);
+  function convertToRupiah(angka) {
+    var rupiah = '';
+    var angkarev = angka.toString().split('').reverse().join('');
+    for (var i = 0; i < angkarev.length; i++) if (i % 3 === 0) rupiah += angkarev.substr(i, 3) + '.';
+    return (
+      'Rp. ' +
+      rupiah
+        .split('', rupiah.length - 1)
+        .reverse()
+        .join('')
+    );
+  }
+  console.log(user);
   return (
     <React.Fragment>
       <div className="wrapper__card-home">
         <CardContainer className="content__card-home">
           <div className="wrapper__card-text">
             <p className="c-greyLight text-18 my-0 ">Balance</p>
-            <p className="text-40 c-white my-0 ">Rp. 1200000</p>
-            <p className="text-18 c-greyLight my-0">+62 813-9387-7946</p>
+            <p className="text-40 c-white my-0 ">{convertToRupiah(user.saldo)}</p>
+            <p className="text-18 c-greyLight my-0">
+              {user.phone_number ? user.phone_number : 'Silahkan tambah nomor'}
+            </p>
           </div>
         </CardContainer>
         <div className="wrapper__btn-home">

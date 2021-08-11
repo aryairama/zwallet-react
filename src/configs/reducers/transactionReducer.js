@@ -1,5 +1,6 @@
 const initialState = {
   transaction: {},
+  transactionId: {},
   transactionList: {},
 };
 
@@ -19,6 +20,11 @@ const transactionReducer = (state = initialState, action) => {
       return {
         ...state,
         transactionList: action.payload,
+      };
+    case 'GET_TRANSACTION_BY_ID':
+      return {
+        ...state,
+        transactionId: action.payload,
       };
     default:
       return state

@@ -9,7 +9,7 @@ import { getUserById } from '../../configs/actions/userAction';
 import { useHistory } from 'react-router';
 import { createPortal } from 'react-dom';
 import { Modal } from 'bootstrap';
-import { ContainerModal, HeaderModal, BodyModal} from '../../components/module';
+import { ContainerModal, HeaderModal, BodyModal } from '../../components/module';
 const Confirmation = (props) => {
   const refModalPin = React.useRef(null);
   const [modalPin, setModalPin] = React.useState(null);
@@ -19,9 +19,6 @@ const Confirmation = (props) => {
   const history = useHistory();
   const { user_id } = useParams();
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    setModalPin(new Modal(refModalPin.current, { backdrop: 'static' }));
-  }, []);
   React.useEffect(async () => {
     await dispatch(getUserById(user_id, props.history));
   }, [user_id]);
@@ -31,6 +28,9 @@ const Confirmation = (props) => {
       history.push('/transfer');
     }
   }, [user_id]);
+  const handleSubmit = () => {
+    dispatch(transactionDone());
+  };
   const date = new Date();
   return (
     <>
