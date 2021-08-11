@@ -26,8 +26,14 @@ const transactionReducer = (state = initialState, action) => {
         ...state,
         transactionId: action.payload,
       };
+    case 'DELETE_ALL_TRANSACTION':
+      return {
+        ...state,
+        transaction: {},
+        transactionList: {},
+      };
     default:
-      return state
+      return state;
   }
 };
 export default transactionReducer;

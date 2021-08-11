@@ -25,6 +25,7 @@ axiosConfig.interceptors.response.use(
         return axiosConfig(originalRequest);
       } catch (error) {
         store.dispatch({ type: 'LOGOUT', payload: {} });
+        store.dispatch({ type: 'DELETE_ALL_TRANSACTION' });
       }
     }
     return Promise.reject(error);
