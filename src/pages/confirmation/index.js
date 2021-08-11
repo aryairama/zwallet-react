@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import Card from '../../components/base/card';
@@ -6,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Button } from '../../components/base';
 import { getUserById } from '../../configs/actions/userAction';
+import { transactionDone } from '../../configs/actions/transactionAction';
 import { useHistory } from 'react-router';
 import { createPortal } from 'react-dom';
 import { Modal } from 'bootstrap';

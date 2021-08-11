@@ -14,13 +14,8 @@ function Index() {
   const dispatch = useDispatch();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(async () => {
-<<<<<<< HEAD
-    await dispatch(getTransaction());
-  }, [dispatch]);
-=======
     await dispatch(getTransaction(2, 'DESC', page, 'created_at'));
   }, [dispatch, page]);
->>>>>>> 89f905d31137db632395daa571b794b7c451bb31
   const { transactionList } = useSelector((state) => state.transaction);
   console.log(transactionList);
   return (
