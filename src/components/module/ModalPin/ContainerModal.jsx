@@ -5,7 +5,7 @@ const ContainerModal = (props) => {
     <div
       className="modal fade"
       id={props.id}
-      ref={props.ref}
+      ref={props.forwadedRef}
       tabIndex="-1"
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
