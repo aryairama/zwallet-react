@@ -20,7 +20,12 @@ const PersonalInfo = () => {
           title="Verified E-mail"
           content={user.email}
         />
-        <Card type="stuff" title="Phone Number" content={user.phone_number} />
+        {user.phone_number && user.phone_number.length > 13 && (
+        <Card type="stuff" title="Phone Number" content={user.phone_number} to='/manage-phone-number' textstuff='Manage'/>
+        )}
+        {!user.phone_number && (
+        <Card type="stuff" title="Phone Number" content={user.phone_number} to='/add-phone-number' textstuff='Add'/>
+        )}
       </div>
     </>
   );
