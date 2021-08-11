@@ -23,7 +23,7 @@ const Confirmation = () => {
     <>
       <div className="wrapperContent">
         <p className="text_18 bold c-grey">Transfer to</p>
-        <Card type="contact" image={user.image ? `${process.env.REACT_APP_API_URL}/${user.image}` : Avatar} name={user_receiver.fullname} phone={user_receiver.phone_number} />
+        <Card type="contact" image={user_receiver.image ? `${process.env.REACT_APP_API_URL}/${user.image}` : Avatar} name={user_receiver.fullname} phone={user_receiver.phone_number} />
         <p className="text_16 bold c-grey">Transfer to</p>
         <Card type="stuff" title="Amount" content={transaction.price} />
         <Card type="stuff" title="Balance Left" content={transaction.amountLeft} />
