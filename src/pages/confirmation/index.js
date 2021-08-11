@@ -7,12 +7,12 @@ import { useParams } from 'react-router';
 import { Button } from '../../components/base';
 import { transactionDone } from '../../configs/actions/transactionAction';
 import { getUserById } from '../../configs/actions/userAction';
-const Confirmation = () => {
+const Confirmation = (props) => {
   const transaction = useSelector((state) => state.transaction.transaction);
   const { user_id } = useParams();
   const dispatch = useDispatch();
   React.useEffect(async () => { 
-    await dispatch(getUserById(user_id)); 
+    await dispatch(getUserById(user_id, props.history)); 
   }, [user_id]);
   const {user, user_receiver} = useSelector((state) => state.user);
   const handleSubmit = () => {
@@ -23,7 +23,7 @@ const Confirmation = () => {
     <>
       <div className="wrapperContent">
         <p className="text_18 bold c-grey">Transfer to</p>
-        <Card type="contact" image={user_receiver.image ? `${process.env.REACT_APP_API_URL}/${user.image}` : Avatar} name={user_receiver.fullname} phone={user_receiver.phone_number} />
+        <Card type="contact" image={user_receiver.image ? `${process.env.REACT_APP_API_URL}/${user_receiver.image}` : Avatar} name={user_receiver.fullname} phone={user_receiver.phone_number} />
         <p className="text_16 bold c-grey">Transfer to</p>
         <Card type="stuff" title="Amount" content={transaction.price} />
         <Card type="stuff" title="Balance Left" content={transaction.amountLeft} />
