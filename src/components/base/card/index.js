@@ -109,7 +109,7 @@ const Card = ({
   } else if (type === 'transactionList') {
     return (
       <div>
-        <div className={Style.receiverCard}>
+        <div className={Style.historyCard}>
           <div className={Style.transactionCard}>
             <div className={Style.transactionDesc}>
               <img src={image} alt="contact" className={Style.imgContact} />

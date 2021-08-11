@@ -12,13 +12,13 @@ import locale from 'rc-pagination/es/locale/en_US';
 import 'rc-pagination/assets/index.css';
 function Index() {
   const [page, setPage] = React.useState(1);
-  // const { transactionList, user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(async () => {
-    await dispatch(getTransaction());
-  }, [dispatch]);
+    await dispatch(getTransaction(5, 'DESC', 'ALL_USER', page, 'created_at'));
+  }, [page]);
   const { transactionList } = useSelector((state) => state.transaction);
+  const { user } = useSelector((state) => state.user)
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
@@ -44,21 +44,26 @@ function Index() {
       <CardContainer className="bg__white">
         <p className="text-bold text-18">Transaction History</p>
         <div>
-          {transactionList?.data?.map((transaction, index) => (
+        {transactionList?.data ? (
+            transactionList?.data?.map((transaction, index) => (
             <Link to={`/status-transfer/${transaction.transaction_id}`}>
               <Card
                 key={index}
                 type="transactionList"
                 image={
-                  transaction.image_reciever ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}` : Avatar
+                  transaction.transaction_type === 'topup' ? `${process.env.REACT_APP_API_URL}/${user.image}` : transaction.image_reciever ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}` : Avatar
                 }
-                name={`${transaction.recipient}`}
+                name={transaction.transaction_type === 'topup' ? `${transaction.fullname}`:`${transaction.recipient}`}
                 transaction_type={transaction.transaction_type}
                 transactionVal={transaction.transaction_type === 'topup' ? true : false}
                 amount={convertToRupiah(convertToAngka(transaction.amount))}
               />
             </Link>
-          ))}
+          ))) : 
+          (
+            <p className="text-18">You dont have any transaction</p>
+          )
+          }
         </div>
         <div className="row">
           <div className="col-12">
