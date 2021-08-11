@@ -7,4 +7,3 @@ export { default as Sidebarmenu } from './Sidebar/Sidebarmenu';
 export { default as ContainerModal } from './ModalPin/ContainerModal';
 export { default as HeaderModal } from './ModalPin/HeaderModal';
 export { default as BodyModal } from './ModalPin/BodyModal';
-export { default as FooterModal } from './ModalPin/FooterModal';

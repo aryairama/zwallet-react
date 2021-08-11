@@ -10,7 +10,9 @@ import { transaction } from '../../configs/actions/transactionAction';
 import { useHistory, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { getUserById } from '../../configs/actions/userAction';
+import SimpleReactValidator from 'simple-react-validator';
 const InputAmount = (props) => {
+  const validator = React.useRef(new SimpleReactValidator({ className: 'text-danger small' }));
   const dispatch = useDispatch();
   const history = useHistory();
   const { user_id } = useParams();
@@ -20,10 +22,10 @@ const InputAmount = (props) => {
   React.useEffect(async () => {
     await dispatch(getUserById(user_id, props.history));
   }, [user_id]);
-  const {user, user_receiver} = useSelector((state) => state.user);
+  const { user, user_receiver } = useSelector((state) => state.user);
   React.useEffect(() => {
     if (parseInt(user.user_id) === parseInt(user_id)) {
-      history.push('/transfer')
+      history.push('/transfer');
     }
   }, [user_id]);
   function convertToRupiah(angka) {
@@ -62,7 +64,7 @@ const InputAmount = (props) => {
     } else {
       const amountLeft = user.saldo - price;
       const data = { price, amountLeft, description };
-      dispatch(transaction(data));
+      dispatch(transaction({ ...data, user_reciever: user_id, amount:price }));
       history.push(`/confirmation-transfer/${user_id}`);
     }
   };
@@ -70,7 +72,12 @@ const InputAmount = (props) => {
     <>
       <div className="wrapperContent">
         <p className="text_18 bold c-grey">Transfer Money</p>
-        <Card type="contact" image={user_receiver.image ? `${process.env.REACT_APP_API_URL}/${user_receiver.image}` : Avatar} name={user_receiver.fullname} phone={user_receiver.phone_number} />
+        <Card
+          type="contact"
+          image={user_receiver.image ? `${process.env.REACT_APP_API_URL}/${user_receiver.image}` : Avatar}
+          name={user_receiver.fullname}
+          phone={user_receiver.phone_number}
+        />
         <p className="text_16 c-dark desciptionContentBox c-mt-6">
           Type the amount you want to transfer and then press continue to the next steps.
         </p>
@@ -96,10 +103,14 @@ const InputAmount = (props) => {
               width="21px"
               height="21px"
               placeholder="Add some notes"
+              onFocus={() => validator.current.showMessageFor('description')}
+              error={validator.current.message('description', description, 'required|min:10')}
             ></InputTextIcon>
+            {validator.current.message('description', description, 'required|min:10')}
           </div>
           <div className={Style.buttonContinue}>
             <Button
+              disabled={validator.current.allValid() ? false : true}
               styling="bg__primary text-18 c-white"
               style={{ marginTop: '40px', marginBottom: '40px', padding: '16px 48px' }}
             >
