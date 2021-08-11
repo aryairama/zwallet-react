@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import CardContainer from '../../components/base/cardContainer';
 import { success } from '../../assets';
