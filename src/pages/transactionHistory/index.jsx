@@ -5,7 +5,7 @@ import Avatar from '../../assets/img/avatar/1.png';
 import { Link } from 'react-router-dom';
 import './tfHistory.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTransaction, transaction } from '../../configs/actions/transactionAction';
+import { getTransaction } from '../../configs/actions/transactionAction';
 import { buttonItemRender } from '../../components/base';
 import Pagination from 'rc-pagination';
 import locale from 'rc-pagination/es/locale/en_US';
@@ -16,7 +16,7 @@ function Index() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(async () => {
     await dispatch(getTransaction(2, 'DESC', page, 'created_at'));
-  }, [page]);
+  }, [dispatch, page]);
   const { transactionList } = useSelector((state) => state.transaction);
   const { user } = useSelector((state) => state.user);
   function convertToRupiah(angka) {
