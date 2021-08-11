@@ -1,0 +1,114 @@
+.left__side-home {
+  height: 100%;
+}
+
+.right__side-home {
+  height: 100%;
+}
+
+/* @media screen and (max-width: 1440px) {
+  .left__auth-content {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .right__auth-content {
+    padding-left: 10%;
+    padding-top: 5%;
+    height: 100%;
+    padding-right: 10%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .zwallet-img-preview {
+    margin-top: -8%;
+    margin-left: -8%;
+    width: 400px;
+    height: 400px;
+  }
+  .header___auth {
+    margin-bottom: 2rem;
+  }
+  .bg__image-auth {
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    background-image: url(../img/image/imgAuth.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+*/
+.wrapper__card-home {
+  display: flex;
+  border-radius: 22.5px;
+  background: #6379f4;
+  position: relative;
+  justify-content: space-between;
+}
+
+.wrapper__card-text {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrapper__btn-home {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn__up-icon {
+  margin-bottom: 1rem;
+}
+.btn__tf-tp {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+@media screen and (max-width: 992px) {
+  .wrapper__btn-home {
+    flex-direction: row;
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 1rem;
+  }
+
+  .wrapper__btn-home .btn__up-icon {
+    width: 49%;
+  }
+
+  .wrapper__btn-home .btn__plus-icon {
+    width: 49%;
+  }
+  .wrapper__card-home {
+    display: flex;
+    padding-bottom: 0.8rem;
+    position: relative;
+    background: unset;
+    flex-direction: column;
+  }
+
+  .content__card-home {
+    background: #6379f4;
+  }
+
+  .btn__tf-tp {
+    padding: 1rem;
+    display: flex;
+    color: #7a7886;
+    border: unset;
+    background: #eaedff;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(99, 121, 244, 0.2);
+  }
+}

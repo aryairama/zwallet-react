@@ -1,0 +1,42 @@
+.cekkclasss {
+  background-color: blue;
+  max-height: 60vh;
+  overflow-x: hidden;
+}
+.paginationArrow{
+  outline: none;
+  border: 1px solid rgb(212, 210, 210);
+  width: 100px;
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 35px;
+}
+@media screen and (max-width: 1440px) {
+  .cekkclasss {
+    max-height: 65vh;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .cekkclasss {
+    max-height: 65vh;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .cekkclasss {
+    max-height: 65vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cekkclasss {
+    max-height: 65vh;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cekkclasss {
+    max-height: 66vh;
+  }
+}

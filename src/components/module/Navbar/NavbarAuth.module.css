@@ -1,0 +1,78 @@
+.textZwallet {
+  font-size: 29px;
+  color: #6379f4;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.navbarZwallet {
+  border-radius: 0px 0px 20px 20px;
+}
+
+.mt-n1 {
+  margin-top: -0.35rem;
+}
+
+.profileName {
+  color: #3a3d42;
+  font-weight: bolder;
+}
+
+.notification-active {
+  display: block;
+  position: absolute;
+  top: 4rem;
+  width: 110%;
+  margin-right: 2.3rem;
+  height: max-content;
+  background: #ffffff;
+  box-shadow: 0px 0px 70px rgba(99, 99, 99, 0.15);
+  border-radius: 20px;
+}
+
+@media (min-width: 768px) {
+  .containerMenu {
+    width: 40%;
+  }
+}
+@media (min-width: 992px) {
+  .containerMenu {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .notification-active {
+    width: 45vw;
+    margin-right: 11rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .left__auth {
+    display: none;
+  }
+  .right__auth {
+    width: 100%;
+  }
+  .right__auth-content {
+    padding: 12px 2rem;
+  }
+  .header___auth-visible {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .notification-active {
+    width: 50vw;
+    margin-right: 6.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .notification-active {
+    width: 95vw;
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,109 @@
+.text-13 {
+  font-size: 13px;
+}
+.text-14 {
+  font-size: 14px;
+}
+
+.text-16 {
+  font-size: 16px;
+}
+
+.text-18 {
+  font-size: 18px;
+}
+.text-24 {
+  font-size: 24px;
+}
+.text-29 {
+  font-size: 29px;
+}
+
+.text-40 {
+  font-size: 40px;
+}
+.desciptionContentBox{
+  width: 342px;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 992px) {
+  .text-13 {
+    font-size: 13px;
+  }
+  .text-14 {
+    font-size: 14px;
+  }
+
+  .text-16 {
+    font-size: 16px;
+  }
+
+  .text-18 {
+    font-size: 18px;
+  }
+  .text-24 {
+    font-size: 24px;
+  }
+  .text-29 {
+    font-size: 29px;
+  }
+
+  .text-40 {
+    font-size: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .text-13 {
+    font-size: 12px;
+  }
+  .text-14 {
+    font-size: 14px;
+  }
+
+  .text-16 {
+    font-size: 16px;
+  }
+
+  .text-18 {
+    font-size: 18px;
+  }
+  .text-24 {
+    font-size: 20px;
+  }
+
+  .text-40 {
+    font-size: 26px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .text-13 {
+    font-size: 12px;
+  }
+  .text-14 {
+    font-size: 13px;
+  }
+
+  .text-16 {
+    font-size: 14px;
+  }
+
+  .text-18 {
+    font-size: 16px;
+  }
+  .text-24 {
+    font-size: 18px;
+  }
+
+  .text-40 {
+    font-size: 24px;
+  }
+  .desciptionContentBox{
+    width: 100%;
+  }
+}

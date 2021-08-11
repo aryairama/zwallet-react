@@ -1,0 +1,95 @@
+.receiverCard {
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 20px;
+  margin-bottom: 20px;
+}
+.imgContact {
+  width: 70px;
+  height: 70px;
+  /* background-blend-mode: normal; */
+  border-radius: 10px;
+  /* background-size:cover; */
+}
+.contactDesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 20px;
+}
+.column {
+  flex-direction: column;
+}
+.phone {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.marginZero {
+  margin: 0;
+}
+
+.historyCard {
+  /* box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05); */
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 15px 0;
+}
+
+.avatarUser {
+  width: 50px;
+  height: 50px;
+}
+
+.user__info {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 1rem;
+}
+
+.userTransaction {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.transactionCard{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.transactionDesc{
+  display: flex;
+}
+.greenText{
+  color: #1EC15F;
+}
+.redText{
+  color: #FF5B37;
+}
+.yellowText{
+  color: rgb(255, 176, 30);
+}
+.shortName{
+  width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.shortAmount{
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
