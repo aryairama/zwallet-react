@@ -1,5 +1,4 @@
 import { default as axios } from '../axiosConfig';
-
 import swal from 'sweetalert';
 
 export const register = (data, history) => async (dispatch) => {
@@ -152,20 +151,22 @@ export const getAllUser =
     }
   };
 
-export const getUserById = (id) => async (dispatch, getState) => {
-  try {
-    const user = await (
-      await axios.get(`/users/show/${id}`, {
-        headers: {
-          Authorization: `Bearer ${getState().user.user.accessToken}`,
-        },
-      })
-    ).data.data;
-    dispatch({ type: 'GET_USER_BY_ID', payload: user });
-  } catch (error) {
-    console.log(error);
-  }
-};
+  export const getUserById = (id,history) => async (dispatch, getState) => {
+    try {
+      const user = await (
+        await axios.get(`/users/show/${id}`, {
+          headers: {
+            Authorization: `Bearer ${getState().user.user.accessToken}`,
+          },
+        })
+      ).data.data;
+      if (Object.keys(user).length > 0) {
+        dispatch({ type: 'GET_USER_BY_ID', payload: user });
+      } 
+    } catch (error) {
+        history.push('/transfer');
+    }
+  };
 
 export const updatePassword = (formData) => async (dispatch, getState) => {
   try {
