@@ -6,12 +6,7 @@ function Button(props) {
   if (props.icon) {
     return (
       <React.Fragment>
-        <button
-          onClick={props.onClick}
-          disabled={props.disabled}
-          className={`${cs(style.color, style.border, style.margin)} ${props.styling}`}
-          style={props.style}
-        >
+        <button onClick={props.onClick} disabled={props.disabled} className={` ${props.styling}`} style={props.style}>
           <img
             className={`${cs(style.onlyIcon)}`}
             width={props.width}

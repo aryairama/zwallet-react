@@ -10,10 +10,11 @@ const transactionReducer = (state = initialState, action) => {
         transaction: action.payload,
       };
     case 'DELETE_TRANSACTION':
-      return{
+      return {
         ...state,
-        transaction: {}
-      }
+        transaction: {},
+      };
+
     default:
       return {
         ...state,
