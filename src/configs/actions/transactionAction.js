@@ -22,20 +22,20 @@ export const getTransaction =
     }
   };
 
-export const getTransactionById = (transactionId, history) => async (dispatch, getState) => {
+export const getTransactionById = (transaction_id, history) => async (dispatch, getState) => {
   try {
-    const dataTransaction = await (
-      await axios.get(`main/showtransaction/${transactionId}`, {
+    const { data } = await (
+      await axios.get(`main/showtransaction/${transaction_id}`, {
         headers: {
           Authorization: `Bearer ${getState().user.user.accessToken}`,
         },
       })
-    ).data.data;
-    console.log(dataTransaction, 'ini data transaction');
-    if (Object.keys(dataTransaction).length > 0) {
-      dispatch({ type: 'GET_TRANSACTION_BY_ID', payload: dataTransaction });
-    }
+    ).data;
+    console.log(transaction_id);
+    console.log('lorem', data);
+    dispatch({ type: 'GET_TRANSACTION_BY_ID', payload: data });
   } catch (error) {
-    history.push('dashboard');
+    // history.push('/dashboard');
+    alert(error);
   }
 };
