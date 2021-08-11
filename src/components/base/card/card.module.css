@@ -62,3 +62,19 @@
   align-items: center;
   display: flex;
 }
+.transactionCard{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+.transactionDesc{
+  display: flex;
+}
+.greenText{
+  color: #1EC15F;
+}
+.redText{
+  color: #FF5B37;
+}

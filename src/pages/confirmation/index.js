@@ -7,14 +7,21 @@ import { useParams } from 'react-router';
 import { Button } from '../../components/base';
 import { transactionDone } from '../../configs/actions/transactionAction';
 import { getUserById } from '../../configs/actions/userAction';
+import { useHistory } from 'react-router';
 const Confirmation = (props) => {
   const transaction = useSelector((state) => state.transaction.transaction);
+  const history = useHistory()
   const { user_id } = useParams();
   const dispatch = useDispatch();
   React.useEffect(async () => { 
     await dispatch(getUserById(user_id, props.history)); 
   }, [user_id]);
   const {user, user_receiver} = useSelector((state) => state.user);
+  React.useEffect(() => {
+    if (parseInt(user.user_id) === parseInt(user_id)) {
+      history.push('/transfer')
+    }
+  }, [user_id]);
   const handleSubmit = () => {
     dispatch(transactionDone());
   };

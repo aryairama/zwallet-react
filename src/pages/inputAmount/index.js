@@ -18,10 +18,14 @@ const InputAmount = (props) => {
   const [description, setDescription] = useState('');
   const [error, setError] = useState(false);
   React.useEffect(async () => {
-    await dispatch(getUserById(user_id, props.history)); 
+    await dispatch(getUserById(user_id, props.history));
   }, [user_id]);
   const {user, user_receiver} = useSelector((state) => state.user);
-  console.log(user_receiver)
+  React.useEffect(() => {
+    if (parseInt(user.user_id) === parseInt(user_id)) {
+      history.push('/transfer')
+    }
+  }, [user_id]);
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
