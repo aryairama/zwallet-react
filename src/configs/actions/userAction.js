@@ -187,3 +187,40 @@ export const updatePassword = (formData) => async (dispatch, getState) => {
   }
   dispatch({ type: 'REQUEST' });
 };
+
+export const checkPin = (pin) => async (dispatch, getState) => {
+  const PIN = `${pin.pin1}${pin.pin2}${pin.pin3}${pin.pin4}${pin.pin5}${pin.pin6}`;
+  const verifPin = await axios.post(
+    '/main/cekpin',
+    { PIN },
+    {
+      headers: {
+        Authorization: `Bearer ${getState().user.user.accessToken}`,
+      },
+    }
+  );
+  dispatch({ type: 'REQUEST' });
+  return verifPin;
+};
+
+export const updatePin = (pin,history) => async (dispatch, getState) => {
+  try {
+    const PIN = `${pin.pin1}${pin.pin2}${pin.pin3}${pin.pin4}${pin.pin5}${pin.pin6}`;
+    const { data } = await (
+      await axios.post(
+        '/users/updatepin',
+        { PIN },
+        {
+          headers: {
+            Authorization: `Bearer ${getState().user.user.accessToken}`,
+          },
+        }
+      )
+    ).data;
+    dispatch({ type: 'LOGIN', payload: { ...getState().user.user, ...data } });
+    history.push('/profile')
+    swal('Success', 'Pin update success', 'success');
+  } catch (error) {
+    swal('Error', error.response.data.message, 'error');
+  }
+};

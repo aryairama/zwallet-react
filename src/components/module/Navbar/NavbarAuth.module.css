@@ -30,6 +30,13 @@
   border-radius: 20px;
 }
 
+@media screen and (max-width: 1024px) {
+  .notification-active {
+    width: 35vw;
+    margin-right: 3.5rem;
+  }
+}
+
 @media (min-width: 768px) {
   .containerMenu {
     width: 40%;
@@ -44,12 +51,6 @@
 @media screen and (max-width: 576px) {
   .notification-active {
     width: 95vw;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .notification-active {
-    width: 35vw;
-    margin-right: 3.5rem;
+    margin-right: 0;
   }
 }

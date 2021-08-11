@@ -7,7 +7,7 @@ const PinInput = (props) => {
       name={props.name}
       value={props.value}
       pattern="[0-9]{1}"
-      maxlength="1"
+      maxLength="1"
       onChange={props.onChange}
       onFocus={props.onFocus}
       className={Style.pin}

@@ -39,7 +39,7 @@ const NavbarAuth = (props) => {
               </li>
               <div className="dropdown-divider"></div>
               <li className="dropdown-item py-0 my-0">
-                <div className="d-flex">
+                <div className="d-flex" onClick={() => setShow(!show)}>
                   <img width="20px" height="25px" src={iconNotif} alt="" />
                   <p className="ms-1">Notification</p>
                 </div>
