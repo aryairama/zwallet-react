@@ -40,7 +40,7 @@ export const getTopUpId = (id) => async (dispatch, getState) => {
         },
       })
     ).data;
-    dispatch({ type: 'GET_TOPUP_ID', payload: { data } });
+    dispatch({ type: 'GET_TOPUP_ID', payload: data });
   } catch (error) {
     console.log(error);
   }

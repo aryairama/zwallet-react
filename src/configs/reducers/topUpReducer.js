@@ -1,7 +1,7 @@
 const initialState = {
   topUp: {},
   topUpDetail: {},
-  topUpStatus: {}
+  topUpStatus: {},
 };
 const topUpReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -16,10 +16,17 @@ const topUpReducer = (state = initialState, action) => {
         topUpDetail: action.payload,
       };
     case 'CHANGE_STATUS':
-        return {
-            ...state,
-            topUpStatus: action.payload
-        }
+      return {
+        ...state,
+        topUpStatus: action.payload,
+      };
+    case 'DELETE_ALL_TOPUP':
+      return {
+        ...state,
+        topUp: {},
+        topUpDetail: {},
+        topUpStatus: {},
+      };
     default:
       return state;
   }
