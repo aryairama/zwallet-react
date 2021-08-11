@@ -34,7 +34,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
               <NavbarAuth onClick={() => setShow(!show)} />
               {rest.version === 1 && (
                 <React.Fragment>
-                  <Sidebar show={show} menu={<NavigationMenu />}>
+                  <Sidebar show={show} menu={<NavigationMenu roles={user.roles} />}>
                     <Component {...props} />
                   </Sidebar>
                   <Footer />
@@ -42,7 +42,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
               )}
               {rest.version === 2 && (
                 <React.Fragment>
-                  <Sidebar2 show={show} menu={<NavigationMenu />}>
+                  <Sidebar2 show={show} menu={<NavigationMenu roles={user.roles} />}>
                     <Component {...props} />
                   </Sidebar2>
                   <Footer2 />
