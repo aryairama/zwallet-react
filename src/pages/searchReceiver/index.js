@@ -47,7 +47,7 @@ const SearchReceiver = (props) => {
           <div className="col-12">
             {allUser?.pagination && (
               <Pagination
-                current={page > 0 ? page - 1 : page}
+                current={page}
                 total={allUser.pagination.countData}
                 pageSize={allUser.pagination.limit}
                 itemRender={buttonItemRender}
