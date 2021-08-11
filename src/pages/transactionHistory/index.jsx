@@ -27,7 +27,7 @@ function Index() {
       return { ...oldValue, [e.target.name]: e.target.value };
     });
   };
-  console.log(actionUser);
+  console.log(actionUser)
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
