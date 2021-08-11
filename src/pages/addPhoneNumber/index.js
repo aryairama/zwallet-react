@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputTextIcon } from '../../components/base';
+import InputPhoneIcon from '../../components/base/Input/InputPhoneIcon';
 import Phone from '../../assets/img/icons/phoneInput.svg';
 import Style from './phone.module.css';
 import { Button } from '../../components/base';
@@ -14,7 +14,7 @@ const AddPhoneNumber = () => {
           Add at least one phone number for the transfer ID so you can start transfering your money to another user.
         </p>
         <form className={Style.phoneWrapper}>
-          <InputTextIcon img={Phone} width="21px" height="21px" placeholder="Enter your phone number" name="phone" />
+          <InputPhoneIcon img={Phone} width="21px" height="21px" placeholder="Enter your phone number" name="phone" />
           <Button
             disabled={validator.current.allValid() ? false : true}
             styling="bg__primary text-18 c-white"
