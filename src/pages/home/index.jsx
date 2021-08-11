@@ -7,27 +7,18 @@ import Card from '../../components/base/card';
 import Avatar from '../../assets/img/avatar/1.png';
 import './home.css';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import { useSelector } from 'react-redux';
-
-=======
 import { useSelector, useDispatch } from 'react-redux';
 import { getTransaction } from '../../configs/actions/transactionAction';
->>>>>>> 3c1331b1295bb018c8519ad066d18caf7384565b
 function Index(props) {
   React.useEffect(() => {
     document.title = 'Dashboard';
   });
-<<<<<<< HEAD
-  const { user } = useSelector((state) => state.user);
-=======
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   React.useEffect(async () => {
-    await dispatch(getTransaction(4, "DESC", 1, '', 'created_at'));
+    await dispatch(getTransaction(4, 'DESC', 1, '', 'created_at'));
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
   const { transactionList } = useSelector((state) => state.transaction);
->>>>>>> 3c1331b1295bb018c8519ad066d18caf7384565b
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
@@ -40,9 +31,6 @@ function Index(props) {
         .join('')
     );
   }
-<<<<<<< HEAD
-  console.log(user);
-=======
   /**
    * Usage example:
    * alert(convertToRupiah(10000000)); -> "Rp. 10.000.000"
@@ -51,22 +39,14 @@ function Index(props) {
   function convertToAngka(rupiah) {
     return parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) ? parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) : '';
   }
->>>>>>> 3c1331b1295bb018c8519ad066d18caf7384565b
   return (
     <React.Fragment>
       <div className="wrapper__card-home">
         <CardContainer className="content__card-home">
           <div className="wrapper__card-text">
             <p className="c-greyLight text-18 my-0 ">Balance</p>
-<<<<<<< HEAD
             <p className="text-40 c-white my-0 ">{convertToRupiah(user.saldo)}</p>
-            <p className="text-18 c-greyLight my-0">
-              {user.phone_number ? user.phone_number : 'Silahkan tambah nomor'}
-            </p>
-=======
-            <p className="text-40 c-white my-0 ">{convertToRupiah(convertToAngka(user.saldo))}</p>
-            <p className="text-18 c-greyLight my-0">{user.phone_number}</p>
->>>>>>> 3c1331b1295bb018c8519ad066d18caf7384565b
+            <p className="text-18 c-greyLight my-0">{user.phone_number ? user.phone_number : ''}</p>
           </div>
         </CardContainer>
         <div className="wrapper__btn-home">
@@ -124,7 +104,9 @@ function Index(props) {
                           : Avatar
                       }
                       name={
-                        transaction.transaction_type === 'topup' ? `${transaction.fullname}` : `${transaction.recipient}`
+                        transaction.transaction_type === 'topup'
+                          ? `${transaction.fullname}`
+                          : `${transaction.recipient}`
                       }
                       typeTransaction={transaction.transaction_type}
                       // statusTransaction="c-green"
