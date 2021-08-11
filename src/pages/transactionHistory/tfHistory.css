@@ -3,7 +3,14 @@
   max-height: 60vh;
   overflow-x: hidden;
 }
-
+.paginationArrow{
+  outline: none;
+  border: 1px solid rgb(212, 210, 210);
+  width: 100px;
+  background-color: white;
+  margin-top: 10px;
+  margin-left: 35px;
+}
 @media screen and (max-width: 1440px) {
   .cekkclasss {
     max-height: 65vh;

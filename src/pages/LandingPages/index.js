@@ -25,7 +25,7 @@ const LandingPages = () => {
         <div className={Style.wrapperHeader}>
           <div className={Style.header}>
             <p className={Style.title}>Zwallet</p>
-            <div>
+            <div className={Style.buttonTop}>
               <Link
                 to="/login"
                 className={isAuth ? 'd-none' : cs(Style.button, Style.link, Style.blue)}

@@ -35,7 +35,6 @@ export const getTransactionById = (transaction_id, history) => async (dispatch, 
     console.log('lorem', data);
     dispatch({ type: 'GET_TRANSACTION_BY_ID', payload: data });
   } catch (error) {
-    // history.push('/dashboard');
-    alert(error);
+    console.log(error.response);
   }
 };

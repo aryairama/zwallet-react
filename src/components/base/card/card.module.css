@@ -78,3 +78,18 @@
 .redText{
   color: #FF5B37;
 }
+.yellowText{
+  color: rgb(255, 255, 102);
+}
+.shortName{
+  width: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.shortAmount{
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

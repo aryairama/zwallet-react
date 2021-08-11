@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import CardContainer from '../../components/base/cardContainer';
 import Search from '../../components/base/search';
@@ -8,6 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTransaction } from '../../configs/actions/transactionAction';
 import { buttonItemRender } from '../../components/base';
 import Pagination from 'rc-pagination';
+import { Link } from 'react-router-dom';
 import locale from 'rc-pagination/es/locale/en_US';
 import 'rc-pagination/assets/index.css';
 function Index() {
@@ -15,11 +17,11 @@ function Index() {
   const [actionUser, setActionUser] = React.useState({
     search: '',
   });
+  const [sort, setSort] = React.useState('DESC');
   const dispatch = useDispatch();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(async () => {
-    await dispatch(getTransaction(4, 'DESC', page, actionUser.search, 'created_at'));
-  }, [dispatch, page, actionUser.search]);
+    await dispatch(getTransaction(4, sort, page, actionUser.search, 'created_at'));
+  }, [page, actionUser.search, sort]);
   const { transactionList } = useSelector((state) => state.transaction);
   const { user } = useSelector((state) => state.user);
   const handleChange = (e) => {
@@ -27,7 +29,6 @@ function Index() {
       return { ...oldValue, [e.target.name]: e.target.value };
     });
   };
-  console.log(actionUser)
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
@@ -48,25 +49,47 @@ function Index() {
   function convertToAngka(rupiah) {
     return parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) ? parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) : '';
   }
+  const handleSort = () => {
+    if (sort === 'DESC') {
+      setSort('ASC');
+    } else if (sort === 'ASC') {
+      setSort('DESC');
+    }
+  };
   return (
     <React.Fragment>
       <CardContainer className="bg__white">
         <p className="text-bold text-18">Transaction History</p>
         <Search value={actionUser.search} name="search" onChange={handleChange} />
         <div>
-          {transactionList?.data?.map((transaction, index) => (
-            <Card
-              key={index}
-              type="tfHistory"
-              image={
-                transaction.image_reciever ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}` : Avatar
-              }
-              name={`${transaction.recipient}`}
-            />
-          ))}
+          {transactionList?.data ? (
+            transactionList?.data?.map((transaction, index) => (
+              <Link to={`/status-transfer/${transaction.transaction_id}`} key={index}>
+                <Card
+                  type="transactionList"
+                  image={
+                    transaction.transaction_type === 'topup'
+                      ? `${process.env.REACT_APP_API_URL}/${user.image}`
+                      : transaction.image_reciever
+                      ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}`
+                      : Avatar
+                  }
+                  name={
+                    transaction.transaction_type === 'topup' ? `${transaction.fullname}` : `${transaction.recipient}`
+                  }
+                  transaction_type={transaction.transaction_type}
+                  transactionVal={transaction.transaction_type === 'topup' ? true : false}
+                  statusTransaction={transaction.status}
+                  amount={convertToRupiah(convertToAngka(transaction.amount))}
+                />
+              </Link>
+            ))
+          ) : (
+            <p className="text-18">You dont have any transaction</p>
+          )}
         </div>
         <div className="row">
-          <div className="col-12">
+          <div className="col-6">
             {transactionList?.pagination && (
               <Pagination
                 current={page}
@@ -77,6 +100,11 @@ function Index() {
                 onChange={(current, pageSize) => setPage(current)}
               />
             )}
+          </div>
+          <div className="col-6 text-end">
+            <button onClick={handleSort} className="paginationArrow">
+              {sort === 'DESC' ? 'Oldest' : 'Latest'}
+            </button>
           </div>
         </div>
       </CardContainer>
