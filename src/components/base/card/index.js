@@ -96,11 +96,25 @@ const Card = ({
           <img src={image} alt="contact" className={Style.avatarUser} />
           <div className={Style.userTransaction}>
             <div className={Style.user__info}>
-              <p className="text-16 my-0 bold c-grey name__user">{name}</p>
-              <p className="text-14 mt-1 my-0 c-dark">{typeTransaction}</p>
+              <p className={`text-16 my-0 bold c-grey name__user ${Style.shortName}`}>{name}</p>
+              <p className="text-14 mt-1 my-0 c-dark">{typeTransaction === 'transfer_in'
+                    ? 'Transfer In'
+                    : typeTransaction === 'transfer'
+                    ? 'Transfer Out'
+                    : 'Top Up'}</p>
             </div>
             <div>
-              <p className={`text-16 my-0 ${statusTransaction}`}>{totalTransaction}</p>
+              <p
+                className={`${
+                  transactionVal
+                    ? `text_16 bold ${Style.greenText}`
+                    : `${typeTransaction}` === 'transfer_in'
+                    ? `text_16 bold ${Style.greenText}`
+                    : `text_16 bold ${Style.redText}`
+                } ${statusTransaction === 'pending' ? `${Style.yellowText}` : null} ${Style.shortAmount}`}
+              >{`${
+                transactionVal ? `+${totalTransaction}` : `${typeTransaction}` === 'transfer_in' ? `+${totalTransaction}` : `-${totalTransaction}`
+              }`}</p>
             </div>
           </div>
         </div>
