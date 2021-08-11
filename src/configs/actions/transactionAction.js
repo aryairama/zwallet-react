@@ -5,10 +5,10 @@ export const transaction = (data) => (dispatch) => {
 export const transactionDone = () => (dispatch) => {
   dispatch({ type: 'DELETE_TRANSACTION' });
 };
-export const getTransaction = () => async (dispatch, getState) => {
+export const getTransaction = (limit, order, page = 1, search = '', fieldOrder = '') => async (dispatch, getState) => {
   try {
     const { data, pagination } = await (
-      await axios.get(`/main/gettransactions`, {
+      await axios.get(`/main/gettransactions?order=${order}&limit=${limit}&page=${page}&fieldOrder=${fieldOrder}`, {
         headers: {
           Authorization: `Bearer ${getState().user.user.accessToken}`,
         },
