@@ -62,7 +62,7 @@ function Index() {
         <p className="text-bold text-18">Transaction History</p>
         <Search value={actionUser.search} name="search" onChange={handleChange} />
         <div>
-          {transactionList?.data ? (
+          {transactionList?.data? (
             transactionList?.data?.map((transaction, index) => (
               <Link to={`/status-transfer/${transaction.transaction_id}`} key={index}>
                 <Card
