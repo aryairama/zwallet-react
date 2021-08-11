@@ -9,7 +9,7 @@ import { getUserById } from '../../configs/actions/userAction';
 import { useHistory } from 'react-router';
 import { createPortal } from 'react-dom';
 import { Modal } from 'bootstrap';
-import { ContainerModal, HeaderModal, BodyModal} from '../../components/module';
+import { ContainerModal, HeaderModal, BodyModal } from '../../components/module';
 const Confirmation = (props) => {
   const refModalPin = React.useRef(null);
   const [modalPin, setModalPin] = React.useState(null);

@@ -13,9 +13,9 @@ function Index(props) {
   React.useEffect(() => {
     document.title = 'Dashboard';
   });
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   React.useEffect(async () => {
-    await dispatch(getTransaction(4, "DESC", 1, '', 'created_at'));
+    await dispatch(getTransaction(4, 'DESC', 1, '', 'created_at'));
   }, [dispatch]);
   const { user } = useSelector((state) => state.user);
   const { transactionList } = useSelector((state) => state.transaction);
@@ -45,8 +45,8 @@ function Index(props) {
         <CardContainer className="content__card-home">
           <div className="wrapper__card-text">
             <p className="c-greyLight text-18 my-0 ">Balance</p>
-            <p className="text-40 c-white my-0 ">{convertToRupiah(convertToAngka(user.saldo))}</p>
-            <p className="text-18 c-greyLight my-0">{user.phone_number}</p>
+            <p className="text-40 c-white my-0 ">{convertToRupiah(user.saldo)}</p>
+            <p className="text-18 c-greyLight my-0">{user.phone_number ? user.phone_number : ''}</p>
           </div>
         </CardContainer>
         <div className="wrapper__btn-home">
@@ -104,7 +104,9 @@ function Index(props) {
                           : Avatar
                       }
                       name={
-                        transaction.transaction_type === 'topup' ? `${transaction.fullname}` : `${transaction.recipient}`
+                        transaction.transaction_type === 'topup'
+                          ? `${transaction.fullname}`
+                          : `${transaction.recipient}`
                       }
                       typeTransaction={transaction.transaction_type}
                       // statusTransaction="c-green"

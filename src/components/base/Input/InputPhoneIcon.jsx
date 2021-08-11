@@ -18,6 +18,7 @@ const InputPhoneIcon = (props) => {
           placeholder={props.placeholder}
           min={props.min}
           max={props.max}
+          autoComplete = 'false'
         />
         <span className={`${cs(style.labelEffect)} ${props.error ? 'border-danger' : ''}`}></span>
         <div className={style.iconInput}>

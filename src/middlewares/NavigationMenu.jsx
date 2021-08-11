@@ -14,18 +14,38 @@ const NavigationMenu = (props) => {
   return (
     <React.Fragment>
       <div className="menu">
-        <Sidebarmenu to="/dashboard" iconMenu={iconDashboard}>
-          Dashboard
-        </Sidebarmenu>
-        <Sidebarmenu to="/transfer" iconMenu={iconTransfer}>
-          Transfer
-        </Sidebarmenu>
-        <Sidebarmenu to="/topup" iconMenu={iconTopup}>
-          Topup
-        </Sidebarmenu>
-        <Sidebarmenu to="/profile" iconMenu={iconProfile}>
-          Profile
-        </Sidebarmenu>
+        {props.roles === 'member' && (
+          <React.Fragment>
+            <Sidebarmenu to="/dashboard" iconMenu={iconDashboard}>
+              Dashboard
+            </Sidebarmenu>
+            <Sidebarmenu to="/transfer" iconMenu={iconTransfer}>
+              Transfer
+            </Sidebarmenu>
+            <Sidebarmenu to="/topup" iconMenu={iconTopup}>
+              Topup
+            </Sidebarmenu>
+            <Sidebarmenu to="/profile" iconMenu={iconProfile}>
+              Profile
+            </Sidebarmenu>
+          </React.Fragment>
+        )}
+        {props.roles === 'admin' && (
+          <React.Fragment>
+            <Sidebarmenu to="/dashboard" iconMenu={iconDashboard}>
+              Dashboard
+            </Sidebarmenu>
+            <Sidebarmenu to="/profile" iconMenu={iconProfile}>
+              Profile
+            </Sidebarmenu>
+            <Sidebarmenu to="/manage-topup" iconMenu={iconTopup}>
+              Manage Topup
+            </Sidebarmenu>
+            <Sidebarmenu to="/transaction-history" iconMenu={iconTopup}>
+              Transaction history
+            </Sidebarmenu>
+          </React.Fragment>
+        )}
       </div>
       <div className="logout">
         <Sidebarmenu type="button" onClick={() => dispatch(logout(history))} iconMenu={iconLogout}>

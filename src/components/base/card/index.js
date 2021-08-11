@@ -19,6 +19,10 @@ const Card = ({
   transaction_type,
   amount,
   transactionVal,
+  children,
+  to,
+  textstuff,
+  onClick
 }) => {
   if (type === 'contact') {
     return (
@@ -53,14 +57,15 @@ const Card = ({
                 <p className={`text-16 c-dark ${Style.marginZero}`}>{title}</p>
                 <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
               </div>
-              <Link to="/manage-phone-number" className="c-primary text-16">
-                Manage
+              <Link to={to} className="c-primary text-16">
+                {textstuff}
               </Link>
             </div>
           ) : (
             <>
               <p className={`text-16 c-dark ${Style.marginZero}`}>{title}</p>
               <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
+              {children}
             </>
           )}
         </div>
@@ -76,9 +81,7 @@ const Card = ({
                 <p className={`text-16 c-dark ${Style.marginZero}`}>{title}</p>
                 <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
               </div>
-              <Link to="/personal-info">
-                <img src={Trash} alt="trash" />
-              </Link>
+                <img src={Trash} alt="trash" onClick={onClick} style={{'cursor': 'pointer'}}/>
             </div>
           </div>
         ) : (
