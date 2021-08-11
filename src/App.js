@@ -64,7 +64,11 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/option-topup" component={OptionTopup} />
         <PrivateRoute roles={['member']} version={2} path="/option-transfer" component={DirectTransfer} />
         <PrivateRoute
+<<<<<<< HEAD
           roles={['member', 'admin']}
+=======
+          roles={['member','admin']}
+>>>>>>> 837a6d524f2b4d26a40eeea69115ca8753f4a7ea
           version={2}
           path="/status-transfer/:transaction_id"
           component={StatusTranser}

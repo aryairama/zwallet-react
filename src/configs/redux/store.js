@@ -8,7 +8,7 @@ import rootReducers from '../reducers/rootReducer';
 const persistConfig = {
   key: 'zwallet',
   storage,
-  // whitelist: ['user'],
+  whitelist: ['user'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducers);
