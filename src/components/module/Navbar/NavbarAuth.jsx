@@ -6,8 +6,10 @@ import iconNotif from '../../../assets/img/icons/notification.svg';
 import iconProfile from '../../../assets/img/avatar/8.png';
 import sideBarIcon from '../../../assets/img/icons/list.svg';
 import { useSelector } from 'react-redux';
+import NotificationNavbar from './NotificationNavbar';
 
 const NavbarAuth = (props) => {
+  const [show, setShow] = React.useState(false);
   const { user } = useSelector((state) => state.user);
   return (
     <nav
@@ -18,7 +20,7 @@ const NavbarAuth = (props) => {
           <p className={cs(style.textZwallet)}>Zwallet</p>
         </Link>
         <div
-          className={`d-flex flex-row flex-wrap flex-grow-0 justify-content-md-around justify-content-end ${cs(
+          className={`d-flex flex-row position-relative flex-wrap flex-grow-0 justify-content-md-around justify-content-end ${cs(
             style.containerMenu
           )}`}
         >
@@ -37,7 +39,7 @@ const NavbarAuth = (props) => {
               </li>
               <div className="dropdown-divider"></div>
               <li className="dropdown-item py-0 my-0">
-                <div className="d-flex">
+                <div className="d-flex" onClick={() => setShow(!show)}>
                   <img width="20px" height="25px" src={iconNotif} alt="" />
                   <p className="ms-1">Notification</p>
                 </div>
@@ -49,11 +51,12 @@ const NavbarAuth = (props) => {
             </div>
           </div>
           <div className="d-md-block d-none">
-            <img src={iconNotif} alt="" />
+            <img onClick={() => setShow(!show)} src={iconNotif} alt="" />
           </div>
           <div onClick={props.onClick} className="iconNavbar ms-md-0 ms-3 d-lg-none d-block">
             <img width="25px" height="25px" src={sideBarIcon} alt="" />
           </div>
+          <NotificationNavbar show={show} />
         </div>
       </div>
     </nav>

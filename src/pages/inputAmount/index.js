@@ -10,7 +10,7 @@ import { transaction } from '../../configs/actions/transactionAction';
 import { useHistory, useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { getUserById } from '../../configs/actions/userAction';
-const InputAmount = () => {
+const InputAmount = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { user_id } = useParams();
@@ -18,8 +18,7 @@ const InputAmount = () => {
   const [description, setDescription] = useState('');
   const [error, setError] = useState(false);
   React.useEffect(async () => {
-    console.log('object')
-    await dispatch(getUserById(user_id)); 
+    await dispatch(getUserById(user_id, props.history)); 
   }, [user_id]);
   const {user, user_receiver} = useSelector((state) => state.user);
   console.log(user_receiver)

@@ -45,6 +45,7 @@
   display: flex;
   border-radius: 22.5px;
   background: #6379f4;
+  position: relative;
   justify-content: space-between;
 }
 
