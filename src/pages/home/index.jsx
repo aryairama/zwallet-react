@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '../../components/base';
 import CardContainer from '../../components/base/cardContainer';
-import { plusIcon, UpIcon } from '../../assets/index';
+import { plusIcon1, UpIcon1 } from '../../assets/index';
 import Card from '../../components/base/card';
 import Avatar from '../../assets/img/avatar/1.png';
 import './home.css';
@@ -14,9 +14,9 @@ function Index(props) {
     document.title = 'Dashboard';
   });
   const dispatch = useDispatch();
-  React.useEffect(async () => {
-    await dispatch(getTransaction(4, 'DESC', 1, '', 'created_at'));
-  }, [dispatch]);
+  React.useEffect(() => {
+    dispatch(getTransaction(4, 'DESC', 1, '', 'created_at'));
+  }, []);
   const { user } = useSelector((state) => state.user);
   const { transactionList } = useSelector((state) => state.transaction);
   function convertToRupiah(angka) {
@@ -36,6 +36,7 @@ function Index(props) {
    * alert(convertToRupiah(10000000)); -> "Rp. 10.000.000"
    */
 
+  console.log(user.saldo, 'sa');
   function convertToAngka(rupiah) {
     return parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) ? parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) : '';
   }
@@ -54,7 +55,7 @@ function Index(props) {
             <Button
               styling="myBtn text-18 text-bold d-flex btn__tf-tp"
               iconText
-              img={UpIcon}
+              img={UpIcon1}
               width="28px"
               colorIcon="c-white"
               height="28px"
@@ -69,7 +70,7 @@ function Index(props) {
               styling="myBtn text-bold text-18 d-flex btn__tf-tp"
               width="28px"
               height="28px"
-              img={plusIcon}
+              img={plusIcon1}
               onClick={() => props.history.push('/topup')}
             >
               Top up

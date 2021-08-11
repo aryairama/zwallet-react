@@ -21,6 +21,7 @@ function Index(props) {
     useSelector((state) => state.transaction.transactionId);
   const { saldo } = useSelector((state) => state.user.user);
 
+  console.log(image_reciever);
   React.useEffect(() => {
     document.title = 'Status Transfer';
     dispatch(getTransactionById(transaction_id));
@@ -100,6 +101,7 @@ function Index(props) {
               <p className="text_18 bold c-grey">Transfer to</p>
               <Card
                 type="contact"
+                imageVal={true}
                 image={`${process.env.REACT_APP_API_URL}/${image_reciever}`}
                 name={recipient}
                 phone={phone_reciever}

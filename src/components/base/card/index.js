@@ -22,7 +22,7 @@ const Card = ({
   children,
   to,
   textstuff,
-  onClick
+  onClick,
 }) => {
   if (type === 'contact') {
     return (
@@ -81,7 +81,7 @@ const Card = ({
                 <p className={`text-16 c-dark ${Style.marginZero}`}>{title}</p>
                 <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
               </div>
-                <img src={Trash} alt="trash" onClick={onClick} style={{'cursor': 'pointer'}}/>
+              <img src={Trash} alt="trash" onClick={onClick} style={{ cursor: 'pointer' }} />
             </div>
           </div>
         ) : (
@@ -162,8 +162,38 @@ const Card = ({
                   ? `text_16 bold ${Style.greenText}`
                   : `text_16 bold ${Style.redText}`
               }`}
-            >{amount}</p>
+            >
+              {amount}
+            </p>
           </div>
+        </div>
+      </div>
+    );
+  } else if (type === 'historyNavbar') {
+    return (
+      <div className={cs(Style.receiverCard)}>
+        <img src={image} alt="Arrow Up / Arrow Down" className={Style.avatarUser} />
+        <div>
+          <p className="text-16 c-dark">
+            {/* {transaction_type === 'transfer_in'
+              ? 'Transfer In'
+              : transaction_type === 'transfer'
+              ? 'Transfer Out'
+              : transaction_type === 'topup'
+              ? 'Top Up'
+              : null} */}
+            {transaction_type === 'transfer_in'
+              ? 'Transfer In'
+              : transaction_type === 'transfer'
+              ? 'Transfer Out'
+              : transaction_type === 'topup'
+              ? 'Top up'
+              : null}
+            {/* {transaction_type === 'transfer' && 'Transfer Out'}
+            {transaction_type === 'transfer_in' && 'Transfer In'}
+            {transaction_type === 'topup' && 'Top Up'} */}
+          </p>
+          <p className={`text-18 bold c-grey ${Style.marginZero}`}>{content}</p>
         </div>
       </div>
     );

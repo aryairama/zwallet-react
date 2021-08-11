@@ -4,19 +4,19 @@ import Card from '../../base/card';
 import CardContainer from '../../base/cardContainer';
 // import cs from 'classnames';
 import style from './NavbarAuth.module.css';
-import Avatar from '../../../assets/img/avatar/1.png';
+import greenArrowDown from '../../../assets/img/icons/greenArrowDown.svg';
+
+import redArrowUp from '../../../assets/img/icons/redArrowUp.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 import { getTransaction } from '../../../configs/actions/transactionAction';
 function NotificationNavbar(props) {
   const dispatch = useDispatch();
-
   React.useEffect(async () => {
     await dispatch(getTransaction(4, 'DESC', 1, '', 'created_at'));
   }, [dispatch]);
-
-  const { user } = useSelector((state) => state.user);
 
   const { transactionList } = useSelector((state) => state.transaction);
   function convertToRupiah(angka) {
@@ -41,19 +41,21 @@ function NotificationNavbar(props) {
           transactionList?.data?.map((transaction, index) => (
             <Link to={`/status-transfer/${transaction.transaction_id}`} key={index}>
               <Card
-                type="tfHistory"
-                image={
-                  transaction.transaction_type === 'topup'
-                    ? `${process.env.REACT_APP_API_URL}/${user.image}`
-                    : transaction.image_reciever
-                    ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}`
-                    : Avatar
-                }
-                name={transaction.transaction_type === 'topup' ? `${transaction.fullname}` : `${transaction.recipient}`}
+                type="historyNavbar"
                 typeTransaction={transaction.transaction_type}
+                image={
+                  transaction.transaction_type === 'transfer'
+                    ? redArrowUp
+                    : transaction.transaction_type === 'transfer_in'
+                    ? greenArrowDown
+                    : greenArrowDown
+                }
+                // title={
+                //   transaction.transaction_type === 'topup' ? `${transaction.fullname}` : `${transaction.recipient}`
+                // }
                 // statusTransaction="c-green"
-                transactionVal={transaction.transaction_type === 'topup' ? true : false}
-                totalTransaction={convertToRupiah(convertToAngka(transaction.amount))}
+                // transactionVal={transaction.transaction_type === 'topup' ? true : false}
+                content={convertToRupiah(convertToAngka(transaction.amount))}
               />
             </Link>
           ))

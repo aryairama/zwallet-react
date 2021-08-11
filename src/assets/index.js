@@ -13,6 +13,6 @@ export { default as success } from './img/icons/success.svg';
 export { default as failed } from './img/icons/failed.svg';
 export { default as bgAuth } from './img/image/imgAuth.png';
 export { default } from './css/wrapper.css';
-export { default as plusIcon } from './img/icons/sidebar/plus.svg';
-export { default as UpIcon } from './img/icons/sidebar/arrow-up.svg';
+export { default as plusIcon1 } from './img/icons/sidebar/plus1.svg';
+export { default as UpIcon1 } from './img/icons/sidebar/arrow-up1.svg';
 export { imgAuth, phoneSplit, typography, color, auth };
