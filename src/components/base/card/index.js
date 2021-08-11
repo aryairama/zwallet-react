@@ -115,11 +115,25 @@ const Card = ({
               <img src={image} alt="contact" className={Style.imgContact} />
               <div className={Style.contactDesc}>
                 <p className="text-18 bold c-grey">{name}</p>
-                <p className="text-16 c-dark">{transaction_type}</p>
+                <p className="text-16 c-dark">
+                  {transaction_type === 'transfer_in'
+                    ? 'Transfer In'
+                    : transaction_type === 'transfer'
+                    ? 'Transfer Out'
+                    : 'Top Up'}
+                </p>
               </div>
             </div>
-            <p className={`${transactionVal ? `text_16 bold ${Style.greenText}` : `text_16 bold ${Style.redText}`}`}>{`${
-              transactionVal ? `+${amount}` : `-${amount}`
+            <p
+              className={`${
+                transactionVal
+                  ? `text_16 bold ${Style.greenText}`
+                  : `${transaction_type}` === 'transfer_in'
+                  ? `text_16 bold ${Style.greenText}`
+                  : `text_16 bold ${Style.redText}`
+              }`}
+            >{`${
+              transactionVal ? `+${amount}` : `${transaction_type}` === 'transfer_in' ? `+${amount}` : `-${amount}`
             }`}</p>
           </div>
         </div>
