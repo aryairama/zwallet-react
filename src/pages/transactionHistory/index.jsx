@@ -1,5 +1,6 @@
 import React from 'react';
 import CardContainer from '../../components/base/cardContainer';
+import Search from '../../components/base/search';
 import Card from '../../components/base/card';
 import Avatar from '../../assets/img/avatar/1.png';
 import './tfHistory.css';
@@ -11,17 +12,47 @@ import locale from 'rc-pagination/es/locale/en_US';
 import 'rc-pagination/assets/index.css';
 function Index() {
   const [page, setPage] = React.useState(1);
+  const [actionUser, setActionUser] = React.useState({
+    search: '',
+  });
   const dispatch = useDispatch();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(async () => {
-    await dispatch(getTransaction(2, 'DESC', page, 'created_at'));
-  }, [dispatch, page]);
+    await dispatch(getTransaction(4, 'DESC', page, actionUser.search, 'created_at'));
+  }, [dispatch, page, actionUser.search]);
   const { transactionList } = useSelector((state) => state.transaction);
-  console.log(transactionList);
+  const { user } = useSelector((state) => state.user);
+  const handleChange = (e) => {
+    setActionUser((oldValue) => {
+      return { ...oldValue, [e.target.name]: e.target.value };
+    });
+  };
+  console.log(actionUser);
+  function convertToRupiah(angka) {
+    var rupiah = '';
+    var angkarev = angka.toString().split('').reverse().join('');
+    for (var i = 0; i < angkarev.length; i++) if (i % 3 === 0) rupiah += angkarev.substr(i, 3) + '.';
+    return (
+      'Rp. ' +
+      rupiah
+        .split('', rupiah.length - 1)
+        .reverse()
+        .join('')
+    );
+  }
+  /**
+   * Usage example:
+   * alert(convertToRupiah(10000000)); -> "Rp. 10.000.000"
+   */
+
+  function convertToAngka(rupiah) {
+    return parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) ? parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) : '';
+  }
   return (
     <React.Fragment>
       <CardContainer className="bg__white">
         <p className="text-bold text-18">Transaction History</p>
+        <Search value={actionUser.search} name="search" onChange={handleChange} />
         <div>
           {transactionList?.data?.map((transaction, index) => (
             <Card
