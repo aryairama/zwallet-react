@@ -30,6 +30,7 @@ const transactionReducer = (state = initialState, action) => {
       return {
         ...state,
         transaction: {},
+        transactionId: {},
         transactionList: {},
       };
     default:
