@@ -8,3 +8,8 @@
   box-sizing: border-box;
   border-radius: 10px;
 }
+
+.onlyIcon {
+  background-color: unset;
+  border: unset;
+}
