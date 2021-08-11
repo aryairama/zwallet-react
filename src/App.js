@@ -25,6 +25,8 @@ import Confirmation from './pages/confirmation';
 import PrivateRoutePin from './middlewares/PrivateRoutePin';
 import Home from './pages/home';
 import TransactionHistory from './pages/transactionHistory';
+import OptionTopup from './pages/optionTopup'
+import DirectTransfer from './pages/optionTopup/DirectTransfer';
 function App() {
   return (
     <Fragment>
@@ -51,6 +53,8 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/input-amount/:user_id" component={InputAmount} />
         <PrivateRoute roles={['member']} version={2} path="/transaction-history" component={TransactionHistory} />
         <PrivateRoute roles={['member']} version={2} path="/confirmation-transfer/:user_id" component={Confirmation} />
+        <PrivateRoute roles={['member']} version={2} path="/option-topup" component={OptionTopup} />
+        <PrivateRoute roles={['member']} version={2} path="/option-transfer" component={DirectTransfer} />
       </Switch>
     </Fragment>
   );
