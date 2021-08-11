@@ -16,11 +16,12 @@ function Index() {
   const [actionUser, setActionUser] = React.useState({
     search: '',
   });
+  const [sort, setSort] = React.useState('DESC');
   const dispatch = useDispatch();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(async () => {
-    await dispatch(getTransaction(4, 'DESC', page, actionUser.search, 'created_at'));
-  }, [dispatch, page, actionUser.search]);
+    await dispatch(getTransaction(4, sort, page, actionUser.search, 'created_at'));
+  }, [dispatch, page, actionUser.search, sort]);
   const { transactionList } = useSelector((state) => state.transaction);
   const { user } = useSelector((state) => state.user);
   const handleChange = (e) => {
@@ -28,7 +29,6 @@ function Index() {
       return { ...oldValue, [e.target.name]: e.target.value };
     });
   };
-  console.log(actionUser)
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
@@ -49,6 +49,13 @@ function Index() {
   function convertToAngka(rupiah) {
     return parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) ? parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) : '';
   }
+  const handleSort = () => {
+    if (sort === 'DESC') {
+      setSort('ASC');
+    } else if (sort === 'ASC') {
+      setSort('DESC');
+    }
+  };
   return (
     <React.Fragment>
       <CardContainer className="bg__white">
@@ -72,6 +79,7 @@ function Index() {
                   }
                   transaction_type={transaction.transaction_type}
                   transactionVal={transaction.transaction_type === 'topup' ? true : false}
+                  statusTransaction={transaction.status}
                   amount={convertToRupiah(convertToAngka(transaction.amount))}
                 />
               </Link>
@@ -81,7 +89,7 @@ function Index() {
           )}
         </div>
         <div className="row">
-          <div className="col-12">
+          <div className="col-6">
             {transactionList?.pagination && (
               <Pagination
                 current={page}
@@ -92,6 +100,9 @@ function Index() {
                 onChange={(current, pageSize) => setPage(current)}
               />
             )}
+            <button onClick={handleSort} className="paginationArrow">
+              {sort === 'DESC' ? 'Oldest' : 'Latest'}
+            </button>
           </div>
         </div>
       </CardContainer>
