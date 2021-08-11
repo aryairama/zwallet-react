@@ -10,7 +10,7 @@ export const getTransaction =
   async (dispatch, getState) => {
     try {
       const { data, pagination } = await (
-        await axios.get(`/main/gettransactions?order=${order}&limit=${limit}&page=${page}&fieldOrder=${fieldOrder}`, {
+        await axios.get(`/main/gettransactions?keyword=${search}&order=${order}&limit=${limit}&page=${page}&fieldOrder=${fieldOrder}`, {
           headers: {
             Authorization: `Bearer ${getState().user.user.accessToken}`,
           },

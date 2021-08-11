@@ -33,7 +33,7 @@ export const getTopUp = (limit, order, page = 1, search = '', fieldOrder = '') =
 };
 export const getTopUpId = (id) => async (dispatch, getState) => {
   try {
-    const data = await (
+    const {data} = await (
       await axios.get(`/main/showtransaction/${id}`, {
         headers: {
           Authorization: `Bearer ${getState().user.user.accessToken}`,
