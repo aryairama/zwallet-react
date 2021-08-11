@@ -5,7 +5,7 @@ import Avatar from '../../assets/img/avatar/1.png';
 import { Link } from 'react-router-dom';
 import './tfHistory.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getTransaction } from '../../configs/actions/transactionAction';
+import { getTransaction, transaction } from '../../configs/actions/transactionAction';
 import { buttonItemRender } from '../../components/base';
 import Pagination from 'rc-pagination';
 import locale from 'rc-pagination/es/locale/en_US';
@@ -18,19 +18,47 @@ function Index() {
   React.useEffect(async () => {
     await dispatch(getTransaction());
   }, [dispatch]);
-  const {transactionList} = useSelector(state => state.transaction)
-  console.log(transactionList)
+  const { transactionList } = useSelector((state) => state.transaction);
+  function convertToRupiah(angka) {
+    var rupiah = '';
+    var angkarev = angka.toString().split('').reverse().join('');
+    for (var i = 0; i < angkarev.length; i++) if (i % 3 === 0) rupiah += angkarev.substr(i, 3) + '.';
+    return (
+      'Rp. ' +
+      rupiah
+        .split('', rupiah.length - 1)
+        .reverse()
+        .join('')
+    );
+  }
+  /**
+   * Usage example:
+   * alert(convertToRupiah(10000000)); -> "Rp. 10.000.000"
+   */
+
+  function convertToAngka(rupiah) {
+    return parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) ? parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) : '';
+  }
   return (
     <React.Fragment>
       <CardContainer className="bg__white">
         <p className="text-bold text-18">Transaction History</p>
         <div>
-          {transactionList?.data.map((transaction, index) => 
-          <Card key={index}
-          type="tfHistory"
-          image={transaction.image_reciever ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}` : Avatar}
-          name={`${transaction.recipient}`}/>
-          )}
+          {transactionList?.data?.map((transaction, index) => (
+            <Link to={`/status-transfer/${transaction.transaction_id}`}>
+              <Card
+                key={index}
+                type="transactionList"
+                image={
+                  transaction.image_reciever ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}` : Avatar
+                }
+                name={`${transaction.recipient}`}
+                transaction_type={transaction.transaction_type}
+                transactionVal={transaction.transaction_type === 'topup' ? true : false}
+                amount={convertToRupiah(convertToAngka(transaction.amount))}
+              />
+            </Link>
+          ))}
         </div>
         <div className="row">
           <div className="col-12">
