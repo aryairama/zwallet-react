@@ -131,7 +131,7 @@ const Card = ({
                   : `${transaction_type}` === 'transfer_in'
                   ? `text_16 bold ${Style.greenText}`
                   : `text_16 bold ${Style.redText}`
-              }`}
+              } ${statusTransaction === 'pending' ? `${Style.yellowText}` : null}`}
             >{`${
               transactionVal ? `+${amount}` : `${transaction_type}` === 'transfer_in' ? `+${amount}` : `-${amount}`
             }`}</p>
