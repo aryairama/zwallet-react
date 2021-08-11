@@ -1,0 +1,44 @@
+.amountText {
+  font-style: normal;
+  font-weight: bold;
+  width: 100%;
+  font-size: 42px;
+  line-height: 56px;
+  text-align: center;
+  color: rgba(99, 121, 244, 1);
+  outline: none;
+  margin-bottom: 40px;
+}
+.imgTopUp{
+    width: 400px;
+    object-fit: contain;
+}
+.button {
+  padding: 5px 10px;
+  border: none;
+  background-color: rgba(99, 121, 244, 1);
+  color: white;
+  border-radius: 4px;
+  width: 100px;
+}
+.buttonContainer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 443px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.button:disabled {
+  background-color: #88888f;
+}
+.greenText {
+  color: #1ec15f;
+}
+.redText {
+  color: #ff5b37;
+}
+.yellowText {
+  color: rgb(255, 176, 30);
+}

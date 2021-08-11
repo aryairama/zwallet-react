@@ -28,6 +28,8 @@ import TransactionHistory from './pages/transactionHistory';
 import OptionTopup from './pages/optionTopup'
 import DirectTransfer from './pages/optionTopup/DirectTransfer';
 import StatusTranser from './pages/statusTransfer';
+import ManageTopUp from './pages/manageTopUp';
+import DetailTopUp from './pages/detailTopUp';
 function App() {
   return (
     <Fragment>
@@ -52,11 +54,13 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/new-pin" component={NewPin} />
         <PrivateRoute roles={['member']} version={2} path="/add-phone-number" component={AddPhoneNumber} />
         <PrivateRoute roles={['member']} version={2} path="/input-amount/:user_id" component={InputAmount} />
-        <PrivateRoute roles={['member']} version={2} path="/transaction-history" component={TransactionHistory} />
+        <PrivateRoute roles={['member', 'admin']} version={2} path="/transaction-history" component={TransactionHistory} />
         <PrivateRoute roles={['member']} version={2} path="/confirmation-transfer/:user_id" component={Confirmation} />
         <PrivateRoute roles={['member']} version={2} path="/option-topup" component={OptionTopup} />
         <PrivateRoute roles={['member']} version={2} path="/option-transfer" component={DirectTransfer} />
         <PrivateRoute roles={['member']} version={2} path="/status-transfer" component={StatusTranser} />
+        <PrivateRoute roles={['admin']} version={2} path="/manage-topup" component={ManageTopUp} />
+        <PrivateRoute roles={['admin']} version={2} path="/detail-topup/:id" component={DetailTopUp} />
       </Switch>
     </Fragment>
   );
