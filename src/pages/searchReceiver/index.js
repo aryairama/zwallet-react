@@ -36,6 +36,7 @@ const SearchReceiver = (props) => {
             {user.user_id !== receiver.user_id && (
               <Card
                 type="contact"
+                imageVal={true}
                 image={receiver.image ? `${process.env.REACT_APP_API_URL}/${receiver.image}` : Avatar}
                 name={`${receiver.first_name} ${receiver.last_name}`}
                 phone={receiver.phone_number}
