@@ -56,7 +56,12 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/confirmation-transfer/:user_id" component={Confirmation} />
         <PrivateRoute roles={['member']} version={2} path="/option-topup" component={OptionTopup} />
         <PrivateRoute roles={['member']} version={2} path="/option-transfer" component={DirectTransfer} />
-        <PrivateRoute roles={['member']} version={2} path="/status-transfer/:transactionId" component={StatusTranser} />
+        <PrivateRoute
+          roles={['member']}
+          version={2}
+          path="/status-transfer/:transaction_id"
+          component={StatusTranser}
+        />
       </Switch>
     </Fragment>
   );
