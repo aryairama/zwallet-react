@@ -5,7 +5,7 @@ import Search from '../../../assets/img/icons/search.svg'
 const SearchBar = (props) => {
     return (
         <div>
-            <form className={Style.searchContainer}>
+            <form onSubmit={(e)=> e.preventDefault()} className={Style.searchContainer}>
                 <input type="text" name={props.name} value={props.value} onChange={props.onChange} placeholder='Search' className={Style.searchBox}/>
                 <img src={Search} alt="search" className={Style.search}/>
             </form>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import CardContainer from '../../components/base/cardContainer';
 import Search from '../../components/base/search';
@@ -18,10 +19,9 @@ function Index() {
   });
   const [sort, setSort] = React.useState('DESC');
   const dispatch = useDispatch();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(async () => {
     await dispatch(getTransaction(4, sort, page, actionUser.search, 'created_at'));
-  }, [dispatch, page, actionUser.search, sort]);
+  }, [page, actionUser.search, sort]);
   const { transactionList } = useSelector((state) => state.transaction);
   const { user } = useSelector((state) => state.user);
   const handleChange = (e) => {
@@ -100,6 +100,8 @@ function Index() {
                 onChange={(current, pageSize) => setPage(current)}
               />
             )}
+          </div>
+          <div className="col-6 text-end">
             <button onClick={handleSort} className="paginationArrow">
               {sort === 'DESC' ? 'Oldest' : 'Latest'}
             </button>
