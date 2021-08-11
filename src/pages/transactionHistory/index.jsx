@@ -69,7 +69,7 @@ function Index() {
                   type="transactionList"
                   image={
                     transaction.transaction_type === 'topup'
-                      ? `${process.env.REACT_APP_API_URL}/${user.image}`
+                      ? `${process.env.REACT_APP_API_URL}/${transaction.image}`
                       : transaction.image_reciever
                       ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}`
                       : Avatar

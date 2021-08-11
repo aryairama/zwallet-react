@@ -99,6 +99,29 @@ function Index(props) {
               <Card type="stuff" title="Notes" content={description} />
               <p className="text_18 bold c-grey">Transfer to</p>
               <Card
+                imageVal={true}
+                type="contact"
+                image={`${process.env.REACT_APP_API_URL}/${image_reciever}`}
+                name={recipient}
+                phone={phone_reciever}
+              />
+            </>
+          )}
+          {transaction_type === 'transfer_in' && (
+            <>
+              <Card type="stuff" title="Amount" content={convertToRupiah(amount)} />
+              <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />
+              <Card
+                type="stuff"
+                title="Date & Time"
+                content={`${date.toLocaleString('default', {
+                  month: 'long',
+                })} ${date.getDate()}, ${date.getFullYear()} -  ${date.getHours()}:${date.getMinutes()}`}
+              />
+              <Card type="stuff" title="Notes" content={description} />
+              <p className="text_18 bold c-grey">Transfer to</p>
+              <Card
+                imageVal={true}
                 type="contact"
                 image={`${process.env.REACT_APP_API_URL}/${image_reciever}`}
                 name={recipient}
@@ -119,7 +142,7 @@ function Index(props) {
                   <div>
                     <Button
                       styling={`bg__primary text-18 ps-5 pe-5 c-white ${style.btnToHome}`}
-                      onClik={() => props.history('/dashboard')}
+                      onClick={() => props.history.push('/dashboard')}
                     >
                       Back to Home
                     </Button>
@@ -131,7 +154,7 @@ function Index(props) {
                   <div>
                     <Button
                       styling={`bg__primary text-18 ps-5 pe-5 c-white ${style.btnToHome}`}
-                      onClik={() => props.history('/dashboard')}
+                      onClick={() => props.history.push('/dashboard')}
                     >
                       Try Again
                     </Button>
