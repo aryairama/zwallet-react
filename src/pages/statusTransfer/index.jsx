@@ -6,14 +6,15 @@ import { useSelector } from 'react-redux';
 
 import Avatar from '../../assets/img/avatar/1.png';
 
-function Index() {
+function Index(props) {
   React.useEffect(() => {
     document.title = 'Status Transfer';
   });
 
   const transaction = useSelector((state) => state.transaction.transaction);
   // const dispatch = useDispatch();
-
+  console.log(props, 'ini props');
+  console.log(transaction, 'ini transaksi');
   const { user, user_receiver } = useSelector((state) => state.user);
 
   const date = new Date();
