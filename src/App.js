@@ -25,7 +25,7 @@ import Confirmation from './pages/confirmation';
 import PrivateRoutePin from './middlewares/PrivateRoutePin';
 import Home from './pages/home';
 import TransactionHistory from './pages/transactionHistory';
-import OptionTopup from './pages/optionTopup'
+import OptionTopup from './pages/optionTopup';
 import DirectTransfer from './pages/optionTopup/DirectTransfer';
 import StatusTranser from './pages/statusTransfer';
 import ManageTopUp from './pages/manageTopUp';
@@ -58,6 +58,12 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/confirmation-transfer/:user_id" component={Confirmation} />
         <PrivateRoute roles={['member']} version={2} path="/option-topup" component={OptionTopup} />
         <PrivateRoute roles={['member']} version={2} path="/option-transfer" component={DirectTransfer} />
+        <PrivateRoute
+          roles={['member']}
+          version={2}
+          path="/status-transfer/:transaction_id"
+          component={StatusTranser}
+        />
         <PrivateRoute roles={['member']} version={2} path="/status-transfer" component={StatusTranser} />
         <PrivateRoute roles={['admin']} version={2} path="/manage-topup" component={ManageTopUp} />
         <PrivateRoute roles={['admin']} version={2} path="/detail-topup/:id" component={DetailTopUp} />

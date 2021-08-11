@@ -4,12 +4,12 @@ import CardContainer from '../../components/base/cardContainer';
 import Search from '../../components/base/search';
 import Card from '../../components/base/card';
 import Avatar from '../../assets/img/avatar/1.png';
-import { Link } from 'react-router-dom';
 import './tfHistory.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTransaction } from '../../configs/actions/transactionAction';
 import { buttonItemRender } from '../../components/base';
 import Pagination from 'rc-pagination';
+import { Link } from 'react-router-dom';
 import locale from 'rc-pagination/es/locale/en_US';
 import 'rc-pagination/assets/index.css';
 function Index() {

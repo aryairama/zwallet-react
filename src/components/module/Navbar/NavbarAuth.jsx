@@ -31,6 +31,7 @@ const NavbarAuth = (props) => {
               data-bs-toggle="dropdown"
               height="40px"
               alt="iconProfile"
+              style={{ borderRadius: '10px' }}
             />
             <ul className="dropdown-menu d-md-none dropdown-menu-end" aria-labelledby="dropdownMenu2">
               <li className="d-flex flex-column dropdown-item">

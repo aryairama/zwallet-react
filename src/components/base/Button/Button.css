@@ -13,3 +13,8 @@
   background-color: unset;
   border: unset;
 }
+
+.btnDownload {
+  background: rgba(99, 121, 244, 0.15);
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+}

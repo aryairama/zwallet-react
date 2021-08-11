@@ -1,0 +1,35 @@
+.btnStatusTF {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btnToHome {
+  margin-left: 1rem;
+}
+
+.btnShareDwl {
+  display: flex;
+}
+
+.btnDwnl {
+  margin-left: 1rem;
+}
+
+@media screen and (max-width: 767px) {
+  .btnStatusTF {
+    display: unset;
+  }
+  .btnShareDwl {
+    display: flex;
+    flex-direction: column;
+  }
+  .btnDwnl {
+    margin-top: 0.5rem;
+    margin-left: 0;
+  }
+  .btnToHome {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-top: 0.5rem;
+  }
+}
