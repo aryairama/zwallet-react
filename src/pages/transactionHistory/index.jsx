@@ -62,14 +62,14 @@ function Index() {
         <p className="text-bold text-18">Transaction History</p>
         <Search value={actionUser.search} name="search" onChange={handleChange} />
         <div>
-          {transactionList?.data? (
+          {transactionList?.data ? (
             transactionList?.data?.map((transaction, index) => (
               <Link to={`/status-transfer/${transaction.transaction_id}`} key={index}>
                 <Card
                   type="transactionList"
                   image={
                     transaction.transaction_type === 'topup'
-                      ? `${process.env.REACT_APP_API_URL}/${user.image}`
+                      ? `${process.env.REACT_APP_API_URL}/${transaction.image}`
                       : transaction.image_reciever
                       ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}`
                       : Avatar
