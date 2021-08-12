@@ -124,7 +124,6 @@ function Index(props) {
               <Card
                 imageVal={true}
                 type="contact"
-                imageVal={true}
                 image={`${process.env.REACT_APP_API_URL}/${image_reciever}`}
                 name={recipient}
                 phone={phone_reciever}
@@ -144,7 +143,7 @@ function Index(props) {
                   <div>
                     <Button
                       styling={`bg__primary text-18 ps-5 pe-5 c-white ${style.btnToHome}`}
-                      onClik={() => props.history('/dashboard')}
+                      onClick={() => props.history.push('/dashboard')}
                     >
                       Back to Home
                     </Button>
@@ -156,7 +155,7 @@ function Index(props) {
                   <div>
                     <Button
                       styling={`bg__primary text-18 ps-5 pe-5 c-white ${style.btnToHome}`}
-                      onClik={() => props.history('/dashboard')}
+                      onClick={() => props.history.push('/dashboard')}
                     >
                       Try Again
                     </Button>

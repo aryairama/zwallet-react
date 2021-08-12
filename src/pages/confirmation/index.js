@@ -38,11 +38,7 @@ const Confirmation = (props) => {
         <p className="text_18 bold c-grey">Transfer to</p>
         <Card
           type="contact"
-<<<<<<< HEAD
-          transactionVal={true}
-=======
           imageVal={true}
->>>>>>> 837a6d524f2b4d26a40eeea69115ca8753f4a7ea
           image={user_receiver.image ? `${process.env.REACT_APP_API_URL}/${user_receiver.image}` : Avatar}
           name={user_receiver.fullname}
           phone={user_receiver.phone_number}
