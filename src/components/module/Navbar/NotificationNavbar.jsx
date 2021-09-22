@@ -4,7 +4,7 @@ import Card from '../../base/card';
 import CardContainer from '../../base/cardContainer';
 // import cs from 'classnames';
 import style from './NavbarAuth.module.css';
-import Avatar from '../../../assets/img/avatar/1.png';
+import Avatar from '../../../assets/img/avatar/default.png';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';

@@ -3,7 +3,7 @@ import cs from 'classnames';
 import style from './NavbarAuth.module.css';
 import { Link } from 'react-router-dom';
 import iconNotif from '../../../assets/img/icons/notification.svg';
-import iconProfile from '../../../assets/img/avatar/8.png';
+import iconProfile from '../../../assets/img/avatar/default.png';
 import sideBarIcon from '../../../assets/img/icons/list.svg';
 import { useSelector } from 'react-redux';
 import NotificationNavbar from './NotificationNavbar';

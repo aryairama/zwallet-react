@@ -3,7 +3,7 @@ import React from 'react';
 import Style from './edit.module.css';
 import { InputTextIcon, Button } from '../../components/base';
 import { person, mail } from '../../assets/index';
-import Avatar from '../../assets/img/avatar/8.png';
+import Avatar from '../../assets/img/avatar/default.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateProfile } from '../../configs/actions/userAction';
 import SimpleReactValidator from 'simple-react-validator';

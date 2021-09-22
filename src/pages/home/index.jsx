@@ -4,7 +4,7 @@ import { Button } from '../../components/base';
 import CardContainer from '../../components/base/cardContainer';
 import { plusIcon, UpIcon } from '../../assets/index';
 import Card from '../../components/base/card';
-import Avatar from '../../assets/img/avatar/1.png';
+import Avatar from '../../assets/img/avatar/default.png';
 import './home.css';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -98,7 +98,9 @@ function Index(props) {
                       type="tfHistory"
                       image={
                         transaction.transaction_type === 'topup'
-                          ? `${process.env.REACT_APP_API_URL}/${user.image}`
+                          ? transaction.image
+                            ? `${process.env.REACT_APP_API_URL}/${transaction.image}`
+                            : Avatar
                           : transaction.image_reciever
                           ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}`
                           : Avatar

@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from 'react';
 import Card from '../../components/base/card';
-import Avatar from '../../assets/img/avatar/1.png';
+import Avatar from '../../assets/img/avatar/default.png';
 import Style from './input.module.css';
 import Edit from '../../assets/img/icons/edit.svg';
 import { InputTextIcon, Button } from '../../components/base';

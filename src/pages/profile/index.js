@@ -2,7 +2,7 @@ import React from 'react';
 // import { useSelector } from 'react-redux';
 import Edit from '../../assets/img/icons/edit.svg';
 import Style from './profile.module.css';
-import Avatar from '../../assets/img/avatar/8.png';
+import Avatar from '../../assets/img/avatar/default.png';
 import { Link } from 'react-router-dom';
 import Arrow from '../../assets/img/icons/arrow-left.svg';
 import { useSelector, useDispatch } from 'react-redux';
@@ -39,10 +39,12 @@ const Profile = (props) => {
             <p className="text_18 bold c-grey">Change Password</p>
             <img src={Arrow} alt="arrow" />
           </Link>
-          <Link to="/change-pin" className={Style.buttonChoice}>
-            <p className="text_18 bold c-grey">Change PIN</p>
-            <img src={Arrow} alt="arrow" />
-          </Link>
+          {user?.roles === 'member' && (
+            <Link to="/change-pin" className={Style.buttonChoice}>
+              <p className="text_18 bold c-grey">Change PIN</p>
+              <img src={Arrow} alt="arrow" />
+            </Link>
+          )}
           <div
             onClick={() => dispatch(logout(props.history))}
             style={{ cursor: 'pointer' }}

@@ -12,6 +12,7 @@ import downloadIcon from '../../assets/img/icons/download.png';
 import shareIcon from '../../assets/img/icons/share.svg';
 import style from './statusTransfer.module.css';
 import pendingIcon from '../../assets/img/icons/pending.svg';
+import Avatar from '../../assets/img/avatar/default.png';
 
 function Index(props) {
   const { transaction_id } = useParams();
@@ -19,7 +20,7 @@ function Index(props) {
 
   const { amount, description, image_reciever, recipient, status, phone_reciever, transaction_type, image_topup } =
     useSelector((state) => state.transaction.transactionId);
-  const { saldo } = useSelector((state) => state.user.user);
+  const { saldo, roles } = useSelector((state) => state.user.user);
 
   React.useEffect(() => {
     document.title = 'Status Transfer';
@@ -88,7 +89,7 @@ function Index(props) {
           {transaction_type === 'transfer' && (
             <>
               <Card type="stuff" title="Amount" content={convertToRupiah(amount)} />
-              <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />
+              {roles !== 'admin' && <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />}
               <Card
                 type="stuff"
                 title="Date & Time"
@@ -101,7 +102,7 @@ function Index(props) {
               <Card
                 imageVal={true}
                 type="contact"
-                image={`${process.env.REACT_APP_API_URL}/${image_reciever}`}
+                image={`${image_reciever ? `${process.env.REACT_APP_API_URL}/${image_reciever}` : Avatar}`}
                 name={recipient}
                 phone={phone_reciever}
               />
@@ -110,7 +111,7 @@ function Index(props) {
           {transaction_type === 'transfer_in' && (
             <>
               <Card type="stuff" title="Amount" content={convertToRupiah(amount)} />
-              <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />
+              {roles !== 'admin' && <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />}
               <Card
                 type="stuff"
                 title="Date & Time"
@@ -123,7 +124,7 @@ function Index(props) {
               <Card
                 imageVal={true}
                 type="contact"
-                image={`${process.env.REACT_APP_API_URL}/${image_reciever}`}
+                image={`${image_reciever ? `${process.env.REACT_APP_API_URL}/${image_reciever}` : Avatar}`}
                 name={recipient}
                 phone={phone_reciever}
               />
