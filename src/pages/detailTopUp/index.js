@@ -7,11 +7,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTopUpId, changeStatus } from '../../configs/actions/topupAction';
 const DetailTopUp = () => {
   const { id } = useParams();
+  const [reload, setReload] = React.useState(false);
   const dispatch = useDispatch();
   const detil = useSelector((state) => state.topUp.topUpDetail);
   React.useEffect(async () => {
     await dispatch(getTopUpId(id));
-  },[id]);
+  }, [id, reload]);
   function convertToRupiah(angka) {
     var rupiah = '';
     var angkarev = angka.toString().split('').reverse().join('');
@@ -32,9 +33,10 @@ const DetailTopUp = () => {
   function convertToAngka(rupiah) {
     return parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) ? parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) : '';
   }
-  const handleClick = (status) => {
-    dispatch(changeStatus(status, detil.transaction_id, detil.user_id, detil.amount));
-    dispatch(getTopUpId(id));
+  const handleClick = async (status) => {
+    await dispatch(changeStatus(status, detil.transaction_id, detil.user_id, detil.amount));
+    await dispatch(getTopUpId(id));
+    setReload((oldVal) => !oldVal);
   };
   return (
     <>
@@ -67,14 +69,14 @@ const DetailTopUp = () => {
           <button
             className={Style.button}
             disabled={detil.status === 'pending' ? false : true}
-            onClick={() => handleClick('approve')}
+            onClick={async () => await handleClick('approve')}
           >
             Approve
           </button>
           <button
             className={Style.button}
             disabled={detil.status === 'pending' ? false : true}
-            onClick={() => handleClick('cancel')}
+            onClick={async () => await handleClick('cancel')}
           >
             Reject
           </button>
