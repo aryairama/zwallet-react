@@ -8,7 +8,7 @@ import { checkTokenResetPassword, resetPassword } from '../../configs/actions/us
 import { useParams } from 'react-router-dom';
 function Index(props) {
   const { token } = useParams();
-  let idUser = '';
+  const [idUser, setIdUser] = React.useState('');
   const [forgotPassword, setForgotPasword] = React.useState({
     newpassword: '',
     verifnewpasword: '',
@@ -28,9 +28,13 @@ function Index(props) {
     matchPassword();
   }, [forgotPassword.newpassword, forgotPassword.verifnewpasword]);
   React.useEffect(async () => {
-    const { id_user } = await checkTokenResetPassword(token, props.history);
-    idUser = id_user;
-  })
+    try {
+      const { id_user } = await checkTokenResetPassword(token, props.history);
+      setIdUser((old) => id_user);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
   return (
     <React.Fragment>
       <LayoutAuth>
@@ -81,7 +85,7 @@ function Index(props) {
               <p className="text-center small text-danger mt-3">Passwords are not the same</p>
             )}
             <Button
-              onClick={() => resetPassword(forgotPassword,idUser,props.history)}
+              onClick={() => resetPassword(forgotPassword, idUser, props.history)}
               disabled={validatorPassword.current.allValid() === true && matchPassword() === true ? false : true}
               styling="bg__primary text-18 c-white"
               style={{ marginTop: '40px', marginBottom: '40px' }}
