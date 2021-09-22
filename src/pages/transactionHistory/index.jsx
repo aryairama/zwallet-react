@@ -3,7 +3,7 @@ import React from 'react';
 import CardContainer from '../../components/base/cardContainer';
 import Search from '../../components/base/search';
 import Card from '../../components/base/card';
-import Avatar from '../../assets/img/avatar/1.png';
+import Avatar from '../../assets/img/avatar/default.png';
 import './tfHistory.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTransaction } from '../../configs/actions/transactionAction';
@@ -23,7 +23,6 @@ function Index() {
     await dispatch(getTransaction(4, sort, page, actionUser.search, 'created_at'));
   }, [page, actionUser.search, sort]);
   const { transactionList } = useSelector((state) => state.transaction);
-  const { user } = useSelector((state) => state.user);
   const handleChange = (e) => {
     setActionUser((oldValue) => {
       return { ...oldValue, [e.target.name]: e.target.value };
@@ -69,7 +68,9 @@ function Index() {
                   type="transactionList"
                   image={
                     transaction.transaction_type === 'topup'
-                      ? `${process.env.REACT_APP_API_URL}/${transaction.image}`
+                      ? transaction.image
+                        ? `${process.env.REACT_APP_API_URL}/${transaction.image}`
+                        : Avatar
                       : transaction.image_reciever
                       ? `${process.env.REACT_APP_API_URL}/${transaction.image_reciever}`
                       : Avatar

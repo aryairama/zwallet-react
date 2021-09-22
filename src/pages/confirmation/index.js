@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import Card from '../../components/base/card';
-import Avatar from '../../assets/img/avatar/1.png';
+import Avatar from '../../assets/img/avatar/default.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Button } from '../../components/base';
