@@ -9,6 +9,8 @@ import './home.css';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getTransaction } from '../../configs/actions/transactionAction';
+import { BarChart, Bar, XAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
 function Index(props) {
   React.useEffect(() => {
     document.title = 'Dashboard';
@@ -39,6 +41,45 @@ function Index(props) {
   function convertToAngka(rupiah) {
     return parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) ? parseInt(rupiah.replace(/,.*|[^0-9]/g, ''), 10) : '';
   }
+
+  const data = [
+    {
+      name: 'Sat',
+      income: 4000,
+      expense: 2400,
+    },
+    {
+      name: 'Sun',
+      income: 3000,
+      expense: 1398,
+    },
+    {
+      name: 'Mon',
+      income: 2000,
+      expense: 9800,
+    },
+    {
+      name: 'Tue',
+      income: 2780,
+      expense: 3908,
+    },
+    {
+      name: 'Wed',
+      income: 1890,
+      expense: 4800,
+    },
+    {
+      name: 'Thu',
+      income: 2390,
+      expense: 3800,
+    },
+    {
+      name: 'Fri',
+      income: 3490,
+      expense: 4300,
+    },
+  ];
+
   return (
     <React.Fragment>
       <div className="wrapper__card-home">
@@ -80,7 +121,27 @@ function Index(props) {
       <div className="wrapper__card-hm"></div>
       <div className="row justify-content-between mt-4">
         <div className="col-xl-7">
-          <CardContainer className="left__side-home bg__white"></CardContainer>
+          <CardContainer className="left__side-home bg__white">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                width={500}
+                height={300}
+                data={data}
+                margin={{
+                  top: 20,
+                  right: 30,
+                  left: 20,
+                  bottom: 5,
+                }}
+              >
+                <XAxis dataKey="name" />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="income" stackId="a" fill="#6379F4" />
+                <Bar dataKey="expense" stackId="a" fill="#9DA6B5" />
+              </BarChart>
+            </ResponsiveContainer>
+          </CardContainer>
         </div>
         <div className="col-xl-5">
           <CardContainer className="right__side-home bg__white">
