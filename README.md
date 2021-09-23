@@ -71,6 +71,7 @@ cd zwallet-react
 ```
 npm install
 ```
+- <a href="#setup-env">Setup .env</a>
 - Type ` npm run dev` To Start Website
 - Type ` npm run production` To Start Production
 
@@ -165,4 +166,4 @@ Contributions are what make the open source community such an amazing place to b
 
 My Email : aryairama987@gmail.com
 
-Project Link: [https://github.com/aryairama/zwallet-express](https://github.com/aryairama/zwallet-express)
+Project Link: [https://github.com/aryairama/zwallet-react](https://github.com/aryairama/zwallet-react)
