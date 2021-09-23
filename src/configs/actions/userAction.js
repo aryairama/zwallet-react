@@ -170,6 +170,25 @@ export const getUserById = (id, history) => async (dispatch, getState) => {
   }
 };
 
+export const profile = () => async (dispatch, getState) => {
+  try {
+    const user = await (
+      await axios.get(`/users/show/${getState().user.user.user_id}`, {
+        headers: {
+          Authorization: `Bearer ${getState().user.user.accessToken}`,
+        },
+      })
+    ).data.data;
+    if (Object.keys(user).length > 0) {
+      dispatch({ type: 'LOGIN', payload: {...getState().user.user, ...user} });
+    } else {
+      dispatch({ type: 'LOGOUT', payload: {} });
+    }
+  } catch (error) {
+    dispatch({ type: 'LOGOUT', payload: {} });
+  }
+}; 
+
 export const updatePassword = (formData) => async (dispatch, getState) => {
   try {
     await axios.post(

@@ -1,8 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import { profile } from '../configs/actions/userAction';
 
 const PrivateRoutePin = ({ component: Component, ...rest }) => {
+  const dispatch = useDispatch();
+  React.useEffect(async () => {
+    await dispatch(profile());
+  }, []);
   const {
     user: { auth, user },
   } = useSelector((state) => state);
