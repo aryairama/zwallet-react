@@ -32,7 +32,7 @@ function Index(props) {
   };
   useEffect(() => {
     document.title = 'Register';
-  });
+  },[]);
   return (
     <>
       <LayoutAuth>

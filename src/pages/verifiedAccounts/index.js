@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Button } from '../../components/base';
@@ -29,7 +30,7 @@ function Index(props) {
           props.history.push('/register');
         }
       });
-  });
+  },[]);
   return (
     <>
       <div className={styled.containerReset}>

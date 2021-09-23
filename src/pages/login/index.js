@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 function Index(props) {
   useEffect(() => {
     document.title = 'Login';
-  });
+  },[]);
   const validator = useRef(
     new SimpleReactValidator({ className: 'small text-danger' })
   );
@@ -24,7 +24,7 @@ function Index(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     document.title = 'Login';
-  });
+  },[]);
   const [formData, setFormData] = useState({
     email: '',
     password: '',
