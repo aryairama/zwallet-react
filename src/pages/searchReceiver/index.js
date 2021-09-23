@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../assets/css/wrapper.css';
 import Search from '../../components/base/search';
 import Card from '../../components/base/card';
-import Avatar from '../../assets/img/avatar/1.png';
+import Avatar from '../../assets/img/avatar/default.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllUser } from '../../configs/actions/userAction';
 import { buttonItemRender } from '../../components/base';

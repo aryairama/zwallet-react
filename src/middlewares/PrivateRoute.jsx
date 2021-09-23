@@ -1,10 +1,18 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import NavigationMenu from './NavigationMenu';
 import { NavbarAuth, Sidebar, Footer, Sidebar2, Footer2 } from '../components/module';
+import { useEffect } from 'react';
+import { profile } from '../configs/actions/userAction';
+
 const PrivateRoute = ({ component: Component, ...rest }) => {
   document.body.style.backgroundColor = '#473AD10F';
+  const dispatch = useDispatch();
+  useEffect(async () => {
+    await dispatch(profile());
+  }, []);
   const [show, setShow] = React.useState(false);
   const {
     user: { auth, user },

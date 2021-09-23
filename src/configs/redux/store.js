@@ -8,8 +8,14 @@ import rootReducers from '../reducers/rootReducer';
 const persistConfig = {
   key: 'zwallet',
   storage,
+<<<<<<< HEAD
   whitelist: ['user'],
 }
+=======
+  whitelist: ['user', 'transaction'],
+};
+
+>>>>>>> 4e92df1f8c72f29f34653f17d091500412b86b4a
 const persistedReducer = persistReducer(persistConfig, rootReducers);
 export const store = createStore(persistedReducer, composeWithDevTools(applyMiddleware(thunk)));
 export const persistor = persistStore(store);

@@ -12,18 +12,29 @@ import downloadIcon from '../../assets/img/icons/download.png';
 import shareIcon from '../../assets/img/icons/share.svg';
 import style from './statusTransfer.module.css';
 import pendingIcon from '../../assets/img/icons/pending.svg';
+import Avatar from '../../assets/img/avatar/default.png';
 
 function Index(props) {
   const { transaction_id } = useParams();
   const dispatch = useDispatch();
 
-  const { amount, description, image_reciever, recipient, status, phone_reciever, transaction_type, image_topup } =
-    useSelector((state) => state.transaction.transactionId);
-  const { saldo } = useSelector((state) => state.user.user);
+  const {
+    amount,
+    description,
+    image_reciever,
+    recipient,
+    status,
+    phone_reciever,
+    transaction_type,
+    image_topup,
+    payment,
+  } = useSelector((state) => state.transaction.transactionId);
+  const { saldo, roles } = useSelector((state) => state.user.user);
 
   React.useEffect(() => {
     document.title = 'Status Transfer';
     dispatch(getTransactionById(transaction_id));
+    console.log(payment);
   }, [transaction_id]);
 
   const date = new Date();
@@ -59,11 +70,19 @@ function Index(props) {
               </p>
             </>
           )}
-          {status === 'pending' && (
+          {status === 'pending' && Object.keys(payment).length === 0 && (
             <>
               <img src={pendingIcon} alt="pending"></img>
               <p className="mt-4 text-22 text-bold">Transfer Pending</p>
               <p className="mt-4 text-16">Waiting admin to approve your transfer</p>
+            </>
+          )}
+          {status === 'pending' && Object.keys(payment).length > 0 && (
+            <>
+              <img src={pendingIcon} alt="pending"></img>
+              <p className="mt-4 text-22 text-bold">Transfer Pending</p>
+              <p className="mt-4 text-16">Please pay according to the method chosen. Check Email to see how to pay.</p>
+              <p className="text-16">Check Email to see how to pay.</p>
             </>
           )}
         </div>
@@ -71,24 +90,40 @@ function Index(props) {
           {transaction_type === 'topup' && (
             <>
               <Card type="stuff" title="Total Topup" content={convertToRupiah(amount)} />
-              <Card type="stuff" title="Proof of payment">
-                <img
-                  className="mt-4 ms-auto me-auto"
-                  src={`${process.env.REACT_APP_API_URL}/${image_topup}`}
-                  style={{
-                    maxWidth: '350px',
-                    maxHeight: '350px',
-                    objectFit: 'contain',
-                  }}
-                  alt="Bukti topup"
-                ></img>
-              </Card>
+              {Object.keys(payment).length > 0 && (
+                <>
+                  <Card type="stuff" title="Payment Type" content={payment?.payment_name} />
+                  {(payment?.payment_type === 'permata' || payment?.payment_type === 'bank_transfer') && (
+                    <Card type="stuff" title="Va Number" content={payment?.va_number} />
+                  )}
+                  {payment?.payment_type === 'echannel' && (
+                    <>
+                      <Card type="stuff" title="Biller code" content={payment?.biller_code} />
+                      <Card type="stuff" title="Bill key" content={payment?.bill_key} />
+                    </>
+                  )}
+                </>
+              )}
+              {Object.keys(payment).length === 0 && (
+                <Card type="stuff" title="Proof of payment">
+                  <img
+                    className="mt-4 ms-auto me-auto"
+                    src={`${process.env.REACT_APP_API_URL}/${image_topup}`}
+                    style={{
+                      maxWidth: '350px',
+                      maxHeight: '350px',
+                      objectFit: 'contain',
+                    }}
+                    alt="Bukti topup"
+                  ></img>
+                </Card>
+              )}
             </>
           )}
           {transaction_type === 'transfer' && (
             <>
               <Card type="stuff" title="Amount" content={convertToRupiah(amount)} />
-              <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />
+              {roles !== 'admin' && <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />}
               <Card
                 type="stuff"
                 title="Date & Time"
@@ -101,7 +136,7 @@ function Index(props) {
               <Card
                 imageVal={true}
                 type="contact"
-                image={`${process.env.REACT_APP_API_URL}/${image_reciever}`}
+                image={`${image_reciever ? `${process.env.REACT_APP_API_URL}/${image_reciever}` : Avatar}`}
                 name={recipient}
                 phone={phone_reciever}
               />
@@ -110,7 +145,7 @@ function Index(props) {
           {transaction_type === 'transfer_in' && (
             <>
               <Card type="stuff" title="Amount" content={convertToRupiah(amount)} />
-              <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />
+              {roles !== 'admin' && <Card type="stuff" title="Balance Left" content={convertToRupiah(saldo)} />}
               <Card
                 type="stuff"
                 title="Date & Time"
@@ -123,7 +158,7 @@ function Index(props) {
               <Card
                 imageVal={true}
                 type="contact"
-                image={`${process.env.REACT_APP_API_URL}/${image_reciever}`}
+                image={`${image_reciever ? `${process.env.REACT_APP_API_URL}/${image_reciever}` : Avatar}`}
                 name={recipient}
                 phone={phone_reciever}
               />
@@ -133,12 +168,12 @@ function Index(props) {
             <div className={`${style.btnStatusTF}`}>
               {status === 'approve' && (
                 <>
-                  <div className={`${style.btnShareDwl}`}>
+                  {/* <div className={`${style.btnShareDwl}`}>
                     <Button icon img={shareIcon} styling="btnDownload"></Button>
                     <Button iconText img={downloadIcon} styling={`${style.btnDwnl} text-18 btnDownload c-primary`}>
                       Download PDF
                     </Button>
-                  </div>
+                  </div> */}
                   <div>
                     <Button
                       styling={`bg__primary text-18 ps-5 pe-5 c-white ${style.btnToHome}`}

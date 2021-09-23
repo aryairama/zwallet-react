@@ -30,6 +30,7 @@ import DirectTransfer from './pages/optionTopup/DirectTransfer';
 import StatusTranser from './pages/statusTransfer';
 import ManageTopUp from './pages/manageTopUp';
 import DetailTopUp from './pages/detailTopUp';
+import PaymentGateway from './pages/optionTopup/PaymentGateway'
 function App() {
   return (
     <Fragment>
@@ -58,6 +59,7 @@ function App() {
         <PrivateRoute roles={['member']} version={2} path="/confirmation-transfer/:user_id" component={Confirmation} />
         <PrivateRoute roles={['member']} version={2} path="/option-topup" component={OptionTopup} />
         <PrivateRoute roles={['member']} version={2} path="/option-transfer" component={DirectTransfer} />
+        <PrivateRoute roles={['member']} version={2} path="/option-payment-gateway" component={PaymentGateway}/>
         <PrivateRoute
           roles={['member', 'admin']}
           version={2}

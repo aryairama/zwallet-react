@@ -4,7 +4,7 @@ import Card from '../../base/card';
 import CardContainer from '../../base/cardContainer';
 // import cs from 'classnames';
 import style from './NavbarAuth.module.css';
-import Avatar from '../../../assets/img/avatar/1.png';
+import Avatar from '../../../assets/img/avatar/default.png';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
@@ -51,7 +51,7 @@ function NotificationNavbar(props) {
                 }
                 name={transaction.transaction_type === 'topup' ? `${transaction.fullname}` : `${transaction.recipient}`}
                 typeTransaction={transaction.transaction_type}
-                // statusTransaction="c-green"
+                statusTransaction={transaction.status}
                 transactionVal={transaction.transaction_type === 'topup' ? true : false}
                 totalTransaction={convertToRupiah(convertToAngka(transaction.amount))}
               />

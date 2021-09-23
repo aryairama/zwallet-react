@@ -3,7 +3,7 @@ import React from 'react';
 import CardContainer from '../../components/base/cardContainer';
 import Search from '../../components/base/search';
 import Card from '../../components/base/card';
-import Avatar from '../../assets/img/avatar/1.png';
+import Avatar from '../../assets/img/avatar/default.png';
 import { Link } from 'react-router-dom';
 import './tuManage.css';
 import { useSelector, useDispatch } from 'react-redux';
