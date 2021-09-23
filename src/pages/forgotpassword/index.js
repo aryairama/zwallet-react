@@ -10,7 +10,7 @@ function Index(props) {
   const validator = React.useRef(new SimpleReactValidator({ className: 'text-danger small' }));
   React.useEffect(() => {
     document.title = 'Forgot Password';
-  });
+  }, []);
   return (
     <React.Fragment>
       <LayoutAuth>

@@ -12,7 +12,7 @@ import { getTransaction } from '../../configs/actions/transactionAction';
 function Index(props) {
   React.useEffect(() => {
     document.title = 'Dashboard';
-  });
+  }, []);
   const dispatch = useDispatch();
   React.useEffect(async () => {
     await dispatch(getTransaction(4, 'DESC', 1, '', 'created_at'));
