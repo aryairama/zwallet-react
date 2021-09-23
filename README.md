@@ -1,7 +1,7 @@
 <br />
 <p align="center">
 <div align="center">
-  <img height="150" src="screenshots/zwallet2.png"/>
+  <img height="300" src="screenshots/zwallet2.png"/>
 </div>
   <h3 align="center">ZWALLET</h3>
   <p align="center">
@@ -31,6 +31,7 @@
 - [Contributing](#contributing)
 - [Related Project](#related-project)
 - [Our Team](#our-team)
+- [Contact](#contact)
 
 
 
@@ -64,7 +65,7 @@ git clone https://github.com/aryairama/zwallet-react.git
 ```
 - Go To Folder Repo
 ```
-cd telegram-next-js
+cd zwallet-react
 ```
 - Install Module
 ```
@@ -116,11 +117,11 @@ Contributions are what make the open source community such an amazing place to b
 
 
 ## Related Project
-:rocket: [`Backend Zwallet Clone`](https://github.com/aryairama/zwallet-express)
+:rocket: [`Backend Zwallet`](https://github.com/aryairama/zwallet-express)
 
-:rocket: [`Frontend Zwallet Clone`](https://github.com/aryairama/zwallet-react)
+:rocket: [`Frontend Zwallet`](https://github.com/aryairama/zwallet-react)
 
-:rocket: [`Demo Zwallet Clone`](https://bit.ly/_zwallet)
+:rocket: [`Demo Zwallet`](https://bit.ly/_zwallet)
 
 <!-- CONTACT -->
 ## Our Team
@@ -129,15 +130,15 @@ Contributions are what make the open source community such an amazing place to b
   <table>
     <tr>
       <td align="center">
-        <a href="https://github.com/aryairama%22%3E">
+        <a href="https://github.com/aryairama">
           <img width="100" src="https://avatars.githubusercontent.com/u/73978824?v=4" alt="Arya Irama Wahono"><br/>
           <sub><b>Arya Irama Wahono</b></sub> <br/>
           <sub>Leader | Full Stack Web Developer</sub>
         </a>
       </td>
       <td align="center">
-        <a href="https://github.com/Chandra-Kurnia%22%3E">
-          <img width="100" src="https://media-exp1.licdn.com/dms/image/C4D03AQHU2BSd6ZVvrg/profile-displayphoto-shrink_800_800/0/1631861838918?e=1637193600&v=beta&t=bodYo3TW177wycvbnItqp7OtoElOOBMWd_D0JgPzoGg" alt="Chandra Kurniawan"><br/>
+        <a href="https://github.com/Chandra-Kurnia">
+          <img width="100" src="https://avatars.githubusercontent.com/u/75248269?v=4" alt="Chandra Kurniawan"><br/>
           <sub><b>Chandra Kurniawan</b></sub> <br/>
           <sub>Back End Web Developer</sub>
         </a>
@@ -159,3 +160,9 @@ Contributions are what make the open source community such an amazing place to b
     </tr>
   </table>
 </center>
+
+## Contact
+
+My Email : aryairama987@gmail.com
+
+Project Link: [https://github.com/aryairama/zwallet-express](https://github.com/aryairama/zwallet-express)
