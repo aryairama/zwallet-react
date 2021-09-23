@@ -51,7 +51,7 @@ function NotificationNavbar(props) {
                 }
                 name={transaction.transaction_type === 'topup' ? `${transaction.fullname}` : `${transaction.recipient}`}
                 typeTransaction={transaction.transaction_type}
-                // statusTransaction="c-green"
+                statusTransaction={transaction.status}
                 transactionVal={transaction.transaction_type === 'topup' ? true : false}
                 totalTransaction={convertToRupiah(convertToAngka(transaction.amount))}
               />
