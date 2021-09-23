@@ -43,44 +43,75 @@ const DetailTopUp = () => {
       <div className="wrapperContent">
         <p className="text-bold text-18">Top Up Detail</p>
         <Card type="contact" imageVal={false} name={detil.fullname} phone={detil.transaction_type} />
-        <p className={`text-bold text-18 text-center`}>
-          Status:{' '}
-          <span
-            className={`${
-              detil.status === 'approve'
-                ? `${Style.greenText}`
-                : detil.status === 'pending'
-                ? `${Style.yellowText}`
-                : `${Style.redText}`
-            }`}
-          >
-            {detil.status}
-          </span>
-        </p>
-        <div className="text-center">
-          {detil && detil.amount && <p className={Style.amountText}>{convertToRupiah(convertToAngka(detil.amount))}</p>}
-          <img
-            src={`${process.env.REACT_APP_API_URL}/${detil.image_topup}`}
-            alt="imageTopup"
-            className={Style.imgTopUp}
-          />
-        </div>
-        <div className={Style.buttonContainer}>
-          <button
-            className={Style.button}
-            disabled={detil.status === 'pending' ? false : true}
-            onClick={async () => await handleClick('approve')}
-          >
-            Approve
-          </button>
-          <button
-            className={Style.button}
-            disabled={detil.status === 'pending' ? false : true}
-            onClick={async () => await handleClick('cancel')}
-          >
-            Reject
-          </button>
-        </div>
+        {detil.payment && Object.keys(detil.payment).length > 0 && (
+          <>
+            <Card type="stuff" title="Payment Type" content={detil?.payment?.payment_name} />
+            <Card type="stuff" title="Amount" content={<p>{convertToRupiah(convertToAngka(detil.amount))}</p>} />
+            <Card
+              type="stuff"
+              title="Status"
+              content={
+                <span
+                  className={`${
+                    detil.status === 'approve'
+                      ? `${Style.greenText}`
+                      : detil.status === 'pending'
+                      ? `${Style.yellowText}`
+                      : `${Style.redText}`
+                  }`}
+                >
+                  {detil.status}
+                </span>
+              }
+            />
+          </>
+        )}
+        {detil.payment && Object.keys(detil.payment).length === 0 && (
+          <>
+            <p className={`text-bold text-18 text-center`}>
+              Status:{' '}
+              <span
+                className={`${
+                  detil.status === 'approve'
+                    ? `${Style.greenText}`
+                    : detil.status === 'pending'
+                    ? `${Style.yellowText}`
+                    : `${Style.redText}`
+                }`}
+              >
+                {detil.status}
+              </span>
+            </p>
+            <div className="text-center">
+              {detil && detil.amount && (
+                <p className={Style.amountText}>{convertToRupiah(convertToAngka(detil.amount))}</p>
+              )}
+              {Object.keys(detil.payment).length === 0 && (
+                <img
+                  src={`${process.env.REACT_APP_API_URL}/${detil.image_topup}`}
+                  alt="imageTopup"
+                  className={Style.imgTopUp}
+                />
+              )}
+            </div>
+            <div className={Style.buttonContainer}>
+              <button
+                className={Style.button}
+                disabled={detil.status === 'pending' ? false : true}
+                onClick={async () => await handleClick('approve')}
+              >
+                Approve
+              </button>
+              <button
+                className={Style.button}
+                disabled={detil.status === 'pending' ? false : true}
+                onClick={async () => await handleClick('cancel')}
+              >
+                Reject
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </>
   );
