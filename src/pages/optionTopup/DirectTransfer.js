@@ -94,7 +94,7 @@ const DirectTransfer = (props) => {
           Image transfer required
         </p>
         <label htmlFor="image_topup" className={Style.buttonUploud}>
-          Uploud
+          Upload
         </label>
         <Button styling="bg__primary text-18 c-white" style={{ marginTop: '20px', width: '100%' }}>
           Topup
