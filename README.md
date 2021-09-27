@@ -100,8 +100,9 @@ REACT_APP_MIDTRANS_MANDIRI = true
   <img width="250px" src="screenshots/transfer.png" alt="8" />
   <img width="250px" src="screenshots/paymentGateway.png" alt="9" />
   <img width="250px" src="screenshots/profile.png" alt="10" />
-  <img width="250px" src="screenshots/changePin.png" alt="11" />
-  <img width="250px" src="screenshots/changePassword.png" alt="12" />
+  <img width="250px" src="screenshots/profileData.png" alt="11" />
+  <img width="250px" src="screenshots/changePin.png" alt="12" />
+  <img width="250px" src="screenshots/changePassword.png" alt="13" />
 </div>
 
 <!-- CONTRIBUTING -->
